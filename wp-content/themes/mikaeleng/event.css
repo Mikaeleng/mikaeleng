@@ -1,0 +1,547 @@
+body{
+	min-width:100%;
+}
+
+.page #header{
+	height:0;
+}
+
+.page #container{
+	width:100%;
+}
+
+.page #content{
+	width: 66%;
+	float:left;
+}
+
+@media all and (max-width:768px){
+	.page #content{
+		width: 100%;
+		display:block;
+		
+	}
+}
+
+p{
+	font-family:Tahoma, Geneva, sans-serif;
+	line-height:14px;
+}
+
+#primary{
+	display:none;
+}
+
+#wrapper{
+	width:100%;
+}
+
+#main{
+	width: 95%;
+	max-width:960px;
+	min-height:100%;
+	padding-top: 0;
+}
+
+
+#footer{
+	display: none;	
+}
+
+#login-tab-panel{
+	
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	overflow:hidden;
+}
+
+.tab{
+	height: auto;
+	background-color: #FFF;
+	float:left;
+	width:50%;
+	display:inline-block;
+	cursor:pointer;
+}
+
+.tab h4{
+	text-align: center;
+	width: 100%;
+	margin: 0;
+	padding: 6% 0.5%;
+	font-size: 175%;
+	line-height: 100%;
+	vertical-align: middle;
+}
+
+#new-user-tab{
+}
+
+#update-user-tab{
+	background-color:#929292;
+	opacity:0.3;
+	width:49%;
+	float:right
+}
+
+.tabActive{
+	font-style:normal;
+	color:#FFF;
+}
+
+.tabInactive{
+	font-style:italic;
+	color: #786139;
+}
+
+#update-user-tab h4{ 
+	font-style:italic; 
+}
+
+@media all and (max-width:768px){
+	.tab h4{
+	font-size:120%;
+	}
+}
+@media all and (max-width:480px){
+	.tab h4{
+	font-size:130%;
+	padding: 16% 0.5%;
+	}
+}
+
+#lightbox, #lightbox-user, #info-panel, #lightbox-return, .medium-size{
+	height: auto;
+	background-color: #FFF;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+	position:relative;
+}
+
+#lightbox{
+	margin-top: 30px;
+	height:410px;
+}
+
+#lightbox-user, #info-panel, #lightbox-return, #download-panel{
+	margin-top: 30px;
+	display:none;
+	height: auto;
+}
+
+#lightbox h3, #lightbox-user h3, #info-panel h3{
+	padding: 30px 15px;
+	text-align:center;
+	font-size:24px;
+	line-height:28px;
+}
+
+#lightbox h3{
+	border-top:1px solid gray;
+}
+
+#lightbox p, #lightbox-user p, #info-panel p{
+	font-size:14px;
+	line-height:16px;
+}
+#info-panel p{
+	padding: 0 4% 10px;
+}
+
+#lightbox-form-wrapper, #lightbox-update-wrapper{
+	margin: 0 auto;
+	width: 100%;
+	text-align:center;
+	position:absolute;
+}
+
+#lightbox-update-wrapper{
+	display:none;
+}
+#lightbox-user textarea{
+		width:100%;	
+	}
+	
+.error-message{
+	display:none;
+	color:#CC0000;
+}
+
+@media all and (max-width: 768px){
+	
+	.page #content{
+		width: 90%;
+		display:block;
+		margin: 0 auto;
+		float:none;
+	}
+}
+
+
+@media all and (min-width:480px) and (max-width:768px){
+	#lightbox-user #lightbox-form-wrapper, #lightbox-signupform-wrapper{
+	margin: 0 auto;
+	width: 60%;
+	text-align:center;
+	}
+}
+@media all and (min-width:768px){
+	#lightbox-user #lightbox-form-wrapper, #lightbox-signupform-wrapper{
+	margin: 0 auto;
+	width: 60%;
+	text-align:center;
+	}
+}
+
+#lightbox-user #lightbox-signupform-wrapper{
+	text-align:left;
+}
+
+#lightbox-user .headline{
+	display:block;
+}
+
+#lightbox form{
+	display:inline-table;
+}
+
+#lightbox label{
+	display:block;
+	margin-left: 15px;
+	float:left;
+
+}
+
+@media all and (max-width:480px){
+	#lightbox label{
+		display:block;
+		width:80%;
+		text-align: left;
+		margin-left: 9%;
+		float:left;
+	
+	}	
+	#lightbox-user textarea{
+		width:90%;	
+	}
+	
+}
+
+#lightbox form input {
+	height:30px;
+	float: right;
+	margin-right: 15px;
+}
+
+#lightbox form input[type="text"]{
+	font-size: 21px;
+	width: 45%;
+	float: left;
+	margin-left: 15px;	
+	margin-right:0;
+	height: 24px;	
+}
+#lightbox-user form input[type="radio"]{
+	margin-left: 0;
+}
+
+#lightbox-user form input[type="image"]{
+	
+	margin-top: 10px;
+	padding-bottom: 10px;
+	display: block;
+	float:right;
+}
+
+#lightbox-user form input[type="text"]{
+	width: 100%;
+}
+#lightbox-user form textarea{
+	display:block;
+}
+
+#lightbox-user form select, #lightbox-user form textarea, #lightbox-user form .answer{
+		
+}
+
+
+#lightbox-user form p{
+	margin-bottom:0;
+	text-align:left;
+	padding-left: 14%;
+}
+
+@media all and (min-width: 481px) and (max-width:560px){
+	#lightbox-user form textarea{
+		width: 70%;
+	}
+	#lightbox-user form input[type="text"]{
+		width: 90%;
+	}
+}
+
+@media all and (max-width: 480px){
+	#main{
+		width:100%;
+	}
+	
+	#lightbox, #lightbox-user, #info-panel{
+		height: auto;
+		width: 90%;
+		margin: 0 auto;
+		padding-bottom:40px;
+	}
+	
+	#lightbox{
+		height:370px;
+	}
+
+	#lightbox-form-wrapper, #lightbox-signupform-wrapper{
+		margin:0;
+	}
+	
+	#lightbox form, #lightbox-user{
+	display:block;
+	width:90%;
+	}
+	
+	#lightbox-user{
+		margin:30px auto;
+		display:none;
+	}
+
+	#lightbox-user p{
+		padding: 0 8% 0 14%;
+	}
+	
+	#lightbox form input, #lightbox-user form input{
+	height:38px;
+	float: none;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	}
+	#lightbox-user form textarea{
+		width:90%;
+	}
+	
+	#lightbox-user form input{
+		height:32px;
+		margin-left:4%;
+		width: 90%;
+	}
+	
+	#lightbox form input[type="text"]{
+	font-size: 14px;
+	width: 80%;
+	float: none;
+	height: 24px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:20px;
+	}
+	
+	#lightbox-user form input[type="text"]{
+		height:32px;
+		width: 90%;
+	}
+
+	#lightbox-user .headline{
+		display:block;
+		padding-left:4%;
+		padding-right:4%;
+	}
+	#lightbox-user form select, #lightbox-user form textarea, #lightbox-user form .answer{
+	margin-left: 4%;	
+	}
+
+	#lightbox-user form input[type="radio"]{
+		display:inline-block;
+		width:auto;
+	}
+	
+	#lightbox-user form input[type="image"]{
+		width: 90%;
+		margin-right: 4%;
+		height:auto
+	}
+
+}
+
+
+#info-panel-wrapper{
+	margin: 0 auto;
+	max-width: 620px;
+}
+
+#top-image{
+	width: 100%;
+	height: 250px;
+	overflow:hidden;
+	background-image:url(../../uploads/favoritfredrik.jpg);
+	background-repeat:no-repeat;
+	background-position:right top;
+	background-size:cover;
+}
+
+#top-image img{	
+	width: 100%;
+}
+
+#info-box p{
+	padding: 0 0 0 4%;
+	margin-bottom: 10px;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+@media all and (max-width: 480px){
+	#info-panel-wrapper p{
+		font-size:18px;
+		line-height: 20px;
+	}
+	#info-box p{ font-size:16px }
+	
+	#lightbox-return{
+	margin: 0 auto 30px auto;
+	width: 90%;
+	}
+}
+
+#lightbox-return{
+	padding: 20px 0;
+	text-align:center;
+}
+#lightbox-return h3{
+	font-size:16px;	
+}
+
+#download-panel{
+	margin-bottom: 60px;
+}
+
+.medium-size {
+	width: 49%;
+	display:inline-block;
+	float:left;
+}
+
+.medium-size h3{
+	text-align:center;
+	padding-top:20px;
+	font-size:20px;
+}
+
+ .medium-size img{
+	 margin:0 auto;
+ }
+
+#download-panel div:nth-child(1){
+	margin-right: 5px;
+}
+
+#download-panel div:nth-child(2){
+	float: right;
+}
+
+#download-panel a, #download-panel a:hover{
+	text-decoration:none;
+	width:100%;
+}
+
+#download-panel span{
+	text-align:center;
+	font-size:72px;
+	margin-bottom: 20px;
+	padding-bottom:20px;
+	padding-top:10px;
+	display: block;
+}
+
+#download-panel img{
+	display: block;
+	padding-bottom: 15px;
+}
+
+#download-panel p{
+	text-align:center;
+	padding: 10px 43px;
+}
+
+@media all and (max-width:480px){
+	#download-panel{
+		height: auto;
+		width: 90%;
+		margin: 0 auto;
+		padding-bottom: 40px;
+	}
+	
+	.medium-size{
+		width:100%;
+		display:block;
+		float:none;
+		margin: 10px auto 10px;	
+	}
+	#download-panel div:nth-child(1){
+		margin-top:20px;
+	}
+}
+@media all and (min-width:480px) and (max-width:768px){	
+	.medium-size{
+		width:100%;
+		display:block;
+		float:none;
+		margin: 10px auto 10px;	
+	}
+	
+}
+.centre{
+	text-align: center;
+}
+
+.onside{
+	background-color: #F5F5F5;
+	border-radius: 5px;
+	height: auto;
+	width: 30%;
+	box-shadow: 5px 5px 5px rgba(51, 51, 51, 0.4);
+	display: inline-block;
+	float: right;
+	zoom: 1;
+	_height: auto;
+	margin-top: 30px;
+	text-align: center;
+}
+
+.onside span{
+	font-size: 72px;
+	line-height:72px;
+}
+
+#nextUserCount{
+	font-size: 12px;
+	line-height:12px;
+}
+
+@media all and (max-width:768px){
+	.onside{
+		float: none;
+		width: 90%;
+		margin: 30px auto 0;
+		display:block;
+	}	
+}
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+

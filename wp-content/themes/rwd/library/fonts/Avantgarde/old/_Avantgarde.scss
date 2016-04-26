@@ -1,0 +1,70 @@
+//
+// Icon Font: Avantgarde
+//
+
+@font-face {
+  font-family: "Avantgarde";
+  src: url("Avantgarde.eot");
+  src: url("Avantgarde.eot?#iefix") format("embedded-opentype"),
+       url("Avantgarde.woff") format("woff"),
+       url("Avantgarde.ttf") format("truetype"),
+       url("Avantgarde.svg#Avantgarde") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Avantgarde";
+    src: url("Avantgarde.svg#Avantgarde") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-About:before,
+.icon-Filter:before,
+.icon-Life:before,
+.icon-Wall:before,
+.icon-Work:before,
+.icon-facebook:before,
+.icon-list-board:before,
+.icon-pinterest:before,
+.icon-search:before,
+.icon-twitter:before {
+  display: inline-block;
+  font-family: "Avantgarde";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-About:before { content: "\f100"; }
+.icon-Filter:before { content: "\f101"; }
+.icon-Life:before { content: "\f102"; }
+.icon-Wall:before { content: "\f103"; }
+.icon-Work:before { content: "\f104"; }
+.icon-facebook:before { content: "\f105"; }
+.icon-list-board:before { content: "\f106"; }
+.icon-pinterest:before { content: "\f107"; }
+.icon-search:before { content: "\f108"; }
+.icon-twitter:before { content: "\f109"; }
+
+$font-Avantgarde-About: "\f100";
+$font-Avantgarde-Filter: "\f101";
+$font-Avantgarde-Life: "\f102";
+$font-Avantgarde-Wall: "\f103";
+$font-Avantgarde-Work: "\f104";
+$font-Avantgarde-facebook: "\f105";
+$font-Avantgarde-list-board: "\f106";
+$font-Avantgarde-pinterest: "\f107";
+$font-Avantgarde-search: "\f108";
+$font-Avantgarde-twitter: "\f109";

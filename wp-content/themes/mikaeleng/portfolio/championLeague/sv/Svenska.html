@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Champions League</title>
+<style type="text/css" media="screen">
+		html, body { height:100%; background-color: #ffffff;}
+		body { margin:0; padding:0; overflow:hidden; }
+		</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject_src.js"></script>
+
+<script type="text/javascript">
+	var flashvars = {
+		xmlpath:"mainStructure.xml",
+		swfpath: "../",
+		sharepath:"../facebook/shareSE.html",
+		moviepath:"http://www.mikaeleng.se/wp-content/themes/mikaeleng/portfolio/championLeague/movies/",
+		soundpath: "../",
+		gaaccount: "UA-21165699-1",
+		gamode: "AS3",
+		gadebug: "false"
+	};
+		
+	var params = {  
+		bgcolor: "#fff"
+	};
+	
+	var attributes = {  
+		id:"ChampionsLeague"
+	};
+	
+	swfobject.embedSWF("../ChampionsLeague.swf", "ChampionsLeague", "838", "591", "9.0.0", null, flashvars, params, attributes);
+	
+</script>
+
+</head>
+
+<body>
+
+<div id="ChampionsLeague"></div>
+
+
+  
+</body>
+</html>

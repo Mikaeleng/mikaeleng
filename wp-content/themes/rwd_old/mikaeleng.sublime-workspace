@@ -1,0 +1,692 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"repe",
+				"repeat-y"
+			],
+			[
+				"back",
+				"background-repeat"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"post",
+				"post_id"
+			],
+			[
+				"art",
+				"article-footer"
+			],
+			[
+				"ex",
+				"exclude_arr"
+			],
+			[
+				"curr",
+				"current_post"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"FONT",
+				"font-family"
+			],
+			[
+				"lin",
+				"letter-spacing"
+			],
+			[
+				"o",
+				"overflow"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"paddn",
+				"padding-top"
+			],
+			[
+				"Med",
+				"MEDIUM"
+			],
+			[
+				"top",
+				"top-nav"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"level",
+				"level2"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"border",
+				"border-top"
+			],
+			[
+				"level3",
+				"level3_width"
+			],
+			[
+				"lev",
+				"level3_Color"
+			],
+			[
+				"mari",
+				"margin-top"
+			],
+			[
+				"child",
+				"children"
+			],
+			[
+				"ac",
+				"activeItem"
+			],
+			[
+				"clos",
+				"closest"
+			],
+			[
+				"men",
+				"menuitem"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"set",
+				"setCurrentItem"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"slick",
+				"slicknav_btn"
+			],
+			[
+				"ma",
+				"max-width"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"prot",
+				"prototype"
+			],
+			[
+				"nav",
+				"navLevel2"
+			],
+			[
+				"sho",
+				"showChildren"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"nex",
+				"nextLevelName"
+			],
+			[
+				"hi",
+				"hide"
+			],
+			[
+				"hide",
+				"hideChildren"
+			],
+			[
+				"sh",
+				"showChildren"
+			],
+			[
+				"return",
+				"returnLevel"
+			],
+			[
+				"le",
+				"navLevel4"
+			],
+			[
+				"p",
+				"pChildren"
+			],
+			[
+				"n",
+				"none"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"Level",
+				"Level1Bg"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"item",
+				"itemId"
+			],
+			[
+				"mytw",
+				"my_twitter_feed_config"
+			],
+			[
+				"fe",
+				"feed_config"
+			],
+			[
+				"ca",
+				"cache"
+			],
+			[
+				"user",
+				"username"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "library/less/_base.less",
+			"settings":
+			{
+				"buffer_size": 24255,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib2,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')",
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/less"
+	],
+	"file_history":
+	[
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/less/_mixins.less",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/category-create.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/functions.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/js/myacsearch.js",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/js/core.js",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/models/FeedModel.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/footer.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/less/_base.less",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/page_startpage.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/page_create.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/page.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/core.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/controllers/FeedController.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/single.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/less/_base.less",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/footer.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/less/_mixins.less",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/less/_481up.less",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/functions.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/models/FeedModel.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/less/_768up.less",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/single-custom_type.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/archive.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/scss/_normalize.scss",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/404.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/page_startpage.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/header.php",
+		"/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/search.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/header.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/single.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/single_arbeten.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/bones.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/admin.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/feed.php",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/less/_481up.less",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/js/scripts.js",
+		"/Volumes/Macintosh HD-1/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/less/_768up.less",
+		"/Applications/AMPPS/www/menutest2/index.html",
+		"/Applications/AMPPS/www/menutest2/css/style_fold.less",
+		"/Applications/AMPPS/www/menutest2/arrow_even.html",
+		"/Applications/AMPPS/www/menutest2/slicknav.css",
+		"/Applications/AMPPS/www/menutest2/fold.html",
+		"/Applications/AMPPS/www/menutest2/fold_even.html",
+		"/Applications/AMPPS/www/menutest2/css/style_fold_even.less",
+		"/Applications/AMPPS/www/menutest2/jquery.slicknav.js",
+		"/Applications/AMPPS/www/menutest2/css/style_arrow_even.css",
+		"/Applications/AMPPS/www/menutest2/css/style_arrow.css",
+		"/Applications/AMPPS/www/menutest2/css/style_fold.css",
+		"/Applications/AMPPS/www/menutest2/arrow.html",
+		"/Applications/AMPPS/www/menutest2/menutest2.sublime-project",
+		"/Applications/AMPPS/www/slicknav/css/style_platecolors.css",
+		"/Applications/AMPPS/www/slicknav/index.html",
+		"/Applications/AMPPS/www/slicknav/arrow.html",
+		"/Applications/AMPPS/www/slicknav/fold.html",
+		"/Applications/AMPPS/www/slicknav/platelevels.html",
+		"/Applications/AMPPS/www/slicknav/colorlevels.html",
+		"/Applications/AMPPS/www/slicknav/jquery.slicknav.js",
+		"/Applications/AMPPS/www/slicknav/css/style_arrow.css",
+		"/Applications/AMPPS/www/slicknav/css/style_fold.css",
+		"/Applications/AMPPS/www/slicknav/css/style_colorlevels.css",
+		"/Users/mikaelen/Library/Application Support/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
+		"/Users/mikaelen/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Applications/AMPPS/www/slicknav/slicknav.css",
+		"/Applications/AMPPS/www/slicknav/css/style.css",
+		"/Applications/AMPPS/www/pushy/Gruntfile.js",
+		"/Applications/AMPPS/www/pushy/js/pushy.js",
+		"/Applications/AMPPS/www/pushy/css/pushy.less",
+		"/Applications/AMPPS/www/pushy/index.html",
+		"/Users/mikaelen/bootstrap/StrapTest.html",
+		"/Users/mikaelen/Documents/axhoox/dev-tools/fixlinks.sh",
+		"/Users/mikaelen/Documents/axhoox/dev-tools/stop-hooks.bat",
+		"/Users/mikaelen/Documents/axhoox/dev-tools/fixlinks.bat",
+		"/Users/mikaelen/Documents/axhoox/README.md",
+		"/Users/mikaelen/Documents/axhoox/dev-tools/start-hooks.bat",
+		"/Users/mikaelen/Dropbox/Public/font-awesome-light.css",
+		"/Volumes/htdocs/mikaeleng/wp-config.php",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/library/js/scripts.js",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/header.php",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/functions.php",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/page.php",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/library/scss/_base.scss",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/feed.php",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/page-custom.php",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/library/scss/twitterfeed.scss",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/library/scss/style.scss",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/library/scss/_mixins.scss",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/library/scss/_flexbox.scss",
+		"/Volumes/htdocs/mikaeleng/wp-content/themes/rwd/sidebar.php",
+		"/Users/mikaelen/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/Applications/MAMP/htdocs/mywebsite/css/main.css",
+		"/Users/mikaelen/Documents/mywebTest/css/main.css",
+		"/Applications/MAMP/htdocs/mywebsite/index.html",
+		"/Users/mikaelen/Downloads/h5bp-html5-boilerplate-72cdf1e/index.html",
+		"/Users/mikaelen/Documents/mywebTest/index.html",
+		"/Users/mikaelen/Documents/mywebTest/css/style.css"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<open files>,/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd",
+			"<open files>",
+			"",
+			"<open files>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"get_footer",
+			"content",
+			"_my_meta_value_key",
+			"article",
+			"vcard",
+			"footer",
+			"before",
+			"&:before",
+			"::ber",
+			"pre{",
+			"pre",
+			"related-posts",
+			"-webkit-margin-after: 1em;",
+			"article-footer",
+			"article",
+			"footer",
+			"word-wrap",
+			"word",
+			"wordwrap",
+			"No posts",
+			"Avantgarde-facebook",
+			"article-footer",
+			"footer",
+			"post",
+			"article",
+			"get_custom_tag",
+			"tags",
+			"flex-box",
+			"flex",
+			"nav",
+			"bones_wpsearch",
+			"search",
+			"searchsubmit",
+			"f108",
+			"@font-Avantgarde-search",
+			"feed",
+			"sidr-id-searchsubmit",
+			"nth-of-type",
+			"nth-type",
+			"search",
+			"bones_wpsearch",
+			"hover",
+			"slicknav_arrow",
+			"colr",
+			"printer",
+			"close",
+			"_outlines",
+			"this.open",
+			".open",
+			"open",
+			"ö",
+			"Ö",
+			"Å",
+			"Ä",
+			"Ö",
+			"ö",
+			"ä",
+			"å",
+			"a href=\"#\"",
+			"hover",
+			"å",
+			"ö",
+			"ä",
+			"find(",
+			"level1",
+			"activeItem",
+			"item",
+			"active",
+			"each",
+			"openedSymbol",
+			"I am",
+			"closeOnClick",
+			"click",
+			"back",
+			"menuTog",
+			"toogle",
+			"slicknav_btn",
+			"ä",
+			"å",
+			"ö",
+			"_visibilityToggle",
+			"_menuToggle",
+			"//",
+			"plate",
+			"closedSymbol",
+			"containsAnchor",
+			"menuitem",
+			"tabind",
+			"contents",
+			"console",
+			"prefix",
+			"_getActionItems",
+			"parentTag",
+			"showChildren",
+			"defaults",
+			"slicknav_parent-link",
+			"label",
+			"before",
+			"fff",
+			"init",
+			"slicknav_btn",
+			"sidr",
+			"menuBar",
+			"width",
+			"body",
+			"close",
+			"_close",
+			"close",
+			"_menuToggle",
+			"prependTp",
+			"slicknav_btn",
+			"slicknav",
+			"open",
+			"mobileNav",
+			"_visibilityToggle",
+			"_setVisAttr",
+			"open",
+			"slicknav_btn",
+			"label",
+			"closeOnClick",
+			"slicknav_btn",
+			"slicknav_btn slicknav_collapsed",
+			"push",
+			"closePushyFallback",
+			"siteOverlay",
+			"weight",
+			"itemContainer",
+			"$"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"_post_feed_image_position",
+			"&ouml;",
+			"&auml;",
+			"&aring;",
+			"a",
+			"&aring;",
+			"&ouml;",
+			"&auml;",
+			"&aring;",
+			"&ouml;",
+			"jQuery"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "library/less/_base.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24255,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "mikaeleng.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 193.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

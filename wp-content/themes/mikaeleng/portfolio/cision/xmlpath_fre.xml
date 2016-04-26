@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quiz plateCount="48">
+  <question 
+
+                id="Question 1"
+				question="Quels sont nos quatre domaines de services?"
+				option1="Planifier, diffuser, surveiller, analyser"
+				option2="Planifier, recueillir, surveiller, analyser"
+				option3="Planifier, diffuser, promouvoir, analyser"
+				answer = "1"
+				explain="La bonne réponse est planifier, diffuser, surveiller, analyser. Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 2"
+				question="Combien de collègues environ avons-nous à l’échelle mondiale?"
+				option1="2,300"
+				option2="2,600"
+				option3="2,000"
+				answer = "2"
+				explain="La bonne réponse est 2 600. Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 3"
+				question="Combien de clients environ servons-nous à l’échelle mondiale?"
+				option1="20,000"
+				option2="25,000"
+				option3="30,000+"
+				answer = "3"
+				explain="La bonne réponse est plus de 30 000. Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 4"
+				question="Quelles sont nos trois valeurs de marque?"
+				option1="Innovation, responsabilité, professionnalisme"
+				option2="Innovation, responsabilité, passion"
+				option3="Innovation, accessibilité, passion"
+				answer = "2"
+				explain="La bonne réponse est innovation, responsabilité, passion. Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 5"
+				question="Comment nos valeurs nous aident-elles à exceller?"
+				option1="Nos valeurs sont ce qui nous distingue, elles nous unissent en tant qu’équipe et nous guident lorsque nous travaillons avec nos collègues et nos clients."
+				option2="Nos valeurs ne sont pas particulièrement importantes. Nous pouvons agir et travailler de différentes façons, dépendamment de notre humeur du jour."
+				option3=" Nos valeurs vont changer constamment. Nous travaillerons avec différentes valeurs dans différentes régions plutôt qu’avec une plateforme unifiée pertinente pour tous."
+				answer = "1"
+				explain="La bonne réponse est « A ». Veuillez passer à la question suivante."
+				
+               ></question>
+
+ <question 
+
+                id="Question 6"
+				question="En tant qu’organisation, combien d’années d’expérience comptons-nous?"
+				option1="225"
+				option2="150"
+				option3="25"
+				answer = "2"
+				explain="La bonne réponse est 150. Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 7"
+				question="L’origine de notre nom est…"
+				option1="Un mot latin signifiant « analyse pertinente »."
+				option2="Cision est dérivé des mots « précision » et « décision »."
+				option3="On a choisi ce nom parce qu’il se prononce de la même façon en français, en anglais et en allemand."
+				answer = "2"
+				explain="La bonne réponse est « B ». Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 8"
+				question="Quelle est notre vision?"
+				option1="Offrir des renseignements médiatiques locaux sans portée mondiale."
+				option2="Devenir le plus grand partenaire de confiance en renseignements médiatiques au monde."
+				option3="Devenir la plus grande entreprise de renseignements médiatiques au monde."
+				answer = "2"
+				explain="La bonne réponse est « B ». Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 9"
+				question="Quelle est la meilleure façon de décrire notre approche?"
+				option1="Cision combine expertise locale et portée mondiale."
+				option2="Cision soutient uniquement les communications internationales pour ses clients dans les marchés locaux."
+				option3="Cision adapte les programmes de communication de ses clients à trois marchés internationaux."
+				answer = "1"
+				explain="La bonne réponse est « A ». Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 10"
+				question="Dans combien de pays avons-nous des partenaires?"
+				option1="More than 150."
+				option2="More than 125."
+				option3="More than 100."
+				answer = "2"
+				explain="La bonne réponse est plus de 125. Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 11"
+				question="Que signifie pour nous l’expression « Renseignement médiatiques mondiaux »?"
+				option1="Nos employés. Notre marché et notre domaine d’expertise. Notre portée."
+				option2="Notre approche des communications locales. Ce qui nous distingue. Notre portée."
+				option3="La valeur des services que nous offrons. Notre marché et notre domaine d’expertise. Notre portée."
+				answer = "3"
+				explain="La bonne réponse est « C ». Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 12"
+				question="Quelle est notre mission?"
+				option1="Nous aidons nos clients à prendre des décisions qui améliorent leur performance d’entreprise grâce à nos services de renseignements médiatiques."
+				option2="Nous offrons des services médiatiques de qualité supérieure pour améliorer les performances d’entreprise."
+				option3="Nous offrons des renseignements médiatiques qui aident nos clients à planifier, à diffuser, à surveiller et à analyser leurs communications d’entreprise à l’échelle mondiale."
+				answer = "1"
+				explain="La bonne réponse est « A ». Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 13"
+				question="Avec combien d’universités collaborons-nous pour former les professionnels des relations publiques?"
+				option1="More than 150."
+				option2="More than 280."
+				option3="More than 100."
+				answer = "2"
+				explain="La bonne réponse est plus de 280. Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 14"
+				question=" Quels sont les trois éléments clés qui nous distinguent de nos concurrents?"
+				option1="Notre envergure et nos compétences. Notre méthodologie. Vous."
+				option2="Notre portée mondiale. Notre expertise à l’échelle locale. Notre sens des responsabilités."
+				option3="Nos valeurs. Notre innovation. Notre portée mondiale."
+				answer = "1"
+				explain="La bonne réponse est « B ». Veuillez passer à la question suivante."
+				
+               ></question>
+ <question 
+
+                id="Question 15"
+				question="Combien de mises à jour de ses contacts Cision effectue-t-elle quotidiennement?"
+				option1="More than 1,000."
+				option2="More than 10,000."
+				option3="More than 7,500."
+				answer = "2"
+				explain="La bonne réponse est plus de 10 000. Veuillez passer à la question suivante."
+				
+               ></question>
+			   
+</quiz>

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+    width:100%;
+    padding:0;
+    margin:0 auto;
+    text-align:center;
+}
+#siteContainer {
+    width:100%;
+    height:591px;
+	background-color:#000;
+	margin:0;
+}
+#siteContent {
+    width:838px;
+     height:591px;
+	margin:0;
+	text-align:center;
+}

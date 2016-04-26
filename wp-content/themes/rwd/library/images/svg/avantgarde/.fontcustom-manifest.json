@@ -1,0 +1,83 @@
+{
+  "checksum": {
+    "previous": "d958537372d75e48402183f185641173edff7a40f99b1947c372283fd807f946",
+    "current": "d958537372d75e48402183f185641173edff7a40f99b1947c372283fd807f946"
+  },
+  "fonts": [
+    "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/ME-Avantgarde/ME-Avantgarde.ttf",
+    "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/ME-Avantgarde/ME-Avantgarde.svg",
+    "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/ME-Avantgarde/ME-Avantgarde.woff",
+    "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/ME-Avantgarde/ME-Avantgarde.eot"
+  ],
+  "glyphs": {
+    "About": {
+      "codepoint": 61696,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/About.svg"
+    },
+    "Filter": {
+      "codepoint": 61703,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/Filter.svg"
+    },
+    "Life": {
+      "codepoint": 61697,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/Life.svg"
+    },
+    "Wall": {
+      "codepoint": 61698,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/Wall.svg"
+    },
+    "Work": {
+      "codepoint": 61699,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/Work.svg"
+    },
+    "facebook": {
+      "codepoint": 61700,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/facebook.svg"
+    },
+    "list-board": {
+      "codepoint": 61704,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/list-board.svg"
+    },
+    "pinterest": {
+      "codepoint": 61701,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/pinterest.svg"
+    },
+    "twitter": {
+      "codepoint": 61702,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/twitter.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": "fontcustom.yml",
+    "css_selector": ".ME-Avantgarde-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "ME-Avantgarde",
+    "force": false,
+    "input": {
+      "templates": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde",
+      "vectors": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde"
+    },
+    "no_hash": true,
+    "output": {
+      "css": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/ME-Avantgarde",
+      "fonts": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/ME-Avantgarde",
+      "preview": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/ME-Avantgarde"
+    },
+    "preprocessor_path": "",
+    "quiet": false,
+    "skip_first": false,
+    "templates": [
+      "scss",
+      "preview"
+    ]
+  },
+  "templates": [
+    "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/ME-Avantgarde/_ME-Avantgarde.scss",
+    "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/avantgarde/ME-Avantgarde/ME-Avantgarde-preview.html"
+  ]
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+
+<!-- Important, keep doctype: -->
+
+<!-- Function to proxy and set the necessary head, header and footer includes: -->
+
+<!-- Remember to change the cc + lc values on the includes for correct country and language: -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- swf tag -->
+<script type="text/javascript" src="js/swfobject.js"></script>
+<script type="text/javascript">
+			var swfVersionStr = "9.0.0";
+			<!-- xiSwfUrlStr can be used to define an express installer SWF. -->
+			var xiSwfUrlStr = "";
+			var flashvars = {};
+			flashvars.xmlPath = "xmlpath_eng.xml";
+			flashvars.country ="english";
+			flashvars.imagePath = "img/";
+			
+			var params = {};
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.play = "true";
+			params.loop = "true";
+			params.wmode = "window";
+			params.menu = "false";
+			params.devicefont = "false";
+			params.salign = "";
+			params.allowscriptaccess = "sameDomain";
+			var attributes = {};
+			attributes.id = "siteContent";
+			attributes.name = "siteContent";
+			attributes.align = "middle";
+			swfobject.embedSWF(
+				"cisionQuiz.swf", "siteContent",
+				"767", "580",
+				swfVersionStr, xiSwfUrlStr,
+				flashvars, params, attributes);
+		</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject_src.js"></script>
+<script type="text/javascript">
+	var flashvars = {
+			xmlPath 	: "xmlpath_eng.xml",
+			imagePath 	: "img/",
+			country 	: "english"
+	};
+		
+	var params = { 
+			quality 			: "high",
+			bgcolor 			: "#ffffff",
+			play 				: "true",
+			loop 				: "true",
+			wmode 				: "window",
+			menu 				: "false",
+			devicefont 			: "false",
+			salign 				: "",
+			allowscriptaccess 	: "sameDomain"
+	};
+	
+	var attributes = {  
+		id:"siteContent",
+		name:"siteContent",
+		align :"middle"
+	};
+	
+	swfobject.embedSWF("cisionQuiz.swf", "siteContent", "767", "580", "9.0.0", null, flashvars, params, attributes);
+	
+</script>
+<meta charset=utf-8" />
+<title>Cision Quiz</title>
+</head>
+
+<body style: text-align="center" >
+<div id="siteContainer" align="center">
+  <div id="siteContent"> </div>
+</div>
+</body>
+</html>

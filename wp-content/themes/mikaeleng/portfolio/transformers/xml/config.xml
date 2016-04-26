@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<game score="0" source="transformers.jpg" rows="2" cols="2" imagewidth="512" imageheight="512" prependURL="images/" >
+<background source="background0.jpg" />
+<background source="background1.jpg" />
+<background source="background2.jpg" />
+<background source="background3.jpg" />
+<background source="background4.jpg" />
+<sounds prependURL="sounds/">
+	<sound id="moved" source="moved.mp3" />
+	<sound id="complete" source="complete.mp3" />
+	<sound id="stomp" source="stomp.mp3" />
+	<sound id="background" source="background.mp3" />
+</sounds>
+</game>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Transformers puzzle</title>
+<style type="text/css" media="screen">
+		
+		body{
+			background-color:#333;
+			
+		}
+		#content{
+			width:800px;
+			height:600px;
+			margin:auto;
+			margin-top:2em;
+			text-align:left;
+		}
+		#StarGame{
+			border:2px solid white;
+			width:800px;
+			height:600px;
+			background-color:#F00;
+		
+		</style>
+		<script type="text/javascript" src="js/swfobject.js"></script>
+		<script type="text/javascript">
+		swfobject.registerObject("puzzle", "9.0.0", "expressInstall.swf");
+		</script>
+
+</head>
+
+<body>
+	<div id="content">
+		<div id="StarGame">
+			<object id="puzzle" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="800" height="600">
+				<param name="movie" value="StarGame.swf" />
+        		<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash" data="StarGame.swf" width="800" height="600">
+				<!--<![endif]-->
+				<div>
+					<h1>Alternative content</h1>
+					<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+				</div>
+				<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
+		</div>
+	</div>
+  
+</body>
+</html>

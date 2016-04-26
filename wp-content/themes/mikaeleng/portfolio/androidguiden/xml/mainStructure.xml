@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<root AF="katching">
+	<movies>
+		<movie id="MainContent" source="MainContent.swf"/>
+		<movie id="Intro" source="Intro.swf"/>
+	</movies>
+	<track account="UA-2064387-1" mode="AS3" debug="0">
+		<page id="start"/>		
+		<page id="vad_ar_android"/>		
+		<page id="vad_ar_appar"/>		
+		<page id="android_market"/>		
+		<page id="hur_handlar"/>		
+		<page id="ta_bort_app"/>		
+		<page id="vilka_appar"/>		
+		<page id="full_screen"/>		
+		<page id="end_frame"/>		
+	</track>
+	<navigation link="http://www.sonyericsson.com/androidskolan/androidskolan.pdf" target="blank">
+		<item caption="Kom igång" />
+		<item caption="Vad är Android?" />
+		<item caption="Vad är appar" />
+		<item caption="Android Market" />
+		<item caption="Hur hämtar jag appar?" />
+		<item caption="Hur tar man bort en app?" />
+		<item caption="Vad finns det att välja på" />
+		<item caption="Hela tavlan" />
+	</navigation>
+</root>

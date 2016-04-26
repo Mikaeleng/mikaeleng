@@ -1,0 +1,62 @@
+{
+  "checksum": {
+    "previous": "ad0e9d12c877f992097ba6b72af3f26a4bd630d4217670193007d066f2ce37ce",
+    "current": "ad0e9d12c877f992097ba6b72af3f26a4bd630d4217670193007d066f2ce37ce"
+  },
+  "fonts": [
+    "fontcustom/fontcustom_ad0e9d12c877f992097ba6b72af3f26a.ttf",
+    "fontcustom/fontcustom_ad0e9d12c877f992097ba6b72af3f26a.svg",
+    "fontcustom/fontcustom_ad0e9d12c877f992097ba6b72af3f26a.woff",
+    "fontcustom/fontcustom_ad0e9d12c877f992097ba6b72af3f26a.eot"
+  ],
+  "glyphs": {
+    "About": {
+      "codepoint": 61698,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/About.svg"
+    },
+    "Life": {
+      "codepoint": 61699,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/Life.svg"
+    },
+    "Wall": {
+      "codepoint": 61700,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/Wall.svg"
+    },
+    "Work": {
+      "codepoint": 61701,
+      "source": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/Work.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": false,
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "fontcustom",
+    "force": false,
+    "input": {
+      "templates": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/",
+      "vectors": "/Applications/AMPPS/www/mikaeleng/wp-content/themes/rwd/library/images/svg/"
+    },
+    "no_hash": false,
+    "output": {
+      "css": "fontcustom",
+      "fonts": "fontcustom",
+      "preview": "fontcustom"
+    },
+    "preprocessor_path": null,
+    "quiet": false,
+    "templates": [
+      "css",
+      "preview"
+    ]
+  },
+  "templates": [
+    "fontcustom/fontcustom.css",
+    "fontcustom/fontcustom-preview.html"
+  ]
+}

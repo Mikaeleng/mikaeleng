@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quiz plateCount="48">
+  <question 
+
+                id="Question 1"
+				question="What are the four areas of our services?"
+				option1="Plan, Connect, Monitor, Analyze"
+				option2="Plan, Collect, Monitor, Analyze"
+				option3="Plan, Connect, Market, Analyze"
+				answer = "1"
+				explain="The right answer is Plan, Connect, Monitor, Analyze. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 2"
+				question="Approximately how many colleagues do we have worldwide?"
+				option1="2,300"
+				option2="2,600"
+				option3="2,000"
+				answer = "2"
+				explain="The right answer is 2,600. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 3"
+				question="Approximately how many clients do we serve around the world?"
+				option1="20,000"
+				option2="25,000"
+				option3="30,000+"
+				answer = "3"
+				explain="The right answer is 30,000+. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 4"
+				question="What are our three brand values?"
+				option1="Innovation, Accountability, Professionalism"
+				option2="Innovation, Accountability, Passion"
+				option3="Innovation, Accessibility, Passion"
+				answer = "2"
+				explain="The right answer is Innovation, Accountability, Passion. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 5"
+				question="How will our values help us excel?"
+				option1="Our values are what set us a part, unite us as a team and guide us when working with each other and our clients."
+				option2="Our values are not so important; we can appear and work in different ways depending on how we feel that day."
+				option3="Our values are going to change all the time. We will work with different values in different regions instead of one platform that’s relevant to all."
+				answer = "1"
+				explain="The right answer is “A”. Please proceed to next question."
+				
+               ></question>
+
+ <question 
+
+                id="Question 6"
+				question="As an organization, how many years of experience do we have?"
+				option1="225"
+				option2="150"
+				option3="25"
+				answer = "2"
+				explain="The right answer is 150. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 7"
+				question="Our name has it’s origin in…"
+				option1="It’s a Latin word meaning superb analysis"
+				option2="Cision is the outtake from precision and decision"
+				option3="We chose it because it has the same pronunciation in French, German and English"
+				answer = "2"
+				explain="The right answer is “B”. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 8"
+				question="What is our Vision?"
+				option1="To provide local media intelligence without global reach."
+				option2="To be the most relied upon media intelligence partner in the world."
+				option3="To be the largest media intelligence organization in the world."
+				answer = "2"
+				explain="The right answer is “B”. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 9"
+				question="What is the best way to describe how we work?"
+				option1="Cision combines local expertise with global reach. "
+				option2="Cision only develops global communications for clients in local markets."
+				option3="By tailoring individual client communication programs in three markets around the world."
+				answer = "1"
+				explain="The right answer is “A”. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 10"
+				question="In how many countries do we have partners?"
+				option1="More than 150."
+				option2="More than 125."
+				option3="More than 100."
+				answer = "2"
+				explain="The right answer is more than 125. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 11"
+				question="What does Global Media Intelligence represent for us?"
+				option1="Our reach. Our market and area of expertise. Our people."
+				option2="Our reach. Our point of difference. Our approach to local communications."
+				option3="Our reach. Our market and area of expertise. The value of the services we provide."
+				answer = "3"
+				explain="The right answer is “C”. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 12"
+				question="What is our Mission?"
+				option1="We empower our clients with media intelligence services for better business performance."
+				option2="To deliver world-class media services that results in better business performance."
+				option3="To provide media intelligence that allows clients to plan, connect, monitor and analyze business communications globally."
+				answer = "1"
+				explain="The right answer is “A”. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 13"
+				question="How many universities do we collaborate with to educate public relations professionals?"
+				option1="More than 150."
+				option2="More than 280."
+				option3="More than 100."
+				answer = "2"
+				explain="The right answer is more than 280. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 14"
+				question="What are three key differentiators that help distinguish us from our competitors?"
+				option1="Our breadth & depth. Our methodology. You."
+				option2="Global reach. Local representation. Accountability."
+				option3="Our values. Our innovation. Our global reach."
+				answer = "1"
+				explain="The right answer is “B”. Please proceed to next question."
+				
+               ></question>
+ <question 
+
+                id="Question 15"
+				question="How many updates of contacts does Cision execute on a daily basis?"
+				option1="More than 1,000."
+				option2="More than 10,000."
+				option3="More than 7,500."
+				answer = "2"
+				explain="The right answer is more than 10,000. Please proceed to next question."
+				
+               ></question>
+			   
+</quiz>

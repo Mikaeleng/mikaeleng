@@ -1,0 +1,56 @@
+/** mobile css
+*/
+
+/*@import url('style.css');
+*/
+
+html{
+	/*background-image:url("../../uploads/grayraster.jpg");
+	background-repeat:repeat; */
+	background-color:#FFFFFF;
+	font-family:Arial, Helvetica;
+	height:100%;
+ }
+ 
+#main {
+margin-top: 30px;
+overflow: visible;
+width: 480px;
+}
+
+#siteinfo{
+	display:none; 
+ }
+ 
+ p, .case-excerpt{
+	color:#786139;
+}
+
+ body{
+	 margin:0;
+	 padding:0;
+	 width:480px;
+	 width:auto;
+	 background-color:#FFB058;
+	 background-image:url('/wp-content/uploads/bg.jpg') ;
+	 background-repeat:repeat-x;
+	 background-size:100% 100%;
+	min-height:100%;
+ }
+ 
+#slideshow img{
+	width:300px;
+	height:131px;
+	display:none;
+}
+
+#slideshow{
+	width:300px;
+	height:131px;
+	float:left;
+}
+
+#primary{
+	display:none;
+}
+

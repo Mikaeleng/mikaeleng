@@ -1,0 +1,118 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop. 
+
+******************************************************************/
+
+
+
+/*********************
+HEADER STYLES
+*********************/
+
+.header {
+		background: $bones-pink;
+
+	nav{
+		background: $page-background;
+	}
+	min-height: 25em;
+
+	#inner-header{
+		padding: 0 15.95em; /* exactly 960px in large view */
+	}
+	
+	#mobile-nav-wrapper{
+		display: none;
+	}
+	#searchbox-wrapper{
+		display: block;
+	}
+
+	#searchbox{
+
+			max-width: 71.25em;
+			margin: 0 auto;
+			display: table;
+			text-align: center;
+			overflow: hidden;
+			background: transparent;
+		
+			background: $bones-light-pink;
+			-webkit-border-radius-topleft: 1.5em;
+			-webkit-border-radius-topright: 1.5em;
+			border-top: 1px solid #565656;
+			border-left: 1px solid #565656;
+			border-right: 1px solid #565656;
+			border-top-right-radius: 1.5em;
+			border-top-left-radius: 1.5em;
+		}
+}
+
+	#logo {}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.nav {
+	max-height: 10em;
+	display: block;
+	background: transparent;
+	visibility:visible;
+	margin: 0 auto;
+	@include flex-wrap('no-wrap');
+	
+	
+	li {
+		width: auto;
+		color: white;
+		background-color: transparent;
+		border-bottom: none;
+
+		a {
+			min-height: 3em;
+			padding: 1em 0;
+			font-size: 3.2em;
+			padding-left: 3em;
+			color: $text-color;
+			
+
+			/*
+			remember this is for mobile ONLY, so there's no need
+			to even declare hover styles here, you can do it in
+			the style.scss file where it's relevant. We want to
+			keep this file as small as possible!
+			*/
+			&:hover, &:focus {
+				color: $bones-purple;
+
+			}
+		}
+		&:nth-child(odd){
+					border-right: none;
+		}
+	}
+}
+
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#inner-content{
+	display: inline-block;
+	width: 65.74585634900001%;
+	float: left;
+}
+
+.sidebar{
+	display: inline-block;
+	width: 31.491712705%;
+}
+

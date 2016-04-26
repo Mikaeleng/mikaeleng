@@ -1,0 +1,21 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /mikaeleng/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /mikaeleng/index.php [L]
+</IfModule>
+
+# Filename: .htaccess
+# Description: Put in folder public_html
+
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} gymbuddy.mikaeleng.se
+RewriteCond %{REQUEST_URI} !http://www.mikaeleng.se/gymbuddy/
+RewriteRule ^(.*)$ http://www.mikaeleng.se/gymbuddy/$1 [L]
+# END WordPress

@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<game score="0" incriment="1" speed="15" prependURL="images/" >
+	<background source="background.jpg" />
+	<background source="background2.jpg" />
+	<background source="background3.jpg" />
+	<background source="background4.jpg" />
+	<background source="background5.jpg" />
+	<background source="background6.jpg" />
+</game>

@@ -1,0 +1,687 @@
+<?xml version="1.0" ?>
+<root>
+	<movies>
+		<movie id="MainContent" source="MainContent.swf"/>
+		<movie id="Intro" source="Intro.swf"/>
+	</movies>
+	<track account="UA-2064387-1" af="se" userCountry="sv">
+		<page id="start"/>		
+		<page id="Frysningen"/>		
+		<page id="Bollkollen"/>		
+		<page id="Spelarkollen"/>		
+		<page id="Malgorarkollen"/>		
+		<page id="Mobilkollen"/>		
+		<page id="Domarkollen"/>		
+		<page id="Utslagsfraga"/>		
+		<page id="tavla"/>		
+		<page id="delasida"/>		
+	</track>
+	<navigation legal="Sony är officiell partner med UEFA Champions League">
+		<item id="scoreboard" scoretext="DIN POÄNG ( Max 200 )" />
+		<item id="PagesButton" text="Tillbaka till tävlingen"/>
+		<item id="RulesButton" text="Tävlingsregler"/>
+		<item id="PriceButton" text="Prisbord"/>
+		<item id="SoundButton" text="Ljud"/>
+	</navigation>
+	<pages>
+		<page id="StartView" head="Välkommen till Sony Ericsson Football Challenge!" body="Här kan du kolla in Xperia™ arc och tävla om biljetter till UEFA Champions League Final Wembley 2011 – och massor av andra fina priser! Allt du behöver göra är att svara på några sköna fotbollsfrågor. " buttontext="Starta tävlingen">
+			<item id="legal" text="Sony är officiell partner med UEFA Champions League. Biljetterna tillhandahålls av Sony Ericsson. "/>
+		</page>
+		<page id="FreezeView" head="Frysningen" body="Kör igång filmen, när bilden fryses får du en fråga." buttontext="Nästa fråga">
+			<item id="video" source="freezeFrame001.flv"/>
+			<item id="flashtext" text="UEFA Champions League-finalen 2002" />
+			<item id="optionbutton" text="Svara" />
+			<question text="Vad händer sedan?">
+				<option id="1" text="Zidane gör hål i luften" displaybuttontext="1. Svara"/>
+				<option id="X" text="Zidane skjuter i krysset"  displaybuttontext="X. Svara" />
+				<option id="2" text="Zidane skjuter på målvakten"  displaybuttontext="2. Svara"/>
+			</question>
+		</page>
+		<page id="BallView" head="Bollkollen" body="Alla dessa bollar har använts i Champions League-finaler. Dra rätt boll till rätt årtal."  buttontext="Nästa fråga">
+			<question text="Dra rätt boll till rätt årtal?">
+				<option id="ball0" text="Glasgow 2002"/>
+				<option id="ball1" text="Moscow 2008"/>
+				<option id="ball2" text="Manchester 2003"/>
+				<option id="ball3" text="Istanbul 2005"/>
+			</question>
+			<item id="legal" text="Sony är officiell partner med UEFA Champions League" />
+			<item id="resetbutton" text="Nollställ" />
+		</page>
+		<page id="GoalView" head="Målgörarkollen" body="Kör igång filmen, när bilden fryses får du en fråga." buttontext="Nästa fråga">
+			<item id="video" source="freezeFrame002.flv"/>
+			<item id="optionbutton" text="Svara" />
+			<item id="flashtext" text="UEFA Champions League-finalen 2010" />
+			<question text="Vad heter målgöraren?">
+				<option id="1" text="Diego Milito" displaybuttontext="1. Svara"/>
+				<option id="X" text="Alexander Pato"  displaybuttontext="X. Svara" />
+				<option id="2" text="Wesley Sneijder"  displaybuttontext="2. Svara"/>
+			</question>
+		</page>
+		<page id="PhoneView" head="Mobilkollen" body="Hur många millimeter är Sony Ericssons Xperia™ arc på dess tunnaste ställe?"  buttontext="Nästa fråga">
+			<item id="maxChar" text="Max 200 tecken" />
+			<item id="answerbuttontext" text="Svara" />
+			<item id="info" text="Fyll i din gissning i fältet och klicka på Svara. Ju närmare rätt svar desto fler poäng. Ange svaret med en decimal." />
+			<question text="Hur många millimeter tunn är nya Sony Ericsson Xperia">
+			</question>
+		</page>
+		<page id="RefView" head="Domarkollen" body="Kör igång filmen, när bilden fryses får du en fråga." buttontext="Nästa fråga">
+			<item id="video" source="freezeFrame003.flv"/>
+			<item id="optionbutton" text="Svara" />
+			<item id="flashtext" text="" />
+			<question text="Hur dömer den norska domaren?">
+				<option id="1" text="Straff" displaybuttontext="1. Svara"/>
+				<option id="X" text="Frispark"  displaybuttontext="X. Svara" />
+				<option id="2" text="Friar"  displaybuttontext="2. Svara"/>
+			</question>
+		</page>
+		<page id="CheerView" head="Utslagsfråga" body="Skriv en skön fotbollsramsa om ditt favoritfotbollslag."  buttontext="Gå vidare">
+			<item id="info" text="" />
+			<item id="maxCharText" text="Max 200 tecken" />
+			<question text="Skriv en skön fotbollsramsa om ditt favoritlag"/>
+		</page>		
+		<page id="EndView" head="Bra jobbat. Du fick ihop" head2="poäng." body="Vill du tävla med det resultatet fyller du i dina uppgifter och klickar Tävla. Annars kan du prova igen."  buttontext="Klar">
+			<item id="legal" 			text="Sony är officiell partner med UEFA Champions League Biljetterna tillhandahålls av Sony Ericsson. " />
+			<item id="formname" 		text="" displaytext="Namn" />
+			<item id="formmail" 		text="" displaytext="E-postadress" />
+			<item id="formnumber" 		text="" displaytext="Telefonnummer" />
+			<item id="replaybutton" 	text="Prova igen" />
+			<item id="competebutton" 	text="Tävla" />
+		</page>
+		<page id="ShareView" head="Tack för ditt deltagande!" body=""  buttontext="Klar">
+			<item id="facebooktext" 	text="Utmana dina vänner på Facebook!" />
+			
+			<item id="sharelink" 		link="http://www.sonyericsson.com/test3/clcompetition/facebook/shareSE.html"/> 
+			
+			<item id="mobilehead" 		text="Följ UEFA Champions League i din mobil." />
+			<item id="qrtext" 			text="Ta en bild av koden med en QR-kodläsare i din Xperia™ telefon." />
+			<item id="qrlinktext" 		text="Annars kan du klicka här för mer information!" />
+			<item id="buytext" 			text="Köp en Sony Ericsson Xperia™ hos din återförsäljare:" />
+			<item id="buybutton" 		text="Återförsäljare" link="http://www.sonyericsson.com/cws/products/mobilephones/overview/xperiaarc?cc=se&lc=sv" />
+			<item id="replaybutton" 	text="Till startsidan" />
+		</page>
+		<page id="RulesView" head="Tävlingsregler" body=""  >
+			<item id="legal" text="Sony är officiell partner med UEFA Champions League Biljetterna tillhandahålls av Sony Ericsson." />
+		<content>
+		<![CDATA[<p>Sony Ericsson Football Challenge består av att svara 
+på ett antal frågor samt en utslagsfråga. 
+En jury bedömer tävlingsbidragen. 
+Tävlingen är öppen för alla som bor i Sverige. 
+Att delta i tävlingen kostar inget. Tävlingen pågår till och med 26 april 2011.</p>
+
+<p>Personuppgifter inlämnade i samband med tävlingen 
+kommer att behandlas konfidentiellt och endast användas 
+för att administrera den aktuella tävlingen.</p>
+
+<p>Juryn består av representanter från Sony Ericsson. 
+Beslutet kan ej överklagas. Eventuell vinstskatt betalas 
+av vinnaren. Vinsten går ej att byta mot kontanter.</p>
+
+<p>Vinnarna presenteras på sajten och kontaktas per telefon. 
+Vinsten skickas till den adress som anges vid telefonkontakten.</p>
+]]>
+		</content>
+		</page>
+		<page id="PriceView" head="Prisbord" body="" >
+			<item id="firstprice" 	price="1:a pris" text="Biljetter för 2 personer till UEFA Champions League Final Wembley 2011 inklusive flyg och fyrstjärnigt hotell 2 nätter." />
+			<item id="secondprice" 	price="2-5:e pris" text="Sony Ericsson Xperia™ PLAY" />
+			<item id="thirdprice" 	price="6-20:e pris" text="UEFA Champions League-bollen" />
+			<item id="fourthprice" 	price="" text="" />
+			<item id="fifthprice" 	price="" text="" />
+			<item id="legal" text="Sony är officiell partner med UEFA Champions League Biljetterna tillhandahålls av Sony Ericsson." />
+		</page>
+		<page id="PagesView" head="" body=""  >
+		</page>
+		<page id="PlayerView" head="Spelarkollen" body="Räkna upp så många spelare du kan på 45 sekunder."  buttontext="Nästa fråga">
+			<item id="totaltext" text="Spelare totalt"/>
+			<item id="currenttext" text="Ditt resultat"/>
+			<item id="currenttextnum" text="0"/>
+			<item id="totaltextnum" text="490"/>
+			<item id="inittext" text="Skriv ditt namn"/>
+			<item id="info" text="Spelarna måste tillhöra de lag som har tagit sig till åttondelsfinalerna i årets UEFA Champions League. Ange endast efternamn eller artistnamn. Klicka på plustecknet eller Enter mellan varje förslag. Tiden går igång efter första namnet." />
+			<item id="errortext" text="Försök igen!"/>
+			<item id="correcttext" text="Rätt svar!"/>
+			<item id="donetext" text="Redan använd!"/>
+			<question text="Räkna upp så många spelare du kan på 45 sekunder.">
+				<!--Arsenal -->
+						<option id="player" text="Almunia"/>
+						<option id="player" text="Fabianski"/>
+						<option id="player" text="Szczesny"/>
+						<option id="player" text="Shea"/>
+						<option id="player" text="Martinez"/>
+						<option id="player" text="Sagna"/>
+						<option id="player" text="Vermaelen"/>
+						<option id="player" text="Koscielny"/>
+						<option id="player" text="Squillaci"/>
+						<option id="player" text="Djourou"/>
+						<option id="player" text="Clichy"/>
+						<option id="player" text="Eboue"/>
+						<option id="player" text="Gibbs"/>
+						<option id="player" text="Boateng"/>
+						<option id="player" text="Cruise"/>
+						<option id="player" text="Miquel"/>
+						<option id="player" text="Diaby"/>
+						<option id="player" text="Fabregas"/>
+						<option id="player" text="Rosicky"/>
+						<option id="player" text="Nasri"/>
+						<option id="player" text="Denilson"/>
+						<option id="player" text="Song"/>
+						<option id="player" text="Wilshere"/>
+						<option id="player" text="Aneke"/>
+						<option id="player" text="Frimpong"/>
+						<option id="player" text="Henderson"/>
+						<option id="player" text="Özyakup"/>
+						<option id="player" text="Freeman"/>
+						<option id="player" text="Yennaris"/>
+						<option id="player" text="Persie"/>
+						<option id="player" text="Walcott"/>
+						<option id="player" text="Arshavin"/>
+						<option id="player" text="Chamakh"/>
+						<option id="player" text="Deacon"/>
+						<option id="player" text="Murphy"/>
+						<option id="player" text="Bendtner"/>
+						
+						
+						<!--Bayern -->
+						<option id="player" text="Butt"/>
+						<option id="player" text="Sattelmaier"/>
+						<option id="player" text="Kraft"/>
+						<option id="player" text="Breno"/>
+						<option id="player" text="Buyten"/>
+						<option id="player" text="Lahm"/>
+						<option id="player" text="Contento"/>
+						<option id="player" text="Badstuber"/>
+						<option id="player" text="Ribery"/>
+						<option id="player" text="Altıntop"/>
+						<option id="player" text="Robben"/>
+						<option id="player" text="Ottl"/>
+						<option id="player" text="Pranjić"/>
+						<option id="player" text="Gustavo"/>
+						<option id="player" text="Schweinsteiger"/>
+						<option id="player" text="Jullich"/>
+						<option id="player" text="Deul"/>
+						<option id="player" text="Kroos"/>
+						<option id="player" text="Tymoshchuk"/>
+						<option id="player" text="Olic"/>
+						<option id="player" text="Klose"/>
+						<option id="player" text="Muller"/>
+						<option id="player" text="Gomez"/>
+						
+						
+						
+						<!--Internazionale -->
+						<option id="player" text="Cesar"/>
+						<option id="player" text="Castellazzi"/>
+						<option id="player" text="Orlandoni"/>
+						<option id="player" text="Gennaro"/>
+						<option id="player" text="Gallinetta"/>
+						<option id="player" text="Cordoba"/>
+						<option id="player" text="Zanetti"/>
+						<option id="player" text="Lucio"/>
+						<option id="player" text="Maicon"/>
+						<option id="player" text="Ranocchia"/>
+						<option id="player" text="Materazzi"/>
+						<option id="player" text="Samuel"/>
+						<option id="player" text="Chivu"/>
+						<option id="player" text="Biraghi"/>
+						<option id="player" text="Nagatomo"/>
+						<option id="player" text="Natalino"/>
+						<option id="player" text="Kysela"/>
+						<option id="player" text="Stankovic"/>
+						<option id="player" text="Motta"/>
+						<option id="player" text="Sneijder"/>
+						<option id="player" text="Kharja"/>
+						<option id="player" text="Mariga"/>
+						<option id="player" text="Cambiasso"/>
+						<option id="player" text="Obi"/>
+						<option id="player" text="Coutinho"/>
+						<option id="player" text="Romano"/>
+						<option id="player" text="Crisetig"/>
+						<option id="player" text="Eto'o"/>
+						<option id="player" text="Milito"/>
+						<option id="player" text="Pandev"/>
+						<option id="player" text="Agnello"/>
+						<option id="player" text="Bessa"/>
+						
+						
+						<!--Lyon -->
+						<option id="player" text="Lloris"/>
+						<option id="player" text="Hartock"/>
+						<option id="player" text="Vercoutre"/>
+						<option id="player" text="Lopes"/>
+						<option id="player" text="Gorgelin"/>
+						<option id="player" text="Gassama"/>
+						<option id="player" text="Cris"/>
+						<option id="player" text="Diakhate"/>
+						<option id="player" text="Lovren"/>
+						<option id="player" text="Kolodziejczak"/>
+						<option id="player" text="Reveillere"/>
+						<option id="player" text="Cissokho"/>
+						<option id="player" text="Källström"/>
+						<option id="player" text="Pjanic"/>
+						<option id="player" text="Ederson"/>
+						<option id="player" text="Bastos"/>
+						<option id="player" text="Delgado"/>
+						<option id="player" text="Gonalons"/>
+						<option id="player" text="Grenier"/>
+						<option id="player" text="Toulalan"/>
+						<option id="player" text="Gourcuff"/>
+						<option id="player" text="Mehamha"/>
+						<option id="player" text="Kone"/>
+						<option id="player" text="Faure"/>
+						<option id="player" text="Fontaine"/>
+						<option id="player" text="Lacazette"/>
+						<option id="player" text="Umtiti"/>
+						<option id="player" text="N'Diaye"/>
+						<option id="player" text="Reale"/>
+						<option id="player" text="Briand"/>
+						<option id="player" text="Lisandro"/>
+						<option id="player" text="Novillo"/>
+						<option id="player" text="Gomis"/>
+						<option id="player" text="Pied"/>
+						<option id="player" text="Belfodil"/>
+						<option id="player" text="Blanc"/>
+						<option id="player" text="Plea"/>
+						
+						
+						<!--Marseille -->
+						<option id="player" text="Andrade"/>
+						<option id="player" text="Mandanda"/>
+						<option id="player" text="Kouakbi"/>
+						<option id="player" text="Goda"/>
+						<option id="player" text="Taiwo"/>
+						<option id="player" text="Hilton"/>
+						<option id="player" text="Mango"/>
+						<option id="player" text="Diaye"/>
+						<option id="player" text="Heinze"/>
+						<option id="player" text="Diawara"/>
+						<option id="player" text="Fanni"/>
+						<option id="player" text="Sabo"/>
+						<option id="player" text="Lowinsky"/>
+						<option id="player" text="Cisse"/>
+						<option id="player" text="Cheyrou"/>
+						<option id="player" text="Gonzalez"/>
+						<option id="player" text="Kaboré"/>
+						<option id="player" text="Mbia"/>
+						<option id="player" text="Abriel"/>
+						<option id="player" text="Doumbou"/>
+						<option id="player" text="Valbuena"/>
+						<option id="player" text="Moulet"/>
+						<option id="player" text="Abbes"/>
+						<option id="player" text="Osei"/>
+						<option id="player" text="Pechart"/>
+						<option id="player" text="Brandao"/>
+						<option id="player" text="Gignac"/>
+						<option id="player" text="Remy"/>
+						<option id="player" text="Ayew"/>
+						
+						
+						<!--Real Madrid -->
+						<option id="player" text="Casillas"/>
+						<option id="player" text="Adan"/>
+						<option id="player" text="Dudek"/>
+						<option id="player" text="Mejias"/>
+						<option id="player" text="Carvalho"/>
+						<option id="player" text="Pepe"/>
+						<option id="player" text="Ramos"/>
+						<option id="player" text="Marcelo"/>
+						<option id="player" text="Arbeloa"/>
+						<option id="player" text="Albiol"/>
+						<option id="player" text="Garay"/>
+						<option id="player" text="Gago"/>
+						<option id="player" text="Diarra"/>
+						<option id="player" text="Granero"/>
+						<option id="player" text="Alonso"/>
+						<option id="player" text="Canales"/>
+						<option id="player" text="Leon"/>
+						<option id="player" text="Özil"/>
+						<option id="player" text="Khedira"/>
+						<option id="player" text="Sarabia"/>
+						<option id="player" text="Ronaldo"/>
+						<option id="player" text="Kaka"/>
+						<option id="player" text="Benzema"/>
+						<option id="player" text="Higuaín"/>
+						<option id="player" text="Maria"/>
+						<option id="player" text="Adebayor"/>
+						<option id="player" text="Carlos"/>
+						<option id="player" text="Juanfran"/>
+						<option id="player" text="Morata"/>
+						
+						
+						<!--Shalke -->
+						<option id="player" text="Neuer"/>
+						<option id="player" text="Schober"/>
+						<option id="player" text="Unnerstall"/>
+						<option id="player" text="Sarpei"/>
+						<option id="player" text="Escudero"/>
+						<option id="player" text="Höwedes"/>
+						<option id="player" text="Plestan"/>
+						<option id="player" text="Papadopoulos"/>
+						<option id="player" text="Metzelder"/>
+						<option id="player" text="Uchida"/>
+						<option id="player" text="Pander"/>
+						<option id="player" text="Fahrenhorst"/>
+						<option id="player" text="Pachan"/>
+						<option id="player" text="Zander"/>
+						<option id="player" text="Hao"/>
+						<option id="player" text="Baumjohann"/>
+						<option id="player" text="Kluge"/>
+						<option id="player" text="Schmitz"/>
+						<option id="player" text="Karimi"/>
+						<option id="player" text="Jurado"/>
+						<option id="player" text="Gavranović"/>
+						<option id="player" text="Deac"/>
+						<option id="player" text="Moritz"/>
+						<option id="player" text="Draxler"/>
+						<option id="player" text="Matip"/>
+						<option id="player" text="Latza"/>
+						<option id="player" text="Gonzalez"/>
+						<option id="player" text="Edu"/>
+						<option id="player" text="Charisteas"/>
+						<option id="player" text="Farfan"/>
+						<option id="player" text="Huntelaar"/>
+						
+						
+						<!--Tottenham -->
+						<option id="player" text="Gomes"/>
+						<option id="player" text="Cudicini"/>
+						<option id="player" text="Pletikosa"/>
+						<option id="player" text="Hutton"/>
+						<option id="player" text="Bale"/>
+						<option id="player" text="Kaboul"/>
+						<option id="player" text="Gallas"/>
+						<option id="player" text="Bassong"/>
+						<option id="player" text="Dawson"/>
+						<option id="player" text="Corluka"/>
+						<option id="player" text="King"/>
+						<option id="player" text="Ekotto"/>
+						<option id="player" text="Woodgate"/>
+						<option id="player" text="Huddlestone"/>
+						<option id="player" text="Lennon"/>
+						<option id="player" text="Jenas"/>
+						<option id="player" text="Vaart"/>
+						<option id="player" text="Palacios"/>
+						<option id="player" text="Modric"/>
+						<option id="player" text="Kranjčar"/>
+						<option id="player" text="Livermore"/>
+						<option id="player" text="Sandro"/>
+						<option id="player" text="Pienaar"/>
+						<option id="player" text="Byrne"/>
+						<option id="player" text="Nicholson"/>
+						<option id="player" text="Pavlyuchenko"/>
+						<option id="player" text="Crouch"/>
+						<option id="player" text="Defoe"/>
+						
+						
+						<!--Barcelona -->
+						<option id="player" text="Valdes"/>
+						<option id="player" text="Pinto"/>
+						<option id="player" text="Mino"/>
+						<option id="player" text="Olazabal"/>
+						<option id="player" text="Alves"/>
+						<option id="player" text="Pique"/>
+						<option id="player" text="Puyol"/>
+						<option id="player" text="Milito"/>
+						<option id="player" text="Maxwell"/>
+						<option id="player" text="Abidal"/>
+						<option id="player" text="Fontas"/>
+						<option id="player" text="Bartra"/>
+						<option id="player" text="Gomez"/>
+						<option id="player" text="Muniesa"/>
+						<option id="player" text="Montoya"/>
+						<option id="player" text="Hernandez"/>
+						<option id="player" text="Xavi"/>
+						<option id="player" text="Iniesta"/>
+						<option id="player" text="Mascherano"/>
+						<option id="player" text="Keita"/>
+						<option id="player" text="Busquets"/>
+						<option id="player" text="Adriano"/>
+						<option id="player" text="Roberto"/>
+						<option id="player" text="Vazquez"/>
+						<option id="player" text="Alcantara"/>
+						<option id="player" text="Jonathan"/>
+						<option id="player" text="Riverola"/>
+						<option id="player" text="Romeu"/>
+						<option id="player" text="Villa"/>
+						<option id="player" text="Krkic"/>
+						<option id="player" text="Messi"/>
+						<option id="player" text="Jeffren"/>
+						<option id="player" text="Rodríguez"/>
+						<option id="player" text="Afellay"/>
+						<option id="player" text="Nolito"/>
+						<option id="player" text="Rochina"/>
+						
+						
+						<!--Chelsea -->
+						<option id="player" text="Cech"/>
+						<option id="player" text="Turnbull"/>
+						<option id="player" text="Hilario"/>
+						<option id="player" text="Walker"/>
+						<option id="player" text="Sebek"/>
+						<option id="player" text="Ivanovic"/>
+						<option id="player" text="Cole"/>
+						<option id="player" text="Bosingwa"/>
+						<option id="player" text="Ferreira"/>
+						<option id="player" text="Terry"/>
+						<option id="player" text="Alex"/>
+						<option id="player" text="Bertrand"/>
+						<option id="player" text="Bruma"/>
+						<option id="player" text="Clifford"/>
+						<option id="player" text="Deen-Conteh"/>
+						<option id="player" text="Phillip"/>
+						<option id="player" text="Essien"/>
+						<option id="player" text="Ramires"/>
+						<option id="player" text="Lampard"/>
+						<option id="player" text="Benayoun"/>
+						<option id="player" text="Mikel"/>
+						<option id="player" text="Malouda"/>
+						<option id="player" text="Zhirkov"/>
+						<option id="player" text="McEachran"/>
+						<option id="player" text="Clifford"/>
+						<option id="player" text="Djalo"/>
+						<option id="player" text="Ince"/>
+						<option id="player" text="Sala"/>
+						<option id="player" text="Saville"/>
+						<option id="player" text="Woods"/>
+						<option id="player" text="Torres"/>
+						<option id="player" text="Drogba"/>
+						<option id="player" text="Kalou"/>
+						<option id="player" text="Anelka"/>
+						<option id="player" text="Borini"/>
+						<option id="player" text="Mitrovic"/>
+						<option id="player" text="Lalkovic"/>
+						
+						
+						<!--Köbenhavn -->
+						<option id="player" text="Christensen"/>
+						<option id="player" text="Wiland"/>
+						<option id="player" text="Pospech"/>
+						<option id="player" text="Ottesen"/>
+						<option id="player" text="Antonsson"/>
+						<option id="player" text="Wendt"/>
+						<option id="player" text="Hooiveld"/>
+						<option id="player" text="Jørgensen"/>
+						<option id="player" text="Jensen"/>
+						<option id="player" text="Bengtsson"/>
+						<option id="player" text="Claudemir"/>
+						<option id="player" text="Bergvold"/>
+						<option id="player" text="Kvist"/>
+						<option id="player" text="Kristensen"/>
+						<option id="player" text="Vingaard"/>
+						<option id="player" text="Delaney"/>
+						<option id="player" text="Özdogan"/>
+						<option id="player" text="Bolanos"/>
+						<option id="player" text="Grønkjær"/>
+						<option id="player" text="Santin"/>
+						<option id="player" text="N'Doye"/>
+						<option id="player" text="Zohore"/>
+						
+						
+						<!--Manchester United -->
+						<option id="player" text="van der Sar"/>
+						<option id="player" text="Kuszczak"/>
+						<option id="player" text="Lindegaard"/>
+						<option id="player" text="Evra"/>
+						<option id="player" text="Ferdinand"/>
+						<option id="player" text="Brown"/>
+						<option id="player" text="Smalling"/>
+						<option id="player" text="Vidic"/>
+						<option id="player" text="Fabio"/>
+						<option id="player" text="Rafael"/>
+						<option id="player" text="O'Shea"/>
+						<option id="player" text="Evans"/>
+						<option id="player" text="Gill"/>
+						<option id="player" text="Anderson"/>
+						<option id="player" text="Giggs"/>
+						<option id="player" text="Ji-Sung"/>
+						<option id="player" text="Carrick"/>
+						<option id="player" text="Nani"/>
+						<option id="player" text="Scholes"/>
+						<option id="player" text="Fletcher"/>
+						<option id="player" text="Valencia"/>
+						<option id="player" text="Gibson"/>
+						<option id="player" text="Norwood"/>
+						<option id="player" text="Owen"/>
+						<option id="player" text="Berbatov"/>
+						<option id="player" text="Rooney"/>
+						<option id="player" text="Hernandez"/>
+						<option id="player" text="Obertan"/>
+						<option id="player" text="Bebe"/>
+						<option id="player" text="King"/>
+						<option id="player" text="Keane"/>
+						
+						
+						<!--Milan -->
+						<option id="player" text="Amelia"/>
+						<option id="player" text="Roma"/>
+						<option id="player" text="Abbiati"/>
+						<option id="player" text="Nesta"/>
+						<option id="player" text="Papastathopoulos"/>
+						<option id="player" text="Oddo"/>
+						<option id="player" text="Jankulovski"/>
+						<option id="player" text="Zambrotta"/>
+						<option id="player" text="Bonera"/>
+						<option id="player" text="Silva"/>
+						<option id="player" text="Legrottaglie"/>
+						<option id="player" text="Yepes"/>
+						<option id="player" text="Antonini"/>
+						<option id="player" text="Gattuso"/>
+						<option id="player" text="Seedorf"/>
+						<option id="player" text="Strasser"/>
+						<option id="player" text="Flamini"/>
+						<option id="player" text="Abate"/>
+						<option id="player" text="Pirlo"/>
+						<option id="player" text="Ambrosini"/>
+						<option id="player" text="Boateng"/>
+						<option id="player" text="Merkel"/>
+						<option id="player" text="Pato"/>
+						<option id="player" text="Inzaghi"/>
+						<option id="player" text="Ibrahimovic"/>
+						<option id="player" text="Zlatan"/>
+						<option id="player" text="Verdi"/>
+						<option id="player" text="Robinho"/>
+						<option id="player" text="Oduamadi"/>
+						
+						
+						<!--Roma -->
+						<option id="player" text="Lobonţ"/>
+						<option id="player" text="Sergio"/>
+						<option id="player" text="Doni"/>
+						<option id="player" text="Pena"/>
+						<option id="player" text="Pigliacelli"/>
+						<option id="player" text="Castellini"/>
+						<option id="player" text="Juan"/>
+						<option id="player" text="Mexes"/>
+						<option id="player" text="Loria"/>
+						<option id="player" text="Riise"/>
+						<option id="player" text="Burdisso"/>
+						<option id="player" text="Burdisso"/>
+						<option id="player" text="Frascatore"/>
+						<option id="player" text="Cassetti"/>
+						<option id="player" text="Pizarro"/>
+						<option id="player" text="Taddei"/>
+						<option id="player" text="Rossi"/>
+						<option id="player" text="Perrotta"/>
+						<option id="player" text="Greco"/>
+						<option id="player" text="Simplicio"/>
+						<option id="player" text="Brighi"/>
+						<option id="player" text="Pettinari"/>
+						<option id="player" text="Rosi"/>
+						<option id="player" text="Adriano"/>
+						<option id="player" text="Vucinic"/>
+						<option id="player" text="Totti"/>
+						<option id="player" text="Borriello"/>
+						<option id="player" text="Montini"/>
+						<option id="player" text="Menez"/>
+						
+						
+						<!--Shakhtar Donetsk -->
+						<option id="player" text="Khudzhamov"/>
+						<option id="player" text="Pyatov"/>
+						<option id="player" text="Bazylevych"/>
+						<option id="player" text="Tetenko"/>
+						<option id="player" text="Hübschman"/>
+						<option id="player" text="Kucher"/>
+						<option id="player" text="Shevchuk"/>
+						<option id="player" text="Rat"/>
+						<option id="player" text="Chygrynskiy"/>
+						<option id="player" text="Ishchenko"/>
+						<option id="player" text="Chyzhov"/>
+						<option id="player" text="Kryvtsov"/>
+						<option id="player" text="Rakitskiy"/>
+						<option id="player" text="Fernandinho"/>
+						<option id="player" text="Jadson"/>
+						<option id="player" text="Willian"/>
+						<option id="player" text="Kobin"/>
+						<option id="player" text="Stepanenko"/>
+						<option id="player" text="Gai"/>
+						<option id="player" text="Costa"/>
+						<option id="player" text="Teixeira"/>
+						<option id="player" text="Srna"/>
+						<option id="player" text="Vitsenets"/>
+						<option id="player" text="Adriano"/>
+						<option id="player" text="Eduardo"/>
+						<option id="player" text="Mkhitaryan"/>
+						<option id="player" text="Moreno"/>
+						
+						
+						<!--Valencia -->
+						<option id="player" text="Sanchez"/>
+						<option id="player" text="Guaita"/>
+						<option id="player" text="Moya"/>
+						<option id="player" text="Gonzalez"/>
+						<option id="player" text="Carmelo"/>
+						<option id="player" text="Saltor"/>
+						<option id="player" text="Navarro"/>
+						<option id="player" text="Dealbert"/>
+						<option id="player" text="Costa"/>
+						<option id="player" text="Mathieu"/>
+						<option id="player" text="Miguel"/>
+						<option id="player" text="Joel"/>
+						<option id="player" text="Porcar"/>
+						<option id="player" text="Fornies"/>
+						<option id="player" text="Maduro"/>
+						<option id="player" text="Topal"/>
+						<option id="player" text="Albelda"/>
+						<option id="player" text="Joaquin"/>
+						<option id="player" text="Juan Mata"/>
+						<option id="player" text="Vicente"/>
+						<option id="player" text="Hernandez"/>
+						<option id="player" text="Banega"/>
+						<option id="player" text="Costa"/>
+						<option id="player" text="Alba"/>
+						<option id="player" text="Ivan"/>
+						<option id="player" text="Portugues"/>
+						<option id="player" text="Gil"/>
+						<option id="player" text="Cifo"/>
+						<option id="player" text="Gonzalez"/>
+						<option id="player" text="Dominguez"/>
+						<option id="player" text="Soldado"/>
+						<option id="player" text="Aduriz"/>
+						<option id="player" text="Goncalves De Oliveira"/>
+						<option id="player" text="Isco"/>
+						<option id="player" text="Alcacer"/>
+						<option id="player" text="Tortosa"/>
+			</question>
+		</page>
+	</pages>
+</root>
