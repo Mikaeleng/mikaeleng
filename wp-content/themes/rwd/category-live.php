@@ -11,14 +11,14 @@ Template Name: StartPage
 
 	<div id="content" class="first clearfix">
 		<div id="main" class="tvelvecol first clearfix" role="main">
-					<div id="create-container">
-						<div id="page-filter" class=" first"> <?php //echo bones_wpsearchComplete($form); ?>
+					<div id="live-container">
+						<!-- <div id="page-filter" class=" first"> <?php //echo bones_wpsearchComplete($form); ?>-->
 
 					<?php //echo bones_tagsearch($form); ?>
 					<!--<input type="text" value="" name="tag-term" id="tag-term" placeholder="" />
 						<div id="selection" style="position:absolute;"></div> -->
 						</div>
-						<div id="create-item-container">
+						<div id="live-item-container">
 								<h1><?php
 									$category = get_the_category(); 
 									echo $category[0]->cat_name;

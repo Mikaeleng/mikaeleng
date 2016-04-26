@@ -237,178 +237,13 @@ NAVIGATION STYLES
 
 
 	.feed-item{ margin-bottom: 8%;}
-	#create-container{
-			position: relative;
-			width: inherit;
-			.clearfix();
 
-			#page-filter{
-
-				form{
-
-					#input-container{
-						input[type=text]{
-							.twelvecol();
-							.clear-margin();
-						}
-						input[type=submit]{
-							padding-right: 0;
-						}
-					}
-				}
-			}
-
-			#create-item-container{
-				width: 65.5%;
-				float: right;
-				position: relative;
-			}
-
-			.feed-item{
-				background: @item-bg-color;
-				margin-bottom:8%;
-				position: relative;
-				margin-left: 2rem;
-
-				.year-tag{  background: @button-color; border-radius: 4px;padding: 0.1rem 0.4rem; .H2(); width: 25%;
-				text-align: center;
-				margin-left: -1rem;
-				margin-top: -1rem;}
-
-				.create-header{ 
-					margin-top: 2rem;
-					.flex-box();
-					.flex-wrap(nowrap);
-					.flex-justify(space-around);
-					.flex-align-items(center);
-					a{.flex-basics(0 1 60%); margin: 0 4% 0 3%;
-                      h2{margin-left: 0}
-                    }
-					h3{.flex-basics(0 1 40%); .flex-align-self(flex-start); color:@button-color; .H2(); margin: 0 5% 0 0;}
-				}
-				.create-content{
-					.flex-box();
-					.flex-wrap(nowrap);
-					.flex-justify(space-around);
-					.flex-align-items(stretch);
-					.create-info{.flex-basics(0 1 60%);}
-
-					.create-metadata{
-						.flex-basics(0 1 40%);
-						.flex-align-self(stretch);
-
-						.flex-box();
-						.flex-wrap(nowrap);
-						.flex-direction(column,vertical);
-						.flex-justify(space-between);
-						.tags{
-							margin: 0;
-							padding-right: 7%;
-							p{margin: 0;}
-						}
-						a{
-							margin: 0;
-							width: 100%;
-							.button{
-								margin: 0 auto 1.5rem auto;
-								.elevencol();
-								float: none;
-								text-align: center;
-								height: 2.22rem;
-								margin-left: 0;
-								span{.font(1.2rem, @button-text-color,'oswaldbook'); line-height: 1.5}
-							}
-						}
-					}
-					
-				}
-			}
-		}
-		#work-container{
-			position: relative;
-			width: inherit;
-			.clearfix();
-
-			#page-filter{
-
-				form{
-
-					#input-container{
-						input[type=text]{
-							.twelvecol();
-							.clear-margin();
-						}
-						input[type=submit]{
-							padding-right: 0;
-						}
-					}
-				}
-			}
-
-			#work-item-container{
-				width: 65.5%;
-				float: right;
-				position: relative;
-			}
-
-			.feed-item{
-				background: @item-bg-color;
-				margin-bottom:8%;
-				position: relative;
-				margin-left: 2rem;
-
-				.year-tag{  background: @button-color; border-radius: 4px;padding: 0.1rem 0.4rem; .H2(); width: 35%;
-				text-align: center;
-				margin-left: -1rem;
-				margin-top: -1rem;}
-
-				.create-header{ 
-					margin-top: 2rem;
-					.flex-box();
-					.flex-wrap(nowrap);
-					.flex-justify(space-around);
-					.flex-align-items(center);
-					h2{.flex-basics(0 1 60%); margin: 0 4% 0 3%;}
-					h3{.flex-basics(0 1 40%); .flex-align-self(flex-start); color:@button-color; .H2(); margin: 0 5% 0 0;}
-				}
-				.work-content{
-					/*.flex-box();
-					.flex-wrap(nowrap);
-					.flex-justify(space-around);
-					.flex-align-items(stretch);
-					.flex-direction(column, vertical);*/
-					.create-info{.flex-basics(0 1 60%);}
-
-					.work-metadata{
-						.flex-basics(0 1 40%); 
-						.flex-align-self(stretch);
-
-						.flex-box();
-						.flex-wrap(nowrap);
-						.flex-direction(column,vertical);
-						.flex-justify(space-between);
-						.tags{
-							margin: 0;
-							padding-right: 7%;
-						}
-						a{
-							margin: 0;
-							width: 100%;
-							.button{
-								margin: 0 auto 1.5rem auto;
-								.elevencol();
-								float: none;
-								text-align: center;
-								height: 2.22rem;
-								margin-left: 0;
-								span{.font(1.2rem, @button-text-color,'oswaldbook'); line-height: 1.5}
-							}
-						}
-					}
-					
-				}
-			}
-		}
+  // importing all the css for the different feed container items. the image and the caption
+  // To make a new feed just copy the container less file and add it to the import list below.
+  // And name it after the view and the naming convetion as the other ones has.
+  @import-once "feeds/create-feed-container_768";
+  @import-once "feeds/work-feed-container_768";
+  @import-once "feeds/live-feed-container_768";
 }	// end of main
 	.feed-item{
 		margin-bottom: 8%;
@@ -417,7 +252,7 @@ NAVIGATION STYLES
 		h2{	margin:  0.83em 5% 0 6%;}
 		}
 	}
-	.right-item{
+	.right-item, #live-item-container .auto{
 
 		.feed-info{
 			.sixcol();
@@ -438,6 +273,12 @@ NAVIGATION STYLES
 			
 		}
 	}
+  #live-item-container .feed-item{
+    max-height: 300px;
+    overflow: hidden;
+  }
+
+
 	.left-item{
 
 		.feed-info{

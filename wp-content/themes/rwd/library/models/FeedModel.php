@@ -280,6 +280,7 @@ function get_live_feed_model($args){
    if($custom_query->current_post > $args['pointer'] && $custom_query->current_post < $args['postLimit']){
 
     $post_type = get_post_meta( $post ->ID, '_post_feed_image_position', true );
+    
       ?>
         <div class="feed-item <?php echo $post_type;?> first clearfix" id="divID_<?php echo $post ->ID;?>">
           <?php if ( has_post_thumbnail($custom_query ->ID)) {
@@ -292,6 +293,9 @@ function get_live_feed_model($args){
             echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-large', array('class' => 'feed-thumb-large'));
            break;
            case 'left-item':
+             echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-side', array('class' => 'feed-thumb-side'));
+             break;
+             case 'auto':
              echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-side', array('class' => 'feed-thumb-side'));
              break;
            default:

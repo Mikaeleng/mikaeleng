@@ -1,0 +1,86 @@
+/* _768 px */
+#work-container{
+  position: relative;
+  width: inherit;
+  .clearfix();
+
+  #page-filter{
+
+	form{
+
+	  #input-container{
+		input[type=text]{
+		  .twelvecol();
+		  .clear-margin();
+		}
+		input[type=submit]{
+		  padding-right: 0;
+		}
+	  }
+	}
+  }
+
+  #work-item-container{
+	width: 65.5%;
+	float: right;
+	position: relative;
+  }
+
+  .feed-item{
+	background: @item-bg-color;
+	margin-bottom:8%;
+	position: relative;
+	margin-left: 2rem;
+
+	.year-tag{  background: @button-color; border-radius: 4px;padding: 0.1rem 0.4rem; .H2(); width: 35%;
+	  text-align: center;
+	  margin-left: -1rem;
+	  margin-top: -1rem;}
+
+	.create-header{
+	  margin-top: 2rem;
+	  .flex-box();
+	  .flex-wrap(nowrap);
+	  .flex-justify(space-around);
+	  .flex-align-items(center);
+	  h2{.flex-basics(0 1 60%); margin: 0 4% 0 3%;}
+	  h3{.flex-basics(0 1 40%); .flex-align-self(flex-start); color:@button-color; .H2(); margin: 0 5% 0 0;}
+	}
+	.work-content{
+	  /*.flex-box();
+      .flex-wrap(nowrap);
+      .flex-justify(space-around);
+      .flex-align-items(stretch);
+      .flex-direction(column, vertical);*/
+	  .create-info{.flex-basics(0 1 60%);}
+
+	  .work-metadata{
+		.flex-basics(0 1 40%);
+		.flex-align-self(stretch);
+
+		.flex-box();
+		.flex-wrap(nowrap);
+		.flex-direction(column,vertical);
+		.flex-justify(space-between);
+		.tags{
+		  margin: 0;
+		  padding-right: 7%;
+		}
+		a{
+		  margin: 0;
+		  width: 100%;
+		  .button{
+			margin: 0 auto 1.5rem auto;
+			.elevencol();
+			float: none;
+			text-align: center;
+			height: 2.22rem;
+			margin-left: 0;
+			span{.font(1.2rem, @button-text-color,'oswaldbook'); line-height: 1.5}
+		  }
+		}
+	  }
+
+	}
+  }
+}
