@@ -231,54 +231,62 @@ NAVIGATION STYLES
   }
 }
 #content {
-	//margin: 41px auto 0 auto;
-#main{
-	max-width : 940px;
+  //margin: 41px auto 0 auto;
+  #main {
+    max-width: 940px;
 
+    .feed-item {
+      margin-bottom: 8%;
+      margin: 8% 0;
+    }
 
-	.feed-item{ margin-bottom: 8%;}
-
-  // importing all the css for the different feed container items. the image and the caption
-  // To make a new feed just copy the container less file and add it to the import list below.
-  // And name it after the view and the naming convetion as the other ones has.
-  @import-once "feeds/create-feed-container_768";
-  @import-once "feeds/work-feed-container_768";
-  @import-once "feeds/live-feed-container_768";
-}	// end of main
-	.feed-item{
-		margin-bottom: 8%;
-		
-		.feed-info {
-		h2{	margin:  0.83em 5% 0 6%;}
-		}
-	}
-	.right-item, #live-item-container .auto{
-
-		.feed-info{
-			.sixcol();
-			float: left;
-			display: inline-block;
-
-
-		}
-
-		img{
-			.sixcol();
-			.clear-margin();
-			height: auto;
-			float: right;
-			display: inline-block;
-			min-height: auto;
-			height: inherit;
-			
-		}
-	}
-  #live-item-container .feed-item{
-    max-height: 300px;
-    overflow: hidden;
+    // importing all the css for the different feed container items. the image and the caption
+    // To make a new feed just copy the container less file and add it to the import list below.
+    // And name it after the view and the naming convetion as the other ones has.
+    @import-once "feeds/create-feed-container_768";
+    @import-once "feeds/work-feed-container_768";
+    @import-once "feeds/live-feed-container_768";
   }
+  // end of main
+  .feed-item {
+    margin-bottom: 8%;
 
+    .feed-info {
+      h2 {
+        margin: 0.83em 5% 0 6%;
+      }
+    }
+  }
+  .right-item, #live-item-container .auto {
 
+    .feed-info {
+      .sixcol();
+      float: left;
+      display: inline-block;
+
+    }
+
+    img {
+      .sixcol();
+      .clear-margin();
+      height: auto;
+      float: right;
+      display: inline-block;
+      min-height: auto;
+      height: inherit;
+
+    }
+  }
+  #live-item-container {
+    .feed-item {
+      max-height: 300px;
+      overflow: hidden;
+
+    }
+    .large-item {
+      max-height: none;
+    }
+  }
 	.left-item{
 
 		.feed-info{
@@ -287,7 +295,9 @@ NAVIGATION STYLES
 			float: right;
 			display: inline-block;
 		}
-
+      .expand-info{
+        .twelvecol();
+      }
 		img{
 			.sixcol();
 			.clear-margin();
@@ -297,6 +307,7 @@ NAVIGATION STYLES
 			
 		}
 	}
+
 }
 
 .nav-links{padding: 1rem 0;}
@@ -433,6 +444,8 @@ SIDEBARS & ASIDES
 
 #load-more-container{
 	margin-left: 2rem;
+    .twelvecol();
+  float:none;
 }
 
 /*********************

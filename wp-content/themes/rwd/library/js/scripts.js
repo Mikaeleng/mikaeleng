@@ -105,7 +105,9 @@ jQuery(document).ready(function($) {
         event.preventDefault();
         showNav();
     })
-    $('#menu-button').sidr({
+    // makes the drawer menu show and hide:
+
+   /* $('#menu-button').sidr({
           name: 'sidr-right',
           side: 'right',
           source: '#main-navigation',
@@ -115,7 +117,7 @@ jQuery(document).ready(function($) {
           onClose: function(){
             jQuery("#mobile-menu-wrapper").animate({right:"0"},"fast", "linear")
           }
-    });
+    });*/
 
     $(window).swipe({
         swipeLeft:function(event, direction, distance, duration, fingerCount, fingerData) {

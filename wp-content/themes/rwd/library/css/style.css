@@ -1295,10 +1295,10 @@ a:a:visited {
 }
 a:link {
   /*
-		this highlights links on iPhones/iPads.
-		so it basically works like the :hover selector
-		for mobile devices.
-		*/
+    this highlights links on iPhones/iPads.
+    so it basically works like the :hover selector
+    for mobile devices.
+    */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
 }
 /******************************************************************
@@ -1319,9 +1319,9 @@ h5,
   font-weight: 400;
   margin: 0 5% 0 5%;
   /*
-	if you're going to use webfonts, be sure to check your weights
-	http://css-tricks.com/watch-your-font-weight/
-	*/
+  if you're going to use webfonts, be sure to check your weights
+  http://css-tricks.com/watch-your-font-weight/
+  */
   /* removing text decoration from all headline links */
 }
 h1 a,
@@ -1391,7 +1391,7 @@ ul {
   margin: 0;
 }
 header.article-header {
-  display: block!important;
+  display: block !important;
 }
 header.article-header p.byline.vcard {
   -ms-box-orient: horizontal;
@@ -1464,8 +1464,8 @@ header.article-header p {
   margin-left: 2.762430939%;
   position: absolute;
   bottom: 0;
-  height: 30%;
-  max-height: 100px;
+  height: 60%;
+  max-height: 140px;
   margin-left: 0;
   width: 100%;
 }
@@ -1507,8 +1507,52 @@ the navs on the site so our css is cleaner
 and more scalable.
 */
 #main-navigation {
-  display: none;
+  display: block;
   background: #353333;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 990;
+  border-top: #3f3f3b 1px solid;
+  min-height: 46px;
+}
+#main-navigation nav {
+  position: relative;
+  display: inline;
+  width: 100%;
+}
+#main-navigation nav .nav {
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  border-bottom: none;
+  background: #353333;
+  -webkit-box-shadow: 0px -4px 1px 0px #4a4a4a;
+  -moz-box-shadow: 0px -4px 1px 0px #4a4a4a;
+  box-shadow: 0px -1px 3px 1px #4a4a4a;
+}
+#main-navigation nav .nav li {
+  min-height: 46px;
+  line-height: 46px;
 }
 .sidr ul li:hover > a,
 .sidr ul li:hover > span,
@@ -1582,7 +1626,7 @@ and more scalable.
 }
 .sidr.right .current-post-parent a {
   color: #222222;
-  background: transparent!important;
+  background: transparent !important;
 }
 .sidr.right .sidr-class-top-nav .sidr-class-menu-item {
   -ms-box-orient: horizontal;
@@ -1695,12 +1739,12 @@ and more scalable.
 .nav li {
   padding-right: 0.4rem;
   /*
-		so you really have to rethink your dropdowns for mobile.
-		you don't want to have it expand too much because the
-		screen is so small. How you manage your menu should
-		depend on the project. Here's some great info on it:
-		http://www.alistapart.com/articles/organizing-mobile/
-		*/
+    so you really have to rethink your dropdowns for mobile.
+    you don't want to have it expand too much because the
+    screen is so small. How you manage your menu should
+    depend on the project. Here's some great info on it:
+    http://www.alistapart.com/articles/organizing-mobile/
+    */
 }
 .nav li a {
   display: block;
@@ -1708,11 +1752,11 @@ and more scalable.
   padding: 10px 10px;
   background: #353333 !important;
   /*
-			remember this is for mobile ONLY, so there's no need
-			to even declare hover styles here, you can do it in
-			the style.scss file where it's relevant. We want to
-			keep this file as small as possible!
-			*/
+      remember this is for mobile ONLY, so there's no need
+      to even declare hover styles here, you can do it in
+      the style.scss file where it's relevant. We want to
+      keep this file as small as possible!
+      */
 }
 .nav li ul.sub-menu li a,
 .nav li ul.children li a {
@@ -1731,7 +1775,7 @@ and more scalable.
 .nav .current-post-parent a,
 .nav .sidr-class-current-category a {
   color: #222222;
-  background: transparent!important;
+  background: transparent !important;
 }
 /* end .nav */
 .autocomplete-suggestions {
@@ -2009,6 +2053,9 @@ and more scalable.
   margin-bottom: 0;
   text-decoration: underline;
 }
+#content #main #create-container .feed-item .create-content .create-info a:hover {
+  color: #b9b9b9;
+}
 #content #main #create-container .feed-item .create-content .create-metadata .tags a {
   margin: 0;
 }
@@ -2151,69 +2198,7 @@ and more scalable.
   float: none;
   text-align: center;
 }
-#content #main #live-container {
-  position: relative;
-  width: inherit;
-  zoom: 1;
-  /*
-		#page-filter{
-		  width: 34.5%;
-		  min-height: 100%;
-		  background: url("../images/filter-background.jpg");
-		  background-repeat: repeat-y;
-		  background-size: cover;
-		  position: absolute;
-		  display: none;
-
-		  form{
-			position: relative;
-
-			#input-container{
-			  .tencol();
-			  .clear-margin();
-			  .center();
-			  margin-top: 2rem;
-			  background: @search-background-color;
-			  border-radius: 5px;
-			  .flex-box();
-			  .flex-wrap(nowrap);
-			  height: 2.5rem;
-
-			  input[type=text]{
-				display: inline-block;
-				background: transparent;
-				border:0;
-				color: @button-color;
-				padding-left: 1.3rem;
-			  }
-			  input[type=submit]{
-				padding: 0;
-				.H2();
-				color: @button-color;
-			  }
-			}
-		  }
-		}*/
-}
-#content #main #live-container:before,
-#content #main #live-container:after {
-  content: "";
-  display: table;
-}
-#content #main #live-container:after {
-  clear: both;
-}
-#content #main #live-container #live-item-container {
-  width: 99.999999993%;
-  float: left;
-  margin-left: 2.762430939%;
-  margin: 0;
-  margin-left: 0;
-  float: none;
-  float: right;
-  position: relative;
-}
-#content #main #live-container .year-devider {
+#content #main .year-devider {
   text-align: center;
   color: #b9b9b9;
   font-size: 2.1rem;
@@ -2221,13 +2206,13 @@ and more scalable.
   padding: 0.75rem 0;
   margin: 1.5rem 0;
 }
-#content #main #live-container .feed-item {
+#content #main .feed-item {
   background: #353333;
   margin: 16% 0 16% 0;
   position: relative;
   margin-left: 0;
 }
-#content #main #live-container .feed-item .year-tag {
+#content #main .feed-item .year-tag {
   background: #85857d;
   border-radius: 4px;
   padding: 0.1rem 0.4rem;
@@ -2238,16 +2223,16 @@ and more scalable.
   margin-left: -0.5rem;
   margin-top: -0.5rem;
 }
-#content #main #live-container .feed-item .work-header {
+#content #main .feed-item .work-header {
   margin: 2rem 0 1rem 0;
 }
-#content #main #live-container .feed-item .work-header h2 {
+#content #main .feed-item .work-header h2 {
   margin-bottom: 0;
 }
-#content #main #live-container .feed-item .work-content .work-metadata .tags a {
+#content #main .feed-item .work-content .work-metadata .tags a {
   margin: 0;
 }
-#content #main #live-container .feed-item .work-content .work-metadata a {
+#content #main .feed-item .work-content .work-metadata a {
   width: 65.74585634900001%;
   float: left;
   margin-left: 2.762430939%;
@@ -2256,11 +2241,29 @@ and more scalable.
   float: none;
   position: relative;
 }
-#content #main #live-container .feed-item .work-content .work-metadata a .button {
+#content #main .feed-item .work-content .work-metadata a .button {
   position: relative;
   margin: 0 auto 1.5rem 5%;
   float: none;
   text-align: center;
+}
+#content #main #live-item-container {
+  width: 99.999999993%;
+  float: left;
+  margin-left: 2.762430939%;
+  margin: 0;
+  margin-left: 0;
+  float: none;
+  float: right;
+  position: relative;
+}
+#content #main #live-item-container a {
+  text-decoration: none;
+}
+#content #main #live-item-container .feed-info p {
+  color: #b9b9b9;
+  font-size: 1.5rem;
+  font-family: "oswaldlight";
 }
 #content #buttonContainer {
   -ms-box-orient: horizontal;
@@ -2345,8 +2348,22 @@ and more scalable.
   display: none;
 }
 #content #buttonContainer .button.large span {
-  margin: 0 ;
+  margin: 0;
   font-size: 2rem;
+}
+#content #work-container #load-more-container,
+#content #create-container #load-more-container {
+  width: 63%;
+  float: right;
+}
+#content #work-container #load-more-container #work-container #buttonContainer,
+#content #create-container #load-more-container #work-container #buttonContainer,
+#content #work-container #load-more-container #create-container #buttonContainer,
+#content #create-container #load-more-container #create-container #buttonContainer {
+  width: 65.74585634900001%;
+  position: relative;
+  float: left;
+  margin-left: 2.762430939%;
 }
 /* end .hentry */
 /* want to style individual post classes? Booya! */
@@ -2365,7 +2382,7 @@ article p {
 article pre {
   text-align: center;
   font-family: "oswaldlight" !important;
-  font-size: 1rem!important;
+  font-size: 1rem !important;
 }
 article pre:before {
   content: "“ ";
@@ -2405,7 +2422,7 @@ article pre:after {
   padding: 1rem;
 }
 .article-footer h2 {
-  padding: 2rem 0 0 ;
+  padding: 2rem 0 0;
 }
 .article-footer ul {
   padding: 0 0 2rem;
@@ -2430,11 +2447,11 @@ article pre:after {
 .entry-content {
   margin-bottom: 1rem;
   /*
-			image alignment on a screen this size may be
-			a bit difficult. It's set to start aligning
-			and floating images at the next breakpoint,
-			but it's up to you. Feel free to change it up.
-			*/
+  image alignment on a screen this size may be
+  a bit difficult. It's set to start aligning
+  and floating images at the next breakpoint,
+  but it's up to you. Feel free to change it up.
+  */
 }
 .entry-content p {
   color: #b9b9b9;
@@ -2734,6 +2751,7 @@ article pre:after {
 .footer {
   background: #353333;
   clear: both;
+  margin-bottom: 5em;
   padding-top: 1rem;
 }
 .footer #inner-footer {
@@ -2794,14 +2812,14 @@ article pre:after {
   margin: 0;
 }
 /*
-	if you checked out the link above:
-	http://www.alistapart.com/articles/organizing-mobile/
-	you'll want to style the footer nav
-	a bit more in-depth. Remember to keep
-	it simple because you'll have to
-	override these styles for the desktop
-	view.
-	*/
+if you checked out the link above:
+http://www.alistapart.com/articles/organizing-mobile/
+you'll want to style the footer nav
+a bit more in-depth. Remember to keep
+it simple because you'll have to
+override these styles for the desktop
+view.
+*/
 /* end .footer-links */
 #mobile-menu-wrapper {
   width: 41px;
@@ -2893,9 +2911,6 @@ NAVIGATION STYLES
   }
   #menu-item-search {
     display: list-item;
-  }
-  .nav {
-    border-bottom: none;
   }
   .top-nav .menu-item:nth-child(1) a::before,
   .sidr-class-top-nav .menu-item:nth-child(1) a::before,
@@ -3014,8 +3029,26 @@ NAVIGATION STYLES
     -ms-justify-content: flex-start;
     position: fixed;
     top: 0;
+    height: 50px;
     width: 100%;
     z-index: 990;
+    background: #353333;
+    /*#searchform{
+			position: fixed;
+			right:0;
+			z-index: 990;
+
+			// main menu search button style
+		#searchsubmit{
+			border : none;
+			font-size : 20px;
+			color : @text-color;
+			padding : 1px 10px;
+			background-color : transparent;
+			font-family: @avantgarde;
+		}
+
+	}*/
   }
   #main-navigation nav {
     position: relative;
@@ -3034,20 +3067,10 @@ NAVIGATION STYLES
     justify-content: flex-start;
     -moz-justify-content: flex-start;
     -ms-justify-content: flex-start;
-  }
-  #main-navigation #searchform {
-    position: fixed;
-    right: 0;
-    z-index: 990;
-    /* main menu search button style */
-  }
-  #main-navigation #searchform #searchsubmit {
-    border: none;
-    font-size: 20px;
-    color: #b9b9b9;
-    padding: 1px 10px;
-    background-color: transparent;
-    font-family: "Avantgarde";
+    border-bottom: #3f3f3b;
+    -webkit-box-shadow: 0px 1px 3px 1px rgba(74, 74, 74, 0.6);
+    -moz-box-shadow: 0px 1px 3px 1px rgba(74, 74, 74, 0.6);
+    box-shadow: 0px 1px 3px 1px rgba(74, 74, 74, 0.6);
   }
   /* .menu is clearfixed inside mixins.scss */
   .menu {
@@ -3125,7 +3148,7 @@ NAVIGATION STYLES
     min-height: 100%;
   }
   #content {
-    width: 99.999999993%;
+    width: 91.436464082%;
     position: relative;
     float: left;
     margin-left: 2.762430939%;
@@ -3253,6 +3276,31 @@ NAVIGATION STYLES
   #content .feed-item {
     margin-bottom: 10%;
   }
+  #content #live-item-container .auto {
+    max-height: 300px;
+    overflow: hidden;
+  }
+  #content #live-item-container .auto .feed-info {
+    width: 48.618784527%;
+    position: relative;
+    margin-left: 2.762430939%;
+    float: left;
+    display: inline-block;
+  }
+  #content #live-item-container .auto img {
+    width: 48.618784527%;
+    position: relative;
+    float: left;
+    margin-left: 2.762430939%;
+    margin: 0;
+    margin-left: 0;
+    float: none;
+    height: auto;
+    float: right;
+    display: inline-block;
+    min-height: auto;
+    height: inherit;
+  }
   #content #buttonContainer {
     width: 99.999999993%;
     position: relative;
@@ -3323,7 +3371,7 @@ do they need tweaking?
   }
   .footer {
     margin: 0;
-    margin-bottom: 3em;
+    margin-bottom: 0;
   }
   .footer #inner-footer {
     margin: 0 auto 3rem;
@@ -3608,6 +3656,7 @@ NAVIGATION STYLES
   }
   #content #main .feed-item {
     margin-bottom: 8%;
+    margin: 8% 0;
   }
   #content .feed-item {
     margin-bottom: 8%;
@@ -3642,6 +3691,9 @@ NAVIGATION STYLES
     max-height: 300px;
     overflow: hidden;
   }
+  #content #live-item-container .large-item {
+    max-height: none;
+  }
   #content .left-item .feed-info {
     width: 48.618784527%;
     position: relative;
@@ -3652,6 +3704,12 @@ NAVIGATION STYLES
     float: none;
     float: right;
     display: inline-block;
+  }
+  #content .left-item .expand-info {
+    width: 99.999999993%;
+    position: relative;
+    float: left;
+    margin-left: 2.762430939%;
   }
   #content .left-item img {
     width: 48.618784527%;
@@ -3705,6 +3763,11 @@ SIDEBARS & ASIDES
   /* text widget */
   #load-more-container {
     margin-left: 2rem;
+    width: 99.999999993%;
+    position: relative;
+    float: left;
+    margin-left: 2.762430939%;
+    float: none;
   }
   /*********************
 13. FOOTER STYLES

@@ -459,9 +459,6 @@ NAVIGATION STYLES
 #menu-item-search {
   display: list-item;
 }
-.nav {
-  border-bottom: none;
-}
 .top-nav .menu-item:nth-child(1) a::before,
 .sidr-class-top-nav .menu-item:nth-child(1) a::before,
 .top-nav .sidr-class-menu-item:nth-child(1) a::before,
@@ -579,8 +576,26 @@ NAVIGATION STYLES
   -ms-justify-content: flex-start;
   position: fixed;
   top: 0;
+  height: 50px;
   width: 100%;
   z-index: 990;
+  background: #353333;
+  /*#searchform{
+			position: fixed;
+			right:0;
+			z-index: 990;
+
+			// main menu search button style
+		#searchsubmit{
+			border : none;
+			font-size : 20px;
+			color : @text-color;
+			padding : 1px 10px;
+			background-color : transparent;
+			font-family: @avantgarde;
+		}
+
+	}*/
 }
 #main-navigation nav {
   position: relative;
@@ -599,20 +614,10 @@ NAVIGATION STYLES
   justify-content: flex-start;
   -moz-justify-content: flex-start;
   -ms-justify-content: flex-start;
-}
-#main-navigation #searchform {
-  position: fixed;
-  right: 0;
-  z-index: 990;
-  /* main menu search button style */
-}
-#main-navigation #searchform #searchsubmit {
-  border: none;
-  font-size: 20px;
-  color: #b9b9b9;
-  padding: 1px 10px;
-  background-color: transparent;
-  font-family: "Avantgarde";
+  border-bottom: #3f3f3b;
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(74, 74, 74, 0.6);
+  -moz-box-shadow: 0px 1px 3px 1px rgba(74, 74, 74, 0.6);
+  box-shadow: 0px 1px 3px 1px rgba(74, 74, 74, 0.6);
 }
 /* .menu is clearfixed inside mixins.scss */
 .menu {
@@ -690,7 +695,7 @@ NAVIGATION STYLES
   min-height: 100%;
 }
 #content {
-  width: 99.999999993%;
+  width: 91.436464082%;
   position: relative;
   float: left;
   margin-left: 2.762430939%;
@@ -818,6 +823,31 @@ NAVIGATION STYLES
 #content .feed-item {
   margin-bottom: 10%;
 }
+#content #live-item-container .auto {
+  max-height: 300px;
+  overflow: hidden;
+}
+#content #live-item-container .auto .feed-info {
+  width: 48.618784527%;
+  position: relative;
+  margin-left: 2.762430939%;
+  float: left;
+  display: inline-block;
+}
+#content #live-item-container .auto img {
+  width: 48.618784527%;
+  position: relative;
+  float: left;
+  margin-left: 2.762430939%;
+  margin: 0;
+  margin-left: 0;
+  float: none;
+  height: auto;
+  float: right;
+  display: inline-block;
+  min-height: auto;
+  height: inherit;
+}
 #content #buttonContainer {
   width: 99.999999993%;
   position: relative;
@@ -888,7 +918,7 @@ do they need tweaking?
 }
 .footer {
   margin: 0;
-  margin-bottom: 3em;
+  margin-bottom: 0;
 }
 .footer #inner-footer {
   margin: 0 auto 3rem;
@@ -1257,6 +1287,7 @@ NAVIGATION STYLES
 }
 #content #main .feed-item {
   margin-bottom: 8%;
+  margin: 8% 0;
 }
 #content .feed-item {
   margin-bottom: 8%;
@@ -1291,6 +1322,9 @@ NAVIGATION STYLES
   max-height: 300px;
   overflow: hidden;
 }
+#content #live-item-container .large-item {
+  max-height: none;
+}
 #content .left-item .feed-info {
   width: 48.618784527%;
   position: relative;
@@ -1301,6 +1335,12 @@ NAVIGATION STYLES
   float: none;
   float: right;
   display: inline-block;
+}
+#content .left-item .expand-info {
+  width: 99.999999993%;
+  position: relative;
+  float: left;
+  margin-left: 2.762430939%;
 }
 #content .left-item img {
   width: 48.618784527%;
@@ -1354,6 +1394,11 @@ SIDEBARS & ASIDES
 /* text widget */
 #load-more-container {
   margin-left: 2rem;
+  width: 99.999999993%;
+  position: relative;
+  float: left;
+  margin-left: 2.762430939%;
+  float: none;
 }
 /*********************
 13. FOOTER STYLES

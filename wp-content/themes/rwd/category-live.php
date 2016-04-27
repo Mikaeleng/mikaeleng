@@ -17,11 +17,11 @@ Template Name: StartPage
 					<?php //echo bones_tagsearch($form); ?>
 					<!--<input type="text" value="" name="tag-term" id="tag-term" placeholder="" />
 						<div id="selection" style="position:absolute;"></div> -->
-						</div>
+
 						<div id="live-item-container">
-								<h1><?php
-									$category = get_the_category(); 
-									echo $category[0]->cat_name;
+								<h1 ><?php
+									//$category = get_the_category();
+									//echo $category[0]->cat_name;
 									?></h1>
 							<?php 
 							get_feedItems($args = array(
@@ -45,6 +45,7 @@ Template Name: StartPage
 				                ));
 						}
 					  	?>
+						</div>
 					  	</div>
 					</div> <!-- end create-container -->
 				</div> <?php // end #main ?>

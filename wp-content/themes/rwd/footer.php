@@ -29,12 +29,14 @@
 				<a href="https://twitter.com/MikaelEng"><span class="Avantgarde-twitter"></span></a>
 			</div>
 		</div>
-		<?php get_button($arg = array(
+		<?php
+		/* Displays the menu button on the side:
+						get_button($arg = array(
 					    	'typeOfAction' => 'toggle-mobile-menu',
 			                'typeOfButton' => 'mobile-menu-button',
 			                'button_text' => '',
 			                'size' => 'medium'
-			                )); ?>
+			                )); */?>
 		<!-- ends footer bottom -->
 	</footer> <?php // end footer ?>
 

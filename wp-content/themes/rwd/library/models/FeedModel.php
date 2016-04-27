@@ -1,6 +1,6 @@
 <?php
 
-  $local = stripos($_SERVER['SERVER_NAME'], "localhost");
+  $local = stripos($_SERVER['SERVER_NAME'], "engbo");
 
 if($local===false){
   if (!empty($_POST)){
@@ -280,10 +280,12 @@ function get_live_feed_model($args){
    if($custom_query->current_post > $args['pointer'] && $custom_query->current_post < $args['postLimit']){
 
     $post_type = get_post_meta( $post ->ID, '_post_feed_image_position', true );
-    
+
       ?>
         <div class="feed-item <?php echo $post_type;?> first clearfix" id="divID_<?php echo $post ->ID;?>">
+
           <?php if ( has_post_thumbnail($custom_query ->ID)) {
+
          echo '<a href="' . get_permalink( $custom_query ->ID ) . '" title="' . esc_attr( $custom_query ->post_title ) . '">';
          switch ($post_type) {
            case 'right-item':
@@ -305,10 +307,10 @@ function get_live_feed_model($args){
 
           echo '</a>';
         }?>
-          <div class="feed-info">
+          <div class="feed-info <?php if ( !has_post_thumbnail($custom_query ->ID)) {echo ' expand-info';}?>">
             <a href="<?php echo get_permalink( $custom_query ->ID )?>" title="<?php echo esc_attr( $custom_query ->post_title ) ?>"><h2><?php the_title();?></h2></a>
-            <p><?php print_excerpt(200); ?></p>
-            <div class="category first clearfix">
+            <a href="<?php echo get_permalink( $custom_query ->ID )?>" title="<?php echo esc_attr( $custom_query ->post_title ) ?>"><p><?php print_excerpt(200); ?></p></a>
+           <!-- <div class="category first clearfix">
               <span>Category</span>
               <p><?php echo get_custom_categories(array(
                     'orderby' => 'name',
@@ -317,10 +319,10 @@ function get_live_feed_model($args){
                     ));
               ?></p>
 
-            </div>
+            </div>-->
             <div class="tags first clearfix">
 
-              <p>Tags: <?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></p>
+              <p><?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></p>
             </div>
           </div>
         </div> <!-- // end feed-item -->

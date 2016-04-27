@@ -20,8 +20,8 @@ Template Name: StartPage
 						</div>
 						<div id="create-item-container">
 								<h1><?php
-									$category = get_the_category(); 
-									echo $category[0]->cat_name;
+									//$category = get_the_category();
+									//echo $category[0]->cat_name;
 									?></h1>
 							<?php 
 							get_feedItems($args = array(
