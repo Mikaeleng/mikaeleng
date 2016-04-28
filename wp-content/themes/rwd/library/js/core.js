@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
  var user = $('#wpadminbar').val();
 //removes wp_navbar for logind user in non-admin view
   if(user !== "undefined"){
-    $('#content').css('margin', '41px auto 0 auto');
+    //$('#content').css('margin', '41px auto 0 auto');
   }
 
 
@@ -85,7 +85,26 @@ jQuery(document).ready(function($) {
 
     e.preventDefault();
   }); // end of work fetch 
+// event for geting more post on the live.php page
+    jQuery(".live-page-feed-button").click(function(e){
+        var currentCount = jQuery(".feed-item").length;
+        var newTotal = currentCount + 10;
+        var kneedle   = currentCount;
 
+        getMorePosts({
+            url: '../wp-content/themes/rwd/library/models/FeedModel.php',
+            postLimit: newTotal,
+            pointer:  kneedle,
+            orderby: 'date',
+            order: 'DESC',
+            item_cat: 'live',
+            TypeOfFeed: 'live',
+            posts_per_page: -1,
+            targetContainer: '#main'
+        });
+
+        e.preventDefault();
+    });
 });
 
 

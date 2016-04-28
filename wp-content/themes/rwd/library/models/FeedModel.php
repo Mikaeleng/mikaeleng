@@ -76,22 +76,22 @@ function get_wall_feed_model($args){
          
           echo '</a>';
         }?>
-          <div class="feed-info">
+          <div class="<?php if ( !has_post_thumbnail($custom_query ->ID)) {echo 'expand-info';}else{ echo 'feed-info';}?>">
             <a href="<?php echo get_permalink( $custom_query ->ID )?>" title="<?php echo esc_attr( $custom_query ->post_title ) ?>"><h2><?php the_title();?></h2></a>
             <p><?php print_excerpt(200); ?></p>
-            <div class="category first clearfix">
+            <!--<div class="category first clearfix">
               <span>Category</span>
-              <p><?php echo get_custom_categories(array(
+              <p><?php /*echo get_custom_categories(array(
                     'orderby' => 'name',
                     'parent' => 0,
                     'category_name' => get_the_category($post->ID)
-                    ));
+                    ));*/
               ?></p>
 
-            </div>
+            </div>-->
             <div class="tags first clearfix">
               
-              <p>Tags: <?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></p>
+              <p><?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></p>
             </div>
           </div>
         </div> <!-- // end feed-item -->
@@ -361,11 +361,11 @@ function get_header_feed_model($args){
         echo '</a>';
      echo '<a href="' . get_permalink( $custom_query ->ID ) . '" title="' . esc_attr( $custom_query ->post_title ) . '">';
         }?>
-      <div id="top-info">
+      <div id="<?php if ( !has_post_thumbnail($custom_query ->ID)) {echo 'expand-top-info';}else{echo 'top-info';}?>">
         <h2><?php the_title(); ?></h2>
         <p><?php get_excerpt(200,'',false); ?> ...</p>
        
-         <div id="tag-cloud"><span>Tags: </span><?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></div>
+         <div id="tag-cloud"><span></span><?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></div>
         </div>
         <?php echo '</a>'; ?>
       </div>

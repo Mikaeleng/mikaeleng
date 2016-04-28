@@ -36,10 +36,10 @@ HEADER STYLES
 			position: absolute;
 			width:100%;
 			bottom:0;
-          margin: 0 auto;
-			max-height: 100px;
-            width:100%;
-          max-width: 100%;
+            margin: 0 auto;
+			max-height: 150px;
+           width:100%;
+           max-width: 100%;
 			p{display: block;}
 			span{display: inline; margin: 0;}
 			a{
@@ -48,6 +48,11 @@ HEADER STYLES
 
 			//a:nth-of-type(1){margin-left: 6%;}
 		}
+      #expand-top-info{
+        .twelvecol();
+        background: @item-bg-color;
+        margin: 44px 0 0 0;
+      }
 	}
 }
 
@@ -281,6 +286,9 @@ NAVIGATION STYLES
     .feed-item {
       max-height: 300px;
       overflow: hidden;
+      .expand-info{
+        .twelvecol();
+      }
 
     }
     .large-item {
@@ -295,9 +303,6 @@ NAVIGATION STYLES
 			float: right;
 			display: inline-block;
 		}
-      .expand-info{
-        .twelvecol();
-      }
 		img{
 			.sixcol();
 			.clear-margin();

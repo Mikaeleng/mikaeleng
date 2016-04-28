@@ -67,27 +67,31 @@ NAVIGATION STYLES
 }
 
 .header #top-item {
-	margin-top: 41px;
+  margin-top: 41px;
 
-	#top-info{ 
-		height: 90%;
-		max-width: 100%;
+    #top-info {
+      height: 90%;
+      max-width: 100%;
 
-      p{
-		overflow: hidden;
-		position: relative;
-		max-height: 80%;
-		display: inline-block;
-		margin: 0 5% 0 6%;
-		.font(@tablet-ingress-size,@white,@oswald-light);
-		}
-		span{
-		margin: 0 0% 0 6%;
-		display: none;
-		}
+      p {
+        overflow: hidden;
+        position: relative;
+        max-height: 80%;
+        display: inline-block;
+        margin: 0 5% 0 6%;
+        .font(@tablet-ingress-size, @white, @oswald-light);
+      }
+      span {
+        margin: 0 0% 0 6%;
+        display: none;
+      }
 
-		#tag-cloud{margin: 0 6% 0 6%; display: inline-block; overflow: hidden;}
-	}
+      #tag-cloud {
+        margin: 0 6% 0 6%;
+        display: inline-block;
+        overflow: hidden;
+      }
+    }
 
 }
 
@@ -97,7 +101,7 @@ NAVIGATION STYLES
       .flex-justify(flex-start);
       position: fixed;
       top:0;
-      height:50px;
+      height:66px;
       width: 100%;
       z-index: 990;
 
@@ -107,6 +111,7 @@ NAVIGATION STYLES
 		position: relative;
 		display: inline;
 		width: 100%;
+      height:inherit;
 
 		.nav{
 			.flex-box();
@@ -239,7 +244,7 @@ NAVIGATION STYLES
 #content {
 	.elevencol();
 	.clear-margin();
-	//margin: 41px auto 0 auto;
+    margin: 90px auto 0;
 	#main{
 	max-width : 940px;
 

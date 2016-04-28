@@ -9,10 +9,10 @@ Template Name: StartPage
 	
 			<div id="content" class="first clearfix">
 
-				<div id="intro" class="tvelvecol first clearfix">
+				<!--<div id="intro" class="tvelvecol first clearfix">
 					<h1><?php //the_title(); ?></h1>
 					
-				</div>
+				</div>-->
 
 				<div id="main" class="tvelvecol first clearfix" role="main">
 				<?php 					

@@ -19,17 +19,17 @@ Template Name: StartPage
 						<div id="selection" style="position:absolute;"></div> -->
 
 						<div id="live-item-container">
-								<h1 ><?php
+								<!--<h1 ><?php
 									//$category = get_the_category();
 									//echo $category[0]->cat_name;
-									?></h1>
+									?></h1>-->
 							<?php 
 							get_feedItems($args = array(
 								'posts_per_page' => -1,
 								'orderby' => 'date',
 								'order' => 'DESC',
 								'typeOfFeed' => 'live',
-								'postLimit' =>5,
+								'postLimit' =>3,
 								'category_name' => 'live',
 								'pointer' => -1
 							)); ?>

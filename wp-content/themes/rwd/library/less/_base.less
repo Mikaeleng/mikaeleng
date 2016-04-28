@@ -265,6 +265,7 @@ h2, .h2 {
   line-height: 1.4em;
   letter-spacing: 0.12rem;
   margin-bottom: 0.375em;
+  margin-top:1rem;
 }
 
 h3, .h3 {
@@ -350,13 +351,18 @@ header.article-header {
         .flex-align-items(center);
       }
     }
+    #expand-top-info {
+      .twelvecol();
+      background: @item-bg-color;
+      margin: 44px 0 0 0;
+    }
     #top-info {
       background-color: @transparent-bg;
       .eightcol();
       position: absolute;
       bottom: 0;
       height: 60%;
-      max-height: 140px;
+      max-height: 120px;
       margin-left: 0;
       width: 100%;
       h2 {
@@ -765,6 +771,7 @@ and more scalable.
   margin: 0 auto;
   float: none;
   max-width: 1200px;
+  margin: 0 auto;
 
   #intro {
     margin-bottom: 5%;
@@ -774,8 +781,10 @@ and more scalable.
     .twelvecol();
     .clear-margin();
     margin: 0 auto;
+
     .feed-item {
       background: @item-bg-color;
+
       margin-bottom: 16%;
       a {
         margin: 0;
@@ -903,6 +912,7 @@ and more scalable.
         margin: 16% 0 16% 0;
         position: relative;
         margin-left: 0;
+
 
         .year-tag {
           background: @button-color;
@@ -1123,6 +1133,7 @@ and more scalable.
       .clear-margin();
       float: right;
       position: relative;
+      div:first-of-type{margin-top:0;}
       a {
         text-decoration: none;
       }

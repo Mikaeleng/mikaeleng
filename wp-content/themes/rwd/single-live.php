@@ -4,7 +4,8 @@ if($garmin_activity != null){
 ?>
     <div id="running-top" class="row">
         <div id="post_iframe_container">
-            <iframe src='<?php echo $garmin_activity ?>' frameborder='0'></iframe>
+            <iframe src='https://connect.garmin.com/activity/embed/<?php echo $garmin_activity ?>' frameborder='0'></iframe>
+
         </div>
         <?php if ( has_post_thumbnail($custom_query ->ID)) {
         ?>
