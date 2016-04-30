@@ -1,0 +1,101 @@
+// CSS for search classes
+#sidr-id-mobile-menu-item-search {
+  display: list-item;
+}
+
+#sidr-id-menu-item-search {
+  display: none;
+}
+
+.sidr-class-current-menu-item {
+  background: @text-color !important;
+  a {
+    color: @item-bg-color !important;
+  }
+}
+
+#sidr-id-s {
+  width: 80%;
+  display: inline-block;
+}
+
+#sidr-id-searchsubmit, #searchsubmit {
+  border: none;
+  font-size: 26px;
+  color: @item-bg-color;
+  padding: 1px 10px;
+  background-color: transparent;
+  font-family: @avantgarde;
+  float: right;
+}
+
+.sidr.right {
+  .current-post-parent {
+    background: @button-color !important;
+    a {
+      color: @body-bg-color;
+      background: transparent !important;
+    }
+
+  }
+
+  background: @item-bg-color;
+  width: 85%;
+  .sidr-class-top-nav {
+
+    .sidr-class-menu-item {
+      .flex-box();
+      .clear-margin();
+      a, i {
+        display: inline-block;
+        margin-left: 0;
+        width: 80%;
+        .font(1.6rem;);
+      }
+      i {
+        background: @text-color;
+        .font(1.59rem);
+        .flex-basics(15);
+        color: @item-bg-color;
+      }
+
+      a {
+        margin: 0;
+        padding: 0 0 0 0.9rem;
+        .flex-basics(85);
+      }
+
+      &:nth-child(1) {
+        i::before {
+          .Avantgarde();
+          content: @font-Avantgarde-Wall;
+          padding: 0 20%;
+        }
+      }
+
+      &:nth-child(2) {
+        i::before {
+          .Avantgarde();
+          content: @font-Avantgarde-Live;
+          padding: 0 20%;
+        }
+      }
+
+      &:nth-child(3) {
+        i::before {
+          .Avantgarde();
+          content: @font-Avantgarde-Work;
+          padding: 0 20%;
+        }
+      }
+
+      &:nth-child(4) {
+        i::before {
+          .Avantgarde();
+          content: @font-Avantgarde-Create;
+          padding: 0 20%;
+        }
+      }
+    }
+  }
+}

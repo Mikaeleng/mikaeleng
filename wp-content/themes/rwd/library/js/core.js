@@ -11,6 +11,71 @@ slow the page load.
 var response = 11;
 var complete;
 
+
+/***********************************
+ *
+ *       Get generic posts from several categories
+ *
+ ************************************/
+
+
+function getMorePosts(args){
+    //printer("targetConatiner" + args.targetContainer);
+    /*
+
+     args.url                = name of php file that returns the new posts
+     args.postClass          = name of the class that holds each post item ( the same class for all items)
+     args.categories         = list string/array of numbers of categories that are returned
+
+     ex.  {url:'more-posts.php', postClass:'post-item', categories:'1,3,4'};
+
+     args.postLimit          = The end posts_per_page of the items retrived. ex (35)
+     args.init               = default = false, if the call is when the page is being initizated this will be set to true
+     args.TypeOfFeed         = ex 'wall', 'create', 'live' 'header'
+     */
+    // hides the "load more" div at the end of the posts and shows the loading feedback div.
+    if(response>1){
+        jQuery(".button-wrapper").fadeOut(500);
+        jQuery("#loading-wrapper").delay(500).fadeIn("fast");
+        //printer(args);
+        // Makes the call to the server
+        jQuery.ajax({
+            type: "POST",
+            url: args.url,
+            data: args,
+            beforeSend: function(){
+            }
+        }).done(function( msg ) {
+
+            response = jQuery(msg).length;
+            complete = msg.indexOf("end-of-posts");
+            printer(msg);
+            console.log("TEST " + msg);
+            // if there is no more posts to displays the information that there is no more posts
+
+            setTimeout(function(){
+                jQuery(msg).appendTo(args.targetContainer);
+                if(complete > -1){
+                    jQuery("#loading-wrapper").css("display","none");
+                    jQuery("#finish-button-wrapper").css("display","block");
+                }else if(complete <= -1){
+                    jQuery(".button-wrapper").fadeIn("slow");
+                    jQuery("#loading-wrapper").fadeOut("slow");
+                }
+            },1000);// timeOut ends
+        });// done ends
+    }else{
+        jQuery(".button-wrapper").css("display","none");
+        jQuery("#loading-wrapper").css("display","none");
+        jQuery("#finish-button-wrapper").css("display","block");
+    }
+}
+
+/***********************************
+ *
+ *       ready function
+ *
+ ************************************/
 jQuery(document).ready(function($) {
  var user = $('#wpadminbar').val();
 //removes wp_navbar for logind user in non-admin view
@@ -98,9 +163,10 @@ jQuery(document).ready(function($) {
             orderby: 'date',
             order: 'DESC',
             item_cat: 'live',
+            category_name: 'live',
             TypeOfFeed: 'live',
             posts_per_page: -1,
-            targetContainer: '#main'
+            targetContainer: '#live-item-container'
         });
 
         e.preventDefault();
@@ -109,62 +175,3 @@ jQuery(document).ready(function($) {
 
 
  
-
-/***********************************
-*
-*       Get generic posts from several categories
-*
-************************************/
-
-
-function getMorePosts(args){
-    //printer("targetConatiner" + args.targetContainer);
-    /*
-
-    args.url                = name of php file that returns the new posts
-    args.postClass          = name of the class that holds each post item ( the same class for all items)
-    args.categories         = list string/array of numbers of categories that are returned
-    
-    ex.  {url:'more-posts.php', postClass:'post-item', categories:'1,3,4'};
-
-    args.postLimit          = The end posts_per_page of the items retrived. ex (35)
-    args.init               = default = false, if the call is when the page is being initizated this will be set to true
-    args.TypeOfFeed         = ex 'wall', 'create', 'live' 'header'
- */
-    // hides the "load more" div at the end of the posts and shows the loading feedback div.
-    if(response>1){
-        jQuery(".button-wrapper").fadeOut(500);
-        jQuery("#loading-wrapper").delay(500).fadeIn("fast");
-        //printer(args);
-    // Makes the call to the server
-      jQuery.ajax({
-        type: "POST",
-        url: args.url,
-        data: args,
-        beforeSend: function(){
-        }
-      }).done(function( msg ) {
-          
-          response = jQuery(msg).length;
-          complete = msg.indexOf("end-of-posts");
-                     printer(msg);  
-         
-          // if there is no more posts to displays the information that there is no more posts 
-
-          setTimeout(function(){
-              jQuery(msg).appendTo(args.targetContainer);   
-            if(complete > -1){
-              jQuery("#loading-wrapper").css("display","none");
-              jQuery("#finish-button-wrapper").css("display","block");
-            }else if(complete <= -1){
-              jQuery(".button-wrapper").fadeIn("slow");
-             jQuery("#loading-wrapper").fadeOut("slow");
-            }
-          },1000);// timeOut ends
-        });// done ends
-    }else{
-        jQuery(".button-wrapper").css("display","none");
-        jQuery("#loading-wrapper").css("display","none");
-        jQuery("#finish-button-wrapper").css("display","block");
-    }
-} 

@@ -29,7 +29,7 @@ Template Name: StartPage
 								'orderby' => 'date',
 								'order' => 'DESC',
 								'typeOfFeed' => 'live',
-								'postLimit' =>3,
+								'postLimit' =>9,
 								'category_name' => 'live',
 								'pointer' => -1
 							)); ?>

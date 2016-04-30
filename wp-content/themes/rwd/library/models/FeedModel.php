@@ -2,19 +2,19 @@
 
   $local = stripos($_SERVER['SERVER_NAME'], "engbo");
 
-if($local===false){
+if((strpos($_SERVER['HTTP_HOST'], 'engbo') === false)){
   if (!empty($_POST)){
     include_once ($_SERVER['DOCUMENT_ROOT']. '/wp-load.php');
     set_feed();
   }
-}else if($local===true){
+}else if((strpos($_SERVER['HTTP_HOST'], 'engbo')!== false)){
   if (!empty($_POST)){
     include_once ($_SERVER['DOCUMENT_ROOT']. '/mikaeleng/wp-load.php');
     set_feed();
   }
 }
 
-
+echo $local;
 function set_feed(){
   switch ($_POST['TypeOfFeed']) {
       case 'create':
@@ -56,8 +56,10 @@ function get_wall_feed_model($args){
 
     $post_type = get_post_meta( $post ->ID, '_post_feed_image_position', true );
       ?>
+      <!-- // START feed-item -->
         <div class="feed-item <?php echo $post_type;?> first clearfix" id="divID_<?php echo $post ->ID;?>">
           <?php if ( has_post_thumbnail($custom_query ->ID)) {
+            echo '<div class="img-container">';
          echo '<a href="' . get_permalink( $custom_query ->ID ) . '" title="' . esc_attr( $custom_query ->post_title ) . '">';
          switch ($post_type) {
            case 'right-item':
@@ -73,28 +75,20 @@ function get_wall_feed_model($args){
              echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-large', array('class' => 'feed-thumb-large')); 
              break;
          }
-         
           echo '</a>';
+         echo '</div>';
         }?>
           <div class="<?php if ( !has_post_thumbnail($custom_query ->ID)) {echo 'expand-info';}else{ echo 'feed-info';}?>">
             <a href="<?php echo get_permalink( $custom_query ->ID )?>" title="<?php echo esc_attr( $custom_query ->post_title ) ?>"><h2><?php the_title();?></h2></a>
             <p><?php print_excerpt(200); ?></p>
-            <!--<div class="category first clearfix">
-              <span>Category</span>
-              <p><?php /*echo get_custom_categories(array(
-                    'orderby' => 'name',
-                    'parent' => 0,
-                    'category_name' => get_the_category($post->ID)
-                    ));*/
-              ?></p>
 
-            </div>-->
             <div class="tags first clearfix">
               
               <p><?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></p>
             </div>
           </div>
-        </div> <!-- // end feed-item -->
+        </div>
+        <!-- // end feed-item -->
       <?php
     } // End if count --
   endwhile; // End the loop.
@@ -219,7 +213,7 @@ function get_work_feed_model($args){
       $post_experience          = get_post_meta( $post ->ID, '_post_experience', true );
       $_cases                   = get_post_meta( $post ->ID, '_post_cases', true );
       $post_connected_cases     = explode(",", $_cases);
-      $post_year = $post_workplace_ended;//(string)get_the_time('Y');
+      $post_year = $post_workplace_ended;
       
       if($current_year != $post_workplace_ended && $post_workplace_ended != 'Now' && isset($current_year)){
         ?><div class="year-devider"><?php echo $post_year; 
@@ -280,12 +274,12 @@ function get_live_feed_model($args){
    if($custom_query->current_post > $args['pointer'] && $custom_query->current_post < $args['postLimit']){
 
     $post_type = get_post_meta( $post ->ID, '_post_feed_image_position', true );
-
       ?>
+      <!-- // START feed-item -->
         <div class="feed-item <?php echo $post_type;?> first clearfix" id="divID_<?php echo $post ->ID;?>">
 
           <?php if ( has_post_thumbnail($custom_query ->ID)) {
-
+            echo '<div class="img-container">';
          echo '<a href="' . get_permalink( $custom_query ->ID ) . '" title="' . esc_attr( $custom_query ->post_title ) . '">';
          switch ($post_type) {
            case 'right-item':
@@ -306,6 +300,7 @@ function get_live_feed_model($args){
          }
 
           echo '</a>';
+          echo '</div>';
         }?>
           <div class="feed-info <?php if ( !has_post_thumbnail($custom_query ->ID)) {echo ' expand-info';}?>">
             <a href="<?php echo get_permalink( $custom_query ->ID )?>" title="<?php echo esc_attr( $custom_query ->post_title ) ?>"><h2><?php the_title();?></h2></a>
@@ -325,7 +320,8 @@ function get_live_feed_model($args){
               <p><?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></p>
             </div>
           </div>
-        </div> <!-- // end feed-item -->
+        </div>
+        <!-- // END feed-item -->
       <?php
     } // End if count --
   endwhile; // End the loop.

@@ -244,6 +244,9 @@ NAVIGATION STYLES
       margin-bottom: 8%;
       margin: 8% 0;
     }
+    .auto {
+      .img-container{display: block;}
+    }
 
     // importing all the css for the different feed container items. the image and the caption
     // To make a new feed just copy the container less file and add it to the import list below.
@@ -271,7 +274,7 @@ NAVIGATION STYLES
 
     }
 
-    img {
+    .img-container {
       .sixcol();
       .clear-margin();
       height: auto;
@@ -290,6 +293,11 @@ NAVIGATION STYLES
         .twelvecol();
       }
 
+      .feed-info{
+        a:last-of-type{p:last-of-type{display: none;}}
+
+      }
+
     }
     .large-item {
       max-height: none;
@@ -303,7 +311,7 @@ NAVIGATION STYLES
 			float: right;
 			display: inline-block;
 		}
-		img{
+		.img-container{
 			.sixcol();
 			.clear-margin();
 			height: auto;
