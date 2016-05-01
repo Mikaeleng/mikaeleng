@@ -14,7 +14,6 @@ if((strpos($_SERVER['HTTP_HOST'], 'engbo') === false)){
   }
 }
 
-echo $local;
 function set_feed(){
   switch ($_POST['TypeOfFeed']) {
       case 'create':
@@ -80,11 +79,11 @@ function get_wall_feed_model($args){
         }?>
           <div class="<?php if ( !has_post_thumbnail($custom_query ->ID)) {echo 'expand-info';}else{ echo 'feed-info';}?>">
             <a href="<?php echo get_permalink( $custom_query ->ID )?>" title="<?php echo esc_attr( $custom_query ->post_title ) ?>"><h2><?php the_title();?></h2></a>
-            <p><?php print_excerpt(200); ?></p>
-
+            <?php print_excerpt(200);
+            echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name'));?>
             <div class="tags first clearfix">
-              
-              <p><?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></p>
+
+              <p><?php  ?></p>
             </div>
           </div>
         </div>
@@ -302,22 +301,20 @@ function get_live_feed_model($args){
           echo '</a>';
           echo '</div>';
         }?>
-          <div class="feed-info <?php if ( !has_post_thumbnail($custom_query ->ID)) {echo ' expand-info';}?>">
+          <div class="<?php if ( !has_post_thumbnail($custom_query ->ID)) {echo 'expand-info';}else{ echo 'feed-info';}?>">
             <a href="<?php echo get_permalink( $custom_query ->ID )?>" title="<?php echo esc_attr( $custom_query ->post_title ) ?>"><h2><?php the_title();?></h2></a>
-            <a href="<?php echo get_permalink( $custom_query ->ID )?>" title="<?php echo esc_attr( $custom_query ->post_title ) ?>"><p><?php print_excerpt(200); ?></p></a>
-           <!-- <div class="category first clearfix">
-              <span>Category</span>
-              <p><?php echo get_custom_categories(array(
+            <a href="<?php echo get_permalink( $custom_query ->ID )?>" title="<?php echo esc_attr( $custom_query ->post_title ) ?>"><p><?php print_excerpt(200);
+
+            echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name'));?></p></a>
+           <?php /*echo get_custom_categories(array(
                     'orderby' => 'name',
                     'parent' => 0,
                     'category_name' => get_the_category($post->ID)
-                    ));
-              ?></p>
-
-            </div>-->
+                    ));*/
+              ?>
             <div class="tags first clearfix">
 
-              <p><?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></p>
+              <p><?php  ?></p>
             </div>
           </div>
         </div>

@@ -26,10 +26,6 @@ add_filter('the_content', function($content)
    return $content;
 });
 
-/*function getLinkButton($args){
-	?><a>Link</a>
-<?php
-}*/
 function get_sitepath(){
 	if (strpos(get_site_url(),'localhost') !== true || strpos(get_site_url(),'engbo') !== true) {
 
@@ -141,12 +137,13 @@ function get_custom_tag($args){
 	  if($count==0){
 	  	$terms .= '<a href="' . get_tag_link( $tag->term_id ) . '">#' . $tag->name . '</a>';
 	  }	else{
-	  	$terms .= ', <a href="' . get_tag_link( $tag->term_id ) . '"> #' . $tag->name . '</a>';
+	  	$terms .= '<a>, </a><a href="' . get_tag_link( $tag->term_id ) . '"> #' . $tag->name . '</a>';
 	  }	
 	  $count = $count +1;
 	}
 	return $terms;
 }
+
 
 // Search Form with autocomplete fields
 function bones_wpsearchComplete($form) {

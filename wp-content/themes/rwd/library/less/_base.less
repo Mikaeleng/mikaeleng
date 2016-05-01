@@ -36,7 +36,7 @@ html, body {
 }
 
 body {
-  font-family: @oswald-book;
+  font-family: @sans-xbold;
   font-size: 100%;
   line-height: 1.5;
   font-weight: 400;
@@ -200,7 +200,7 @@ body {
 
 a {
   color: @link-color;
-  font-family: @oswald-book;
+  font-family: @sans-xbold;
   font-weight: 400;
   letter-spacing: 0.08rem;
   font-size: 0.85rem;
@@ -211,8 +211,8 @@ a {
   &:hover, &:focus {
     color: @link-hover;
   }
-  &:a:visited {
-    color: @link-visited;
+  &:visited {
+    color: @link-color;
   }
   /* on click */
   &:active {
@@ -235,7 +235,7 @@ a {
 ******************************************************************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  font-family: @oswald-bold;
+  font-family: @sans-xbold;
   text-rendering: optimizelegibility;
   font-weight: 400;
   margin: 0 5% 0 5%;
@@ -270,7 +270,7 @@ h2, .h2 {
 
 h3, .h3 {
   font-size: 1.125em;
-  font-family: @oswald-light;
+  font-family: @sans-light;
   letter-spacing: 0.12rem;
 }
 
@@ -287,7 +287,7 @@ h5, .h5 {
 }
 
 p, span {
-  font-family: @oswald-light;
+  font-family: @sans-light;
   margin-left: 5%;
   margin-right: 6%;
 }
@@ -366,7 +366,7 @@ header.article-header {
       margin-left: 0;
       width: 100%;
       h2 {
-        .font(2.5rem, @white, @oswald-light);
+        .font(2.5rem, @white, @sans-light);
         display: block;
         line-height: 2.5rem;
         padding-top: 0.5rem;
@@ -447,9 +447,9 @@ and more scalable.
       .flex-justify(flex-start);
       border-bottom: none;
       background: @item-bg-color;
-      -webkit-box-shadow: 0px -4px 1px 0px rgba(74, 74, 74, 1);
-      -moz-box-shadow: 0px -4px 1px 0px rgba(74, 74, 74, 1);
-      box-shadow: 0px -1px 3px 1px rgba(74, 74, 74, 1);
+      -webkit-box-shadow: 0px -4px 1px 0px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px -4px 1px 0px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px -1px 3px 1px rgba(0, 0, 0, 0.5);
       li {
         min-height: 46px;
         line-height: 46px;
@@ -584,35 +584,7 @@ and more scalable.
 }
 
 /* end .nav */
-.autocomplete-suggestions {
-  border: 1px solid #999;
-  background: #FFF;
-  overflow: auto;
-}
 
-.autocomplete-suggestion {
-  padding: 2px 5px;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.autocomplete-selected {
-  background: #F0F0F0;
-}
-
-.autocomplete-suggestions strong {
-  font-weight: normal;
-  color: #3399FF;
-}
-
-.autocomplete-group {
-  padding: 2px 5px;
-}
-
-.autocomplete-group strong {
-  display: block;
-  border-bottom: 1px solid #000;
-}
 
 /*********************
 08. POSTS & CONTENT STYLES
@@ -677,320 +649,68 @@ and more scalable.
   #intro {
     margin-bottom: 5%;
   }
+
   #main {
 
     .twelvecol();
     .clear-margin();
     margin: 0 auto;
 
+    // first item in the feed
+    .feed-item:first-of-type{
+      margin-top: 4rem;
+
+    }
+    #live-container .feed-item:first-of-type{
+      margin-top:0;
+      .img-container img {
+        .border-top-radius(0);
+      }
+    }
     .feed-item {
       background: @item-bg-color;
       margin-bottom: 16%;
-
-      .img-container{
+      a{.clear-margin();text-decoration: none;}
+      .img-container {
+        .twelvecol();
+        .clear-margin();
         max-height: 300px;
-        overflow:hidden;
+        overflow: hidden;
         display: inline;
+
+        img{
+          width:100%;
+          .border-top-radius(5);
+        }
       }
-      a {
-        margin: 0;
-      }
-
-      .category {
-        width: 100%;
-        span, p {
-          display: inline-block;
+      .feed-info, .expand-info{
+        padding: 0 6% 3rem 5%;
+        h2{
+          .font(@mobile-h2,@text-color,@sans-xbold);
+          line-height: @mobile-h2+ 0.15rem;
+          margin: 0.5rem 0 1rem 0;
         }
-        span {
+        // removes the first and last paragraph that wordpress adds to it's "the_content()" finction
+        //p:first-of-type, p:last-of-type{display: none;}
+
+        p{
+          .font(@mobile-link-size,@link-color,@sans-light);
+          display: inline;
           float: left;
-        }
-        p {
-          float: right;
-          text-align: right;
-          margin: 0 5% 0 0;
-
-          a {
-            .clear-margin();
-            text-decoration: none;
-            margin-right: 1%;
-            white-space: nowrap;
-
-          }
-          & a:hover {
-            text-decoration: underline;
-          }
-        }
-
-      }
-      .tags {
-        padding-bottom: 7%;
-        width: 100%;
-
-        span, p {
-          display: inline-block;
-        }
-        span {
-          float: left;
-        }
-        p {
-          float: left;
-          margin: 0 5% 0 5%;
+          margin: 0;
+          display: inline;
           width: auto;
-          text-align: justify;
-          a {
-            .clear-margin();
-            text-decoration: none;
-
-          }
-          & a:hover {
-            text-decoration: underline;
-          }
         }
-
-      }
-    }
-    #create-container {
-      position: relative;
-      width: inherit;
-      .clearfix();
-
-      #create-item-container {
-        .twelvecol();
-        .clear-margin();
-        float: right;
-        position: relative;
-      }
-
-      #page-filter {
-        width: 34.5%;
-        min-height: 100%;
-        background: url("../images/filter-background.jpg");
-        background-repeat: repeat-y;
-        background-size: cover;
-        position: absolute;
-        display: none;
-
-        form {
-          position: relative;
-
-          #input-container {
-            .tencol();
-            .clear-margin();
-            .center();
-            margin-top: 2rem;
-            background: @search-background-color;
-            border-radius: 5px;
-            .flex-box();
-            .flex-wrap(nowrap);
-            height: 2.5rem;
-
-            input[type=text] {
-              display: inline-block;
-              background: transparent;
-              border: 0;
-              color: @button-color;
-              padding-left: 1.3rem;
-            }
-            input[type=submit] {
-              padding: 0;
-              .H2();
-              color: @button-color;
-            }
-          }
+        a{
+          .font(@mobile-tag-size,@text-color,@sans-xbold);
+          margin: 0;
+          float: left;
+          display: inline;
         }
       }
-      #create-feed-container {
+      .expand-info{width:100%;}
 
-      }
-      .year-devider {
-        text-align: center;
-        .H2;
-        background-color: @item-bg-color;
-        padding: 0.75rem 0;
-        margin: 1.5rem 0;
-      }
-
-      a {
-        text-decoration: none;
-      }
-      .feed-item {
-        background: @item-bg-color;
-        margin: 16% 0 16% 0;
-        position: relative;
-        margin-left: 0;
-
-
-        .year-tag {
-          background: @button-color;
-          border-radius: 4px;
-          padding: 0.1rem 0.4rem;
-          .H2();
-          width: 30%;
-          text-align: center;
-          margin-left: -.5rem;
-          margin-top: -.5rem;
-        }
-
-        .create-header {
-          margin: 2rem 0 1rem 0;
-
-          h2 {
-            margin-bottom: 0;
-            text-decoration: underline;
-          }
-        }
-
-        .create-content {
-          .create-info {
-            a {
-              &:hover {
-                color: @link-color;
-              }
-            }
-          }
-          .create-metadata {
-            .tags {
-              a {
-                margin: 0;
-              }
-            }
-
-            a {
-              .eightcol();
-              .clear-margin();
-              position: relative;
-              .button {
-                position: relative;
-                margin: 0 auto 1.5rem 5%;
-                float: none;
-                text-align: center;
-              }
-            }
-          }
-        }
-      }
-    }
-    #work-container {
-      position: relative;
-      width: inherit;
-      .clearfix();
-
-      #work-item-container {
-        .twelvecol();
-        .clear-margin();
-        float: right;
-        position: relative;
-      }
-
-      #page-filter {
-        width: 34.5%;
-        min-height: 100%;
-        background: url("../images/filter-background.jpg");
-        background-repeat: repeat-y;
-        background-size: cover;
-        position: absolute;
-        display: none;
-
-        form {
-          position: relative;
-
-          #input-container {
-            .tencol();
-            .clear-margin();
-            .center();
-            margin-top: 2rem;
-            background: @search-background-color;
-            border-radius: 5px;
-            .flex-box();
-            .flex-wrap(nowrap);
-            height: 2.5rem;
-
-            input[type=text] {
-              display: inline-block;
-              background: transparent;
-              border: 0;
-              color: @button-color;
-              padding-left: 1.3rem;
-            }
-            input[type=submit] {
-              padding: 0;
-              .H2();
-              color: @button-color;
-            }
-          }
-        }
-      }
-      .year-devider {
-        text-align: center;
-        .H2;
-        background-color: @item-bg-color;
-        padding: 0.75rem 0;
-        margin: 1.5rem 0;
-      }
-
-      .feed-item {
-        background: @item-bg-color;
-        margin: 16% 0 16% 0;
-        position: relative;
-        margin-left: 0;
-
-        .year-tag {
-          background: @button-color;
-          border-radius: 4px;
-          padding: 0.1rem 0.4rem;
-          .H2();
-          width: 60%;
-          text-align: center;
-          margin-left: -.5rem;
-          margin-top: -.5rem;
-        }
-
-        .work-header {
-          margin: 2rem 0 1rem 0;
-
-          h2 {
-            margin-bottom: 0;
-          }
-        }
-
-        .work-content {
-
-          .work-metadata {
-            .tags {
-              a {
-                margin: 0;
-              }
-            }
-
-            a {
-              .eightcol();
-              .clear-margin();
-              position: relative;
-              .button {
-                position: relative;
-                margin: 0 auto 1.5rem 5%;
-                float: none;
-                text-align: center;
-              }
-            }
-          }
-        }
-      }
-    }
-    .year-devider {
-      text-align: center;
-      .H2;
-      background-color: @item-bg-color;
-      padding: 0.75rem 0;
-      margin: 1.5rem 0;
-    }
-
-    .feed-item {
-      background: @item-bg-color;
-      margin: 16% 0 16% 0;
-      position: relative;
-      margin-left: 0;
-
+    // work and create specific feed elements
       .year-tag {
         background: @button-color;
         border-radius: 4px;
@@ -1000,70 +720,32 @@ and more scalable.
         text-align: center;
         margin-left: -.5rem;
         margin-top: -.5rem;
-      }
-
-      .work-header {
-        margin: 2rem 0 1rem 0;
-
-        h2 {
-          margin-bottom: 0;
-        }
-      }
-
-      .work-content {
-
-        .work-metadata {
-          .tags {
-            a {
-              margin: 0;
-            }
-          }
-
-          a {
-            .eightcol();
-            .clear-margin();
-            position: relative;
-            .button {
-              position: relative;
-              margin: 0 auto 1.5rem 5%;
-              float: none;
-              text-align: center;
-            }
-          }
-        }
+        max-width: 250px;
       }
     }
-
-    #live-item-container {
-      .twelvecol();
-      .clear-margin();
-      float: right;
-      position: relative;
-      div:first-of-type{margin-top:0;}
-      a {
-        text-decoration: none;
-      }
-
-      .feed-info {
-
-        a:last-of-type{
-          p {
-            .font(@mobile-txt-size, @text-color, @oswald-light);
-          }
-          p:last-of-type, p:first-of-type{
-            display: none;
-          }
-        }
-      }
+    .year-devider {
+      text-align: center;
+      .H2;
+      background-color: @item-bg-color;
+      padding: 0.75rem 0;
+      margin: 1.5rem 0;
     }
-
   }
-  // End of #main
+  /**------------------
+  END of MAIN boilerplate
+  --------------------**/
 
+
+  // End of #main
+  #load-more-container {
+    .twelvecol();
+    .clear-margin();
+    margin-bottom: 8%;
+  }
   #buttonContainer {
     .flex-box();
     .flex-justify(center);
-    .twelvecol();
+    .elevencol();
     .clear-margin();
     margin-bottom: 8%;
     h2 {
@@ -1083,13 +765,7 @@ and more scalable.
       font-size: 2rem;
     }
   }
-  #work-container #load-more-container, #create-container #load-more-container {
-    width: 63%;
-    float: right;
-    #work-container #buttonContainer, #create-container #buttonContainer {
-      .eightcol();
-    }
-  }
+
 
 }
 
@@ -1150,7 +826,7 @@ article {
     }
     text-align: center;
 
-    font-family: @oswald-light !important;
+    font-family: @sans-light !important;
     font-size: 1rem !important;
   }
 
@@ -1201,11 +877,11 @@ article {
   }
   a {
     margin: 0 5% 0 5%;
-    .font(@mobile-link-size, @text-color, @oswald-light);
+    .font(@mobile-link-size, @text-color, @sans-light);
   }
   .tags a {
     margin: 0;
-    .font(@mobile-link-size, @text-color, @oswald-light);
+    .font(@mobile-link-size, @text-color, @sans-light);
   }
 }
 
@@ -1221,7 +897,7 @@ article {
 .entry-content {
   margin-bottom: 1rem;
   p {
-    .font(@mobile-txt-size, @text-color, @oswald-light)
+    .font(@mobile-txt-size, @text-color, @sans-light)
   }
 
   ul, ol, table, dl {
@@ -1364,11 +1040,7 @@ article {
 /******************************************************************
 09. PAGE NAVI STYLES
 ******************************************************************/
-#load-more-container {
-  .twelvecol();
-  .clear-margin();
-  margin-bottom: 8%;
-}
+
 
 .page-navigation,
 .wp-prev-next {
@@ -1390,7 +1062,6 @@ article {
       &:hover,
       &:focus {
         color: #f01d4f;
-        text-decoration: underline;
       }
     }
 

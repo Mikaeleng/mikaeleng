@@ -49,8 +49,7 @@ function getMorePosts(args){
 
             response = jQuery(msg).length;
             complete = msg.indexOf("end-of-posts");
-            printer(msg);
-            console.log("TEST " + msg);
+
             // if there is no more posts to displays the information that there is no more posts
 
             setTimeout(function(){

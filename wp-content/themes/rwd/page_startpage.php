@@ -21,10 +21,11 @@ Template Name: StartPage
 						'orderby' => 'date',
 						'order' => 'DESC',
 						'typeOfFeed' => 'wall',
-						'postLimit' =>3,
+						'postLimit' =>9,
 						'pointer' => 0
 					)); ?>
 				</div> <?php // end #main ?>
+				<div id="load-more-container">
 				<?php
 				    get_button($arg = array(
 					    'typeOfAction' => 'startpage-feed-button',
@@ -33,7 +34,7 @@ Template Name: StartPage
 		                'size' => 'large'
 		                ));
 				  	?>
-
+				</div>
 				</div> <?php // end #inner-content ?>
 
 			</div> <?php // end #content ?>

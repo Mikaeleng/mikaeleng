@@ -94,26 +94,73 @@ TYPOGRAPHY
   font-size: 1rem;
 }
 @font-face {
-  font-family: 'oswaldlight';
-  src: url('../fonts/oswald/oswald-light-webfont.eot');
-  src: url('../fonts/oswald/oswald-light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/oswald/oswald-light-webfont.woff2') format('woff2'), url('../fonts/oswald/oswald-light-webfont.woff') format('woff'), url('../fonts/oswald/oswald-light-webfont.ttf') format('truetype'), url('../fonts/oswald/oswald-light-webfont.svg#oswaldlight') format('svg');
+  font-family: 'sans-regular';
+  src: url('../fonts/Open_Sans/opensans-regular-webfont.eot');
+  src: url('../fonts/Open_Sans/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Open_Sans/opensans-regular-webfont.woff2') format('woff2'), url('../fonts/Open_Sans/opensans-regular-webfont.woff') format('woff'), url('../fonts/Open_Sans/opensans-regular-webfont.ttf') format('truetype'), url('../fonts/Open_Sans/opensans-regular-webfont.svg#open_sansregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'oswaldbook';
-  src: url('../fonts/oswald/oswald-regular-webfont.eot');
-  src: url('../fonts/oswald/oswald-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/oswald/oswald-regular-webfont.woff2') format('woff2'), url('../fonts/oswald/oswald-regular-webfont.woff') format('woff'), url('../fonts/oswald/oswald-regular-webfont.ttf') format('truetype'), url('../fonts/oswald/oswald-regular-webfont.svg#oswaldbook') format('svg');
+  font-family: 'sans-extrabold';
+  src: url('../fonts/Open_Sans/opensans-extrabold-webfont.eot');
+  src: url('../fonts/Open_Sans/opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Open_Sans/opensans-extrabold-webfont.woff2') format('woff2'), url('../fonts/Open_Sans/opensans-extrabold-webfont.woff') format('woff'), url('../fonts/Open_Sans/opensans-extrabold-webfont.ttf') format('truetype'), url('../fonts/Open_Sans/opensans-extrabold-webfont.svg#open_sansextrabold') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'oswaldbold';
-  src: url('../fonts/oswald/oswald-bold-webfont.eot');
-  src: url('../fonts/oswald/oswald-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/oswald/oswald-bold-webfont.woff2') format('woff2'), url('../fonts/oswald/oswald-bold-webfont.woff') format('woff'), url('../fonts/oswald/oswald-bold-webfont.ttf') format('truetype'), url('../fonts/oswald/oswald-bold-webfont.svg#oswaldbold') format('svg');
+  font-family: 'sans-light';
+  src: url('../fonts/Open_Sans/opensans-light-webfont.eot');
+  src: url('../fonts/Open_Sans/opensans-light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Open_Sans/opensans-light-webfont.woff2') format('woff2'), url('../fonts/Open_Sans/opensans-light-webfont.woff') format('woff'), url('../fonts/Open_Sans/opensans-light-webfont.ttf') format('truetype'), url('../fonts/Open_Sans/opensans-light-webfont.svg#open_sanslight') format('svg');
   font-weight: normal;
   font-style: normal;
 }
+/*
+
+@font-face {
+    font-family: 'oswaldlight';
+    src: url('../fonts/oswald/oswald-light-webfont.eot');
+    src: url('../fonts/oswald/oswald-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/oswald/oswald-light-webfont.woff2') format('woff2'),
+         url('../fonts/oswald/oswald-light-webfont.woff') format('woff'),
+         url('../fonts/oswald/oswald-light-webfont.ttf') format('truetype'),
+         url('../fonts/oswald/oswald-light-webfont.svg#oswaldlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'oswaldbook';
+    src: url('../fonts/oswald/oswald-regular-webfont.eot');
+    src: url('../fonts/oswald/oswald-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/oswald/oswald-regular-webfont.woff2') format('woff2'),
+         url('../fonts/oswald/oswald-regular-webfont.woff') format('woff'),
+         url('../fonts/oswald/oswald-regular-webfont.ttf') format('truetype'),
+         url('../fonts/oswald/oswald-regular-webfont.svg#oswaldbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'oswaldbold';
+    src: url('../fonts/oswald/oswald-bold-webfont.eot');
+    src: url('../fonts/oswald/oswald-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/oswald/oswald-bold-webfont.woff2') format('woff2'),
+         url('../fonts/oswald/oswald-bold-webfont.woff') format('woff'),
+         url('../fonts/oswald/oswald-bold-webfont.ttf') format('truetype'),
+         url('../fonts/oswald/oswald-bold-webfont.svg#oswaldbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/
 @font-face {
   font-family: 'Avantgarde';
   src: url('../fonts/Avantgarde/Avantgarde.eot');
@@ -344,7 +391,7 @@ BUTTONS
 .button:visited span {
   color: #b9b9b9;
   font-size: 1.2rem;
-  font-family: 'oswaldbook';
+  font-family: "sans-regular";
 }
 .button:hover,
 .button:visited:hover,
@@ -616,9 +663,9 @@ NAVIGATION STYLES
   -moz-justify-content: flex-start;
   -ms-justify-content: flex-start;
   border-bottom: #3f3f3b;
-  -webkit-box-shadow: 0px 1px 3px 1px rgba(74, 74, 74, 0.6);
-  -moz-box-shadow: 0px 1px 3px 1px rgba(74, 74, 74, 0.6);
-  box-shadow: 0px 1px 3px 1px rgba(74, 74, 74, 0.6);
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5);
 }
 /* .menu is clearfixed inside mixins.scss */
 .menu {
@@ -705,171 +752,26 @@ NAVIGATION STYLES
   float: none;
   margin: 90px auto 0;
 }
-#content #main {
-  max-width: 940px;
+#content #main .feed-item .feed-info,
+#content #main .feed-item .expand-info {
+  padding-bottom: 0;
 }
-#content #main #img_thumb_container {
-  max-height: 540px;
-  overflow: hidden;
-  -ms-box-orient: horizontal;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-}
-#content #main #create-container #create-item-container,
-#content #main #create-container #work-item-container {
-  width: 65.5%;
-  float: right;
-  position: relative;
-}
-#content #main #create-container #page-filter {
-  width: 34.5%;
-  min-height: 100%;
-  background: url("../images/filter-background.jpg");
-  background-repeat: repeat-y;
-  position: absolute;
-  display: inline-block;
-}
-#content #main #create-container #page-filter form #input-container {
-  width: 91.436464082%;
-  position: relative;
-  float: left;
-  margin-left: 2.762430939%;
-  margin: 0;
-  margin-left: 0;
-  float: none;
-  margin: 2rem auto 0 auto;
-}
-#content #main #create-container #page-filter form #input-container input[type=text] {
-  padding-left: 0;
-}
-#content #main #create-container #page-filter form #input-container input[type=submit] {
-  padding-right: 0.4rem;
-}
-#content #main #create-container .feed-item {
-  background: #353333;
-  margin-bottom: 16%;
-  position: relative;
-  margin-left: 1.2rem;
-}
-#content #main #create-container .feed-item .year-tag {
-  background: #85857d;
-  border-radius: 4px;
-  padding: 0.1rem 0.4rem;
+#content #main .feed-item .feed-info p,
+#content #main .feed-item .expand-info p {
   color: #b9b9b9;
-  font-size: 2.1rem;
-  width: 30%;
-  text-align: center;
-  margin-left: -1rem;
-  margin-top: -1rem;
+  font-size: 1.3rem;
+  font-family: "sans-light";
 }
-#content #main #create-container .feed-item .create-header {
-  margin-top: 2rem;
-}
-#content #main #work-container #work-item-container {
-  width: 65.5%;
-  float: right;
-  position: relative;
-}
-#content #main #work-container #page-filter {
-  width: 34.5%;
-  min-height: 100%;
-  background: url("../images/filter-background.jpg");
-  background-repeat: repeat-y;
-  position: absolute;
-  display: inline-block;
-}
-#content #main #work-container #page-filter form #input-container {
-  width: 91.436464082%;
-  position: relative;
-  float: left;
-  margin-left: 2.762430939%;
-  margin: 0;
-  margin-left: 0;
-  float: none;
-  margin: 2rem auto 0 auto;
-}
-#content #main #work-container #page-filter form #input-container input[type=text] {
-  padding-left: 0;
-}
-#content #main #work-container #page-filter form #input-container input[type=submit] {
-  padding-right: 0.4rem;
-}
-#content #main #work-container .feed-item {
-  background: #353333;
-  margin-bottom: 16%;
-  position: relative;
-  margin-left: 1.2rem;
-}
-#content #main #work-container .feed-item .year-tag {
-  background: #85857d;
-  border-radius: 4px;
-  padding: 0.1rem 0.4rem;
+#content #main .feed-item .feed-info a,
+#content #main .feed-item .expand-info a {
   color: #b9b9b9;
-  font-size: 2.1rem;
-  width: 60%;
-  text-align: center;
-  margin-left: -1rem;
-  margin-top: -1rem;
+  font-size: 1.2rem;
+  font-family: "sans-extrabold";
 }
-#content #main #work-container .feed-item .work-header {
-  margin-top: 2rem;
-}
-#content .feed-item {
-  margin-bottom: 10%;
-}
-#content #live-item-container .auto {
-  max-height: 300px;
+#content #main .feed-item .img-container {
+  max-height: 400px;
   overflow: hidden;
-}
-#content #live-item-container .auto .feed-info {
-  width: 48.618784527%;
-  position: relative;
-  margin-left: 2.762430939%;
-  float: left;
   display: inline-block;
-}
-#content #live-item-container .auto .img-container {
-  width: 48.618784527%;
-  position: relative;
-  float: left;
-  margin-left: 2.762430939%;
-  margin: 0;
-  margin-left: 0;
-  float: none;
-  height: auto;
-  float: right;
-  display: inline-block;
-  min-height: auto;
-  height: inherit;
-}
-#content #buttonContainer {
-  width: 99.999999993%;
-  position: relative;
-  float: left;
-  margin-left: 2.762430939%;
-  margin: 0;
-  margin-left: 0;
-  float: none;
-  margin-bottom: 8%;
-}
-#content #buttonContainer .button-wrapper,
-#content #buttonContainer #loading-wrapper,
-#content #buttonContainer #finish-button-wrapper {
-  width: 48.618784527%;
-  position: relative;
-  float: left;
-  margin-left: 2.762430939%;
-  margin: 0;
-  margin-left: 0;
-  float: none;
 }
 #end-of-posts {
   margin-left: 2rem;
@@ -901,13 +803,6 @@ POSTS & CONTENT STYLES
   clear: both;
 }
 /* end .entry-content */
-#load-more-container {
-  width: 99.999999993%;
-  position: relative;
-  float: left;
-  margin-left: 2.762430939%;
-  float: right;
-}
 /*********************
 FOOTER STYLES
 *********************/
@@ -1293,81 +1188,76 @@ NAVIGATION STYLES
   max-width: 940px;
   @import-once "feeds/create-feed-container_768";
   @import-once "feeds/work-feed-container_768";
-  @import-once "feeds/live-feed-container_768";
 }
-#content #main .feed-item {
-  margin-bottom: 8%;
-  margin: 8% 0;
+#content #main .feed-item .img-container {
+  max-height: 300px;
 }
-#content #main .auto .img-container {
-  display: block;
+#content #main .feed-item .img-container img {
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-topright: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
-#content .feed-item {
-  margin-bottom: 8%;
+#content #main .feed-item .feed-info a {
+  color: #b9b9b9;
+  font-size: 1.3rem;
+  font-family: "sans-extrabold";
 }
-#content .feed-item .feed-info h2 {
-  margin: 0.83em 5% 0 6%;
-}
-#content .right-item .feed-info,
-#content #live-item-container .auto .feed-info {
-  width: 48.618784527%;
-  position: relative;
-  margin-left: 2.762430939%;
-  float: left;
-  display: inline-block;
-}
-#content .right-item .img-container,
-#content #live-item-container .auto .img-container {
-  width: 48.618784527%;
+#content #main .feed-item .expand-info {
+  width: 91.436464082%;
   position: relative;
   float: left;
   margin-left: 2.762430939%;
   margin: 0;
   margin-left: 0;
   float: none;
-  height: auto;
-  float: right;
-  display: inline-block;
-  min-height: auto;
-  height: inherit;
+  color: #b9b9b9;
+  font-size: 1.2rem;
+  font-family: "sans-extrabold";
 }
-#content #live-item-container .feed-item {
-  max-height: 300px;
-  overflow: hidden;
-}
-#content #live-item-container .feed-item .expand-info {
+#content #main .auto a:first-of-type,
+#content #main .large-item a:first-of-type {
+  display: block;
   width: 99.999999993%;
   position: relative;
   float: left;
   margin-left: 2.762430939%;
+  margin: 0;
+  margin-left: 0;
+  float: none;
 }
-#content #live-item-container .feed-item .feed-info a:last-of-type p:last-of-type {
-  display: none;
+#content #main .auto .img-container,
+#content #main .large-item .img-container {
+  max-height: 450px;
 }
-#content #live-item-container .large-item {
-  max-height: none;
-}
-#content .left-item .feed-info {
+#content #main .right-item .img-container,
+#content #main .left-item .img-container,
+#content #main .right-item .feed-info,
+#content #main .left-item .feed-info {
   width: 48.618784527%;
   position: relative;
-  float: left;
   margin-left: 2.762430939%;
   margin: 0;
   margin-left: 0;
   float: none;
+  float: left;
+}
+#content #main .right-item .img-container {
   float: right;
-  display: inline-block;
 }
-#content .left-item .img-container {
+#content #main .right-item .img-container img {
+  width: 100%;
+}
+#content #main .left-item .feed-info {
+  float: right;
+}
+#content #buttonContainer {
   width: 48.618784527%;
   position: relative;
-  margin-left: 2.762430939%;
-  margin: 0;
-  margin-left: 0;
-  float: none;
-  height: auto;
   float: left;
-  display: inline-block;
+  margin-left: 2.762430939%;
 }
 .nav-links {
   padding: 1rem 0;
@@ -1408,14 +1298,6 @@ SIDEBARS & ASIDES
 /* recent-comments widget */
 /* search widget */
 /* text widget */
-#load-more-container {
-  margin-left: 2rem;
-  width: 99.999999993%;
-  position: relative;
-  float: left;
-  margin-left: 2.762430939%;
-  float: none;
-}
 /*********************
 13. FOOTER STYLES
 *********************/

@@ -95,24 +95,34 @@ http://sachagreif.com/sass-color-variables/
 TYPOGRAPHY
 *********************/
 
-@sans-serif:        "oswaldbold", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+@sans-serif:        @sans-regular, "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serif:             "Georgia", Cambria, Times New Roman, Times, serif; 
 @oswald-light: 		"oswaldlight";
 @oswald-bold:		"oswaldbold";
 @oswald-book:		"oswaldbook"; 
 @avantgarde:		"Avantgarde";
+@sans-regular:		"sans-regular";
+@sans-light:		"sans-light";
+@sans-xbold:		"sans-extrabold";
 
 
 // Font sizes
 
 // mobile
+@mobile-h2:                  2rem;
+@mobile-feed-p:             1.3rem;
+@mobile-a:                  1rem;
+
 @mobile-link-size:			1.3rem;
 @mobile-txt-size:			1.5rem;
-
+@mobile-tag-size:            1rem;
 // tablet
 @tablet-size:				1.4rem;
 @tablet-ingress-size: 		1.5rem;
-
+@tablet-tag-size:           1.2rem;
+@tablet-link-size:          1.3rem;
+// desktop
+@desk-tag-size:             1.3rem;
 /***********************
 	custom font styles
 ************************/
@@ -135,12 +145,59 @@ TYPOGRAPHY
 	color: @text-color;
 	font-size: 1rem;
 }
-.font(@size:1rem, @color:@text-color, @family:'oswaldbook'){
+.font(@size:1rem, @color:@text-color, @family:@sans-regular){
 	color: @color;
 	font-size: @size;
 	font-family: @family;
 }
 
+.border-top-radius(@radius:5px){
+  -webkit-border-top-left-radius: @radius;
+  -webkit-border-top-right-radius: @radius;
+  -moz-border-radius-topleft: @radius;
+  -moz-border-radius-topright: @radius;
+  border-top-left-radius: @radius;
+  border-top-right-radius: @radius;
+}
+@font-face {
+  font-family: 'sans-regular';
+  src: url('../fonts/Open_Sans/opensans-regular-webfont.eot');
+  src: url('../fonts/Open_Sans/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Open_Sans/opensans-regular-webfont.woff2') format('woff2'),
+  url('../fonts/Open_Sans/opensans-regular-webfont.woff') format('woff'),
+  url('../fonts/Open_Sans/opensans-regular-webfont.ttf') format('truetype'),
+  url('../fonts/Open_Sans/opensans-regular-webfont.svg#open_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'sans-extrabold';
+  src: url('../fonts/Open_Sans/opensans-extrabold-webfont.eot');
+  src: url('../fonts/Open_Sans/opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Open_Sans/opensans-extrabold-webfont.woff2') format('woff2'),
+  url('../fonts/Open_Sans/opensans-extrabold-webfont.woff') format('woff'),
+  url('../fonts/Open_Sans/opensans-extrabold-webfont.ttf') format('truetype'),
+  url('../fonts/Open_Sans/opensans-extrabold-webfont.svg#open_sansextrabold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'sans-light';
+  src: url('../fonts/Open_Sans/opensans-light-webfont.eot');
+  src: url('../fonts/Open_Sans/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Open_Sans/opensans-light-webfont.woff2') format('woff2'),
+  url('../fonts/Open_Sans/opensans-light-webfont.woff') format('woff'),
+  url('../fonts/Open_Sans/opensans-light-webfont.ttf') format('truetype'),
+  url('../fonts/Open_Sans/opensans-light-webfont.svg#open_sanslight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+/*
 
 @font-face {
     font-family: 'oswaldlight';
@@ -186,7 +243,7 @@ TYPOGRAPHY
     font-style: normal;
 
 }
-
+*/
 ///////////////////////// AVANTGARDE ////////////////////////////////////////////
 
 @font-face {
@@ -488,7 +545,7 @@ BUTTONS
 	margin: 0 5% 0 6%;
 	border-left: 0.35rem solid @button-text-color;
 	/*.css-gradient(@link-visited,darken(@link-visited, 5%));*/
-	span{.font(1.2rem, @button-text-color,'oswaldbook');}
+	span{.font(1.2rem, @button-text-color,@sans-regular);}
 	&:hover, &:focus {
 		color: @button-text-over;
 	  	border: none;

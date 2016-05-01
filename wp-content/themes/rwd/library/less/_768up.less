@@ -240,87 +240,73 @@ NAVIGATION STYLES
   #main {
     max-width: 940px;
 
-    .feed-item {
-      margin-bottom: 8%;
-      margin: 8% 0;
-    }
-    .auto {
-      .img-container{display: block;}
-    }
 
-    // importing all the css for the different feed container items. the image and the caption
-    // To make a new feed just copy the container less file and add it to the import list below.
-    // And name it after the view and the naming convetion as the other ones has.
-    @import-once "feeds/create-feed-container_768";
-    @import-once "feeds/work-feed-container_768";
-    @import-once "feeds/live-feed-container_768";
-  }
-  // end of main
-  .feed-item {
-    margin-bottom: 8%;
+      // importing all the css for the different feed container items. the image and the caption
+      // To make a new feed just copy the container less file and add it to the import list below.
+      // And name it after the view and the naming convetion as the other ones has.
+      @import-once "feeds/create-feed-container_768";
+      @import-once "feeds/work-feed-container_768";
 
-    .feed-info {
-      h2 {
-        margin: 0.83em 5% 0 6%;
+    .feed-item{
+      .img-container{
+        max-height: 300px;
+        img{
+          .border-top-radius(0);
+        }
       }
-    }
-  }
-  .right-item, #live-item-container .auto {
-
-    .feed-info {
-      .sixcol();
-      float: left;
-      display: inline-block;
-
-    }
-
-    .img-container {
-      .sixcol();
-      .clear-margin();
-      height: auto;
-      float: right;
-      display: inline-block;
-      min-height: auto;
-      height: inherit;
-
-    }
-  }
-  #live-item-container {
-    .feed-item {
-      max-height: 300px;
-      overflow: hidden;
-      .expand-info{
-        .twelvecol();
-      }
-
       .feed-info{
-        a:last-of-type{p:last-of-type{display: none;}}
 
+        a{
+          .font(@desk-tag-size,@text-color,@sans-xbold);
+        }
+      }
+      .expand-info{
+        .elevencol();
+        .clear-margin();
+        .font(@tablet-tag-size,@text-color,@sans-xbold);
+      }
+    }
+
+    // large and auto item in feed
+    .auto, .large-item{
+      a:first-of-type{
+        display: block;
+        .twelvecol();
+        .clear-margin();
+      }
+      .img-container{
+        max-height: 450px;
+      }
+    }
+    // right item
+    .right-item, .left-item{
+      .img-container, .feed-info{
+        .sixcol();
+        .clear-margin();
+        float:left;
       }
 
+
     }
-    .large-item {
-      max-height: none;
+    .right-item {
+      .img-container {
+
+        float: right;
+        img {
+          width: 100%;
+        }
+      }
     }
+    // left item
+    .left-item .feed-info{
+      float: right;
+    }
+
+  }// end of main
+
+  #buttonContainer {
+    .sixcol();
   }
-	.left-item{
-
-		.feed-info{
-			.sixcol();
-			.clear-margin();
-			float: right;
-			display: inline-block;
-		}
-		.img-container{
-			.sixcol();
-			.clear-margin();
-			height: auto;
-			float: left;
-			display: inline-block;
-			
-		}
-	}
-
 }
 
 .nav-links{padding: 1rem 0;}
@@ -454,12 +440,6 @@ SIDEBARS & ASIDES
 	.widget_text {}
 	.textwidget p {}
 
-
-#load-more-container{
-	margin-left: 2rem;
-    .twelvecol();
-  float:none;
-}
 
 /*********************
 13. FOOTER STYLES

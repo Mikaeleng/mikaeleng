@@ -1,0 +1,107 @@
+#work-container {
+  position: relative;
+  width: inherit;
+  .clearfix();
+
+  #work-item-container {
+	.twelvecol();
+	.clear-margin();
+	float: right;
+	position: relative;
+  }
+
+  #page-filter {
+	width: 34.5%;
+	min-height: 100%;
+	background: url("../images/filter-background.jpg");
+	background-repeat: repeat-y;
+	background-size: cover;
+	position: absolute;
+	display: none;
+
+	form {
+	  position: relative;
+
+	  #input-container {
+		.tencol();
+		.clear-margin();
+		.center();
+		margin-top: 2rem;
+		background: @search-background-color;
+		border-radius: 5px;
+		.flex-box();
+		.flex-wrap(nowrap);
+		height: 2.5rem;
+
+		input[type=text] {
+		  display: inline-block;
+		  background: transparent;
+		  border: 0;
+		  color: @button-color;
+		  padding-left: 1.3rem;
+		}
+		input[type=submit] {
+		  padding: 0;
+		  .H2();
+		  color: @button-color;
+		}
+	  }
+	}
+  }
+  .year-devider {
+	text-align: center;
+	.H2;
+	background-color: @item-bg-color;
+	padding: 0.75rem 0;
+	margin: 1.5rem 0;
+  }
+
+  .feed-item {
+	background: @item-bg-color;
+	margin: 16% 0 16% 0;
+	position: relative;
+	margin-left: 0;
+
+	.year-tag {
+	  background: @button-color;
+	  border-radius: 4px;
+	  padding: 0.1rem 0.4rem;
+	  .H2();
+	  width: 60%;
+	  text-align: center;
+	  margin-left: -.5rem;
+	  margin-top: -.5rem;
+	}
+
+	.work-header {
+	  margin: 2rem 0 1rem 0;
+
+	  h2 {
+		margin-bottom: 0;
+	  }
+	}
+
+	.work-content {
+
+	  .work-metadata {
+		.tags {
+		  a {
+			margin: 0;
+		  }
+		}
+
+		a {
+		  .eightcol();
+		  .clear-margin();
+		  position: relative;
+		  .button {
+			position: relative;
+			margin: 0 auto 1.5rem 5%;
+			float: none;
+			text-align: center;
+		  }
+		}
+	  }
+	}
+  }
+}
