@@ -114,53 +114,6 @@ TYPOGRAPHY
   font-weight: normal;
   font-style: normal;
 }
-/*
-
-@font-face {
-    font-family: 'oswaldlight';
-    src: url('../fonts/oswald/oswald-light-webfont.eot');
-    src: url('../fonts/oswald/oswald-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/oswald/oswald-light-webfont.woff2') format('woff2'),
-         url('../fonts/oswald/oswald-light-webfont.woff') format('woff'),
-         url('../fonts/oswald/oswald-light-webfont.ttf') format('truetype'),
-         url('../fonts/oswald/oswald-light-webfont.svg#oswaldlight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'oswaldbook';
-    src: url('../fonts/oswald/oswald-regular-webfont.eot');
-    src: url('../fonts/oswald/oswald-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/oswald/oswald-regular-webfont.woff2') format('woff2'),
-         url('../fonts/oswald/oswald-regular-webfont.woff') format('woff'),
-         url('../fonts/oswald/oswald-regular-webfont.ttf') format('truetype'),
-         url('../fonts/oswald/oswald-regular-webfont.svg#oswaldbook') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'oswaldbold';
-    src: url('../fonts/oswald/oswald-bold-webfont.eot');
-    src: url('../fonts/oswald/oswald-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/oswald/oswald-bold-webfont.woff2') format('woff2'),
-         url('../fonts/oswald/oswald-bold-webfont.woff') format('woff'),
-         url('../fonts/oswald/oswald-bold-webfont.ttf') format('truetype'),
-         url('../fonts/oswald/oswald-bold-webfont.svg#oswaldbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-*/
 @font-face {
   font-family: 'Avantgarde';
   src: url('../fonts/Avantgarde/Avantgarde.eot');
@@ -496,10 +449,6 @@ upon your base.less styles.
 /*********************
 NAVIGATION STYLES
 *********************/
-.sidr.right {
-  background: #353333;
-  width: 70%;
-}
 #mobile-menu-item-search {
   display: none;
 }
@@ -582,9 +531,6 @@ NAVIGATION STYLES
   content: "\f100" !important;
   margin-right: 10%;
 }
-.header #top-item {
-  margin-top: 41px;
-}
 .header #top-item #top-info {
   height: 90%;
   max-width: 100%;
@@ -597,16 +543,21 @@ NAVIGATION STYLES
   margin: 0 5% 0 6%;
   color: #fff;
   font-size: 1.5rem;
-  font-family: "oswaldlight";
+  font-family: "sans-light";
 }
 .header #top-item #top-info span {
   margin: 0 0% 0 6%;
   display: none;
 }
 .header #top-item #top-info #tag-cloud {
-  margin: 0 6% 0 6%;
-  display: inline-block;
-  overflow: hidden;
+  margin: 0 6%;
+  width: 100%;
+  display: block;
+  float: left;
+}
+.header #top-item #top-info #tag-cloud a {
+  margin-left: 0;
+  margin-right: 0.2rem;
 }
 #main-navigation {
   display: block;
@@ -699,9 +650,10 @@ NAVIGATION STYLES
   -moz-justify-content: center;
   -ms-justify-content: center;
   max-height: 435px;
+  height: 435px;
 }
 #running-top #post_iframe_container {
-  position: relative;
+  position: absolute;
   padding-bottom: 56%;
   padding-top: 35px;
   height: 0;
@@ -715,6 +667,8 @@ NAVIGATION STYLES
   overflow-x: scroll;
   order: 1;
   z-index: 200;
+  top: 0;
+  left: 0;
 }
 #running-top #post_iframe_container iframe {
   position: absolute;
@@ -729,7 +683,7 @@ NAVIGATION STYLES
   display: inline-block;
   max-height: 445px;
   overflow: hidden;
-  width: 50%;
+  width: auto;
   height: 100%;
   top: 0;
   padding: 0;
@@ -739,7 +693,6 @@ NAVIGATION STYLES
   z-index: 0;
 }
 #running-top #img_thumb_container img {
-  min-width: 340px;
   min-height: 100%;
 }
 #content {
@@ -755,6 +708,10 @@ NAVIGATION STYLES
 #content #main .feed-item .feed-info,
 #content #main .feed-item .expand-info {
   padding-bottom: 0;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
 }
 #content #main .feed-item .feed-info p,
 #content #main .feed-item .expand-info p {
@@ -820,8 +777,28 @@ do they need tweaking?
 .footer #inner-footer {
   margin: 0 auto 3rem;
   padding: 0 4% 0 4%;
-  float: none;
-  display: block;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+}
+.footer #inner-footer li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
 }
 .footer #inner-footer span {
   min-height: 200px;
@@ -835,6 +812,7 @@ do they need tweaking?
   float: left;
   margin-left: 2.762430939%;
   min-width: 45%;
+  float: none;
 }
 .footer .footer-item h2 {
   min-width: 30%;
@@ -968,8 +946,8 @@ LAYOUT & GRID STYLES
 /*********************
 HEADER STYLES
 *********************/
-.header #top-item {
-  position: relative;
+.header #top-item .top-img-container img {
+  margin-top: -33%;
 }
 .header #top-item #top-info {
   width: 57.182320438000005%;
@@ -992,6 +970,7 @@ HEADER STYLES
 }
 .header #top-item #top-info a {
   display: inline;
+  text-decoration: none;
 }
 .header #top-item #expand-top-info {
   width: 99.999999993%;
@@ -1156,7 +1135,7 @@ NAVIGATION STYLES
   justify-content: space-between;
   -moz-justify-content: space-between;
   -ms-justify-content: space-between;
-  max-height: 425px;
+  max-height: 435px;
 }
 #running-top #post_iframe_container {
   position: relative;
@@ -1177,9 +1156,7 @@ NAVIGATION STYLES
   overflow: scroll;
 }
 #running-top #img_thumb_container {
-  position: relative;
   display: inline-block;
-  width: 90%;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -1188,6 +1165,13 @@ NAVIGATION STYLES
   max-width: 940px;
   @import-once "feeds/create-feed-container_768";
   @import-once "feeds/work-feed-container_768";
+}
+#content #main .single-img-container {
+  max-height: 450px;
+  overflow: hidden;
+}
+#content #main .single-img-container img {
+  margin-top: -23%;
 }
 #content #main .feed-item .img-container {
   max-height: 300px;
@@ -1202,8 +1186,13 @@ NAVIGATION STYLES
 }
 #content #main .feed-item .feed-info a {
   color: #b9b9b9;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-family: "sans-extrabold";
+}
+#content #main .feed-item .feed-info p {
+  color: #b9b9b9;
+  font-size: 1rem;
+  font-family: "sans-light";
 }
 #content #main .feed-item .expand-info {
   width: 91.436464082%;
@@ -1243,6 +1232,8 @@ NAVIGATION STYLES
   margin-left: 0;
   float: none;
   float: left;
+  max-height: 285px;
+  overflow: hidden;
 }
 #content #main .right-item .img-container {
   float: right;
@@ -1268,7 +1259,7 @@ NAVIGATION STYLES
 .entry-content p {
   color: #b9b9b9;
   font-size: 1.4rem;
-  font-family: "oswaldlight";
+  font-family: "sans-light";
 }
 .article-footer {
   margin: 0;
@@ -1316,7 +1307,6 @@ SIDEBARS & ASIDES
 }
 .footer #inner-footer {
   max-width: 940px;
-  display: block;
   padding: 0;
   -ms-box-orient: horizontal;
   display: -webkit-box;

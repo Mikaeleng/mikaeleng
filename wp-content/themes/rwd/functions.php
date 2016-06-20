@@ -70,6 +70,7 @@ add_image_size( 'bones-thumb-600', 600, 150, true );
 add_image_size( 'bones-thumb-300', 300, 100, true );
 add_image_size( 'feed-thumb-side', 441, 359, true );
 add_image_size( 'feed-thumb-large', 970, 340, true );
+add_image_size( 'feed-thumb-header', 672, 590, true );
 /*
 to add more sizes, simply copy a line from above
 and change the dimensions & name. As long as you

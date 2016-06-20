@@ -20,10 +20,6 @@ upon your base.less styles.
 /*********************
 NAVIGATION STYLES
 *********************/
-.sidr.right{
-	background: @item-bg-color;
-	width: 70%;
-}
 #mobile-menu-item-search{display: none;}
 #menu-item-search{display: list-item;}
 
@@ -67,7 +63,6 @@ NAVIGATION STYLES
 }
 
 .header #top-item {
-  margin-top: 41px;
 
     #top-info {
       height: 90%;
@@ -79,7 +74,7 @@ NAVIGATION STYLES
         max-height: 80%;
         display: inline-block;
         margin: 0 5% 0 6%;
-        .font(@tablet-ingress-size, @white, @oswald-light);
+        .font(@tablet-ingress-size, @white, @sans-light);
       }
       span {
         margin: 0 0% 0 6%;
@@ -87,9 +82,15 @@ NAVIGATION STYLES
       }
 
       #tag-cloud {
-        margin: 0 6% 0 6%;
-        display: inline-block;
-        overflow: hidden;
+        margin: 0 6%;
+        width: 100%;
+        display: block;
+        float: left;
+        
+        a{
+          margin-left: 0;
+          margin-right: 0.2rem;
+        }
       }
     }
 
@@ -194,9 +195,10 @@ NAVIGATION STYLES
   background: @item-bg-color;
   .flex-justify(center);
   max-height: 435px;
+  height: 435px;
 
   #post_iframe_container {
-	position: relative;
+	position: absolute;
 	padding-bottom: 56%;
 	padding-top: 35px;
 	height: 0;
@@ -210,6 +212,9 @@ NAVIGATION STYLES
 	overflow-x: scroll;
 	order: 1;
 	z-index: 200;
+	top: 0;
+	left: 0;
+	
 
 	iframe {
 	  position: absolute;
@@ -225,7 +230,7 @@ NAVIGATION STYLES
 	display: inline-block;
 	max-height: 445px;
 	overflow: hidden;
-	width: 50%;
+	width: auto;
 	height: 100%;
 	top: 0;
 	padding: 0;
@@ -234,7 +239,6 @@ NAVIGATION STYLES
 	right: 0;
 	z-index: 0;
 	img{
-	  min-width: 340px;
 	  min-height: 100%;
 	}
   }
@@ -249,6 +253,7 @@ NAVIGATION STYLES
       .feed-item{
       .feed-info, .expand-info{
         padding-bottom: 0;
+        .flex-wrap(wrap);
         p{
           .font(@tablet-link-size,@text-color,@sans-light);
         }
@@ -317,17 +322,23 @@ do they need tweaking?
 	#inner-footer{
 		margin: 0 auto 3rem;
 		padding: 0 4% 0 4%;
-		display: block;
-		float:none;
-  		display: block;
-  			span{min-height: 200px; display: inline-block;}
+      .flex-box();
+      .flex-direction(row);
+      .flex-wrap(wrap);
+      li{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        white-space: nowrap;
+      }
+      span{min-height: 200px; display: inline-block;}
 	}
 	.footer-item{
 		display: inline-block;
 		margin-top: 1.5rem;
-		float: left;
 		.fivecol();
 		min-width: 45%;
+      float:none;
 
 		h2{min-width: 30%; display: block;}
 	}

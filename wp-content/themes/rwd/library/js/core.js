@@ -81,7 +81,12 @@ jQuery(document).ready(function($) {
   if(user !== "undefined"){
     //$('#content').css('margin', '41px auto 0 auto');
   }
+    // height is also set in scripts.js onResize function
+    jQuery( "#cinema-mode" ).appendTo( "body" );
+    var _img = jQuery(".single-img-container img").attr("src");
 
+    jQuery("#cinema-mode").css("background-image", 'url(' + _img + ')');
+    jQuery("#cinema-mode").css('height',_winHeight);
 
   // event for geting more post on the startpage.php page
   jQuery(".startpage-feed-button").click(function(e){
@@ -104,28 +109,19 @@ jQuery(document).ready(function($) {
       e.preventDefault();
     });
 
-// event for geting more post on the create.php page
-  jQuery(".create-page-feed-button").click(function(e){
-    var currentCount  = jQuery(".feed-item").length;
-    var newTotal      = currentCount + 10;
-    var kneedle       = currentCount -1;
-    var year          = jQuery(".year-tag").filter( ":last" ).text();
+// event for showing the image in cinema mode
+    jQuery(".single-img-container").click(function(e){
+        jQuery("#cinema-mode").css("display","block");
 
-    getMorePosts({
-        url: '../wp-content/themes/rwd/library/models/FeedModel.php', 
-        posts_per_page: -1,
-        postLimit: newTotal,
-        category_name: 'create',
-        pointer:  kneedle,
-        orderby: 'date',
-        order: 'DESC',
-        currentYear: year,
-        TypeOfFeed: 'create',
-        targetContainer: '#create-item-container'
+        e.preventDefault();
     });
 
-    e.preventDefault();
-  });
+// event for hiding the ciema mode
+    jQuery("#cinema-mode").click(function(e){
+        jQuery("#cinema-mode").css("display","none");
+
+        e.preventDefault();
+    });
 
   // event for geting more post on the create.php page
   jQuery(".work-page-feed-button").click(function(e){

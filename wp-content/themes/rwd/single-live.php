@@ -15,6 +15,7 @@ if($garmin_activity != null){
             ?></div><?php
         }?></div>
 <?php } ?>
+
 			<div id="content" class="first clearfix">
 
 					<div id="main" class="eightcol first clearfix" role="main">
@@ -25,9 +26,9 @@ if($garmin_activity != null){
                             if($garmin_activity == null){
                             if ( has_post_thumbnail($custom_query ->ID)) {
                                 ?>
-                                <div id="img_thumb_container">
+                                <div class="single-img-container">
                                 <?php
-                                echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-large');
+                                echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-header');
                             }?>
                             </div>
                             <?php } ?>
@@ -53,21 +54,21 @@ if($garmin_activity != null){
 							echo previous_post_link('%link', 'Previous', $in_same_cat = true);
 								echo next_post_link('%link', 'Next', $in_same_cat = true);?>
 							</div> <!-- end of nav links -->
-							<footer class="article-footer">
+
 									<?php echo bones_related_posts(); ?>
-								</footer> 
+
 						<?php endwhile; ?>
 						<?php else : ?>
 
 							<article id="post-not-found" class="hentry clearfix">
 									<header class="article-header">
-										<h1><?php _e( 'Oops, I lost something', 'bonestheme' ); ?></h1>
+										<h1><?php _e( 'Oops, I lost something', 'liveworkcreate' ); ?></h1>
 									</header>
 									<section class="entry-content">
-										<p><?php _e( 'Uh Oh. Something is missing. Please go back.', 'bonestheme' ); ?></p>
+										<p><?php _e( 'Uh Oh. Something is missing. Please go back.', 'liveworkcreate' ); ?></p>
 									</section>
 									<footer class="article-footer">
-											<p><?php _e( 'Oops I lost my footing', 'bonestheme' ); ?></p>
+											<p><?php _e( 'Oops I lost my footing', 'liveworkcreate' ); ?></p>
 									</footer>
 
 							</article>
@@ -78,6 +79,7 @@ if($garmin_activity != null){
 					<?php get_sidebar(); ?>
 <?php // end #inner-content ?>
 
-			</div> <?php // end #content ?>
+			</div>
+<div id="cinema-mode"><p>X</p></div> <?php // end #content ?>
 
 <?php get_footer(); ?>

@@ -238,7 +238,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   font-family: @sans-xbold;
   text-rendering: optimizelegibility;
   font-weight: 400;
-  margin: 0 5% 0 5%;
+  margin: 0 5% 0 6%;
 
   /*
   if you're going to use webfonts, be sure to check your weights
@@ -342,13 +342,16 @@ header.article-header {
     width: 100%;
     max-height: 410px;
     overflow: hidden;
-
-    a {
-      .clear-margin();
-      text-decoration: none;
+    .top-img-container {
+      display: table;
+      width:100%;
+      a {
+        .clear-margin();
+        text-decoration: none;
+      }
       img {
-        .flex-box();
-        .flex-align-items(center);
+        display: table-cell;
+        vertical-align: middle;
       }
     }
     #expand-top-info {
@@ -365,11 +368,15 @@ header.article-header {
       max-height: 120px;
       margin-left: 0;
       width: 100%;
+      a{
+        text-decoration: none;}
       h2 {
-        .font(2.5rem, @white, @sans-light);
+        .font(1.5rem, @white, @sans-regular);
         display: block;
-        line-height: 2.5rem;
+        line-height: 1.7rem;
         padding-top: 0.5rem;
+        margin-top: 0;
+        float:left;
       }
       p {
         display: none;
@@ -383,6 +390,7 @@ header.article-header {
       a {
         width: 100%;
         color: @white;
+        text-decoration: none;
         p {
           display: none;
         }
@@ -458,48 +466,6 @@ and more scalable.
 
   }
 }
-
-// main sidr navigation override classes
-
-.sidr ul li:hover > a, .sidr ul li:hover > span, .sidr ul li.active > a, .sidr ul li.active > span,
-.sidr ul li.sidr-class-active > a, .sidr ul li.sidr-class-active > span {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-
-.sidr {
-  box-shadow: inset 0 0 1px 1px #222;
-
-  form {
-    padding-top: 0.65rem;
-  }
-
-  ul {
-    border-top: none;
-    border-bottom: none;
-
-    li, li:hover {
-      border-top: none;
-      border-bottom: 2px solid @body-bg-color;
-      background: @button-color;
-      line-height: inherit;
-
-      a:hover {
-        outline: none;
-      }
-    }
-    li:active {
-      background: @text-color;
-      a {
-        color: @item-bg-color !important;
-      }
-    }
-  }
-}
-// imports the depricated drawer menu classes
-
-//@import-once "_sidr";
 
 .nav {
   border-bottom: 1px solid @text-color;
@@ -589,6 +555,27 @@ and more scalable.
 /*********************
 08. POSTS & CONTENT STYLES
 *********************/
+#cinema-mode{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 999;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(0,0,0,0.75);
+  background-image: none;
+  cursor: pointer;
+  p{
+    .font(1.2rem, @text-color,@sans-xbold);
+    text-align: right;
+  }
+}
 #running-top {
   overflow: hidden;
   background: @item-bg-color;
@@ -656,6 +643,15 @@ and more scalable.
     .clear-margin();
     margin: 0 auto;
 
+    .single-img-container{
+      max-height: 450px;
+      overflow: hidden;
+      cursor:pointer;
+      img{
+        margin-top: -23%;
+      }
+    }
+
     // first item in the feed
     .feed-item:first-of-type{
       margin-top: 4rem;
@@ -681,14 +677,17 @@ and more scalable.
         img{
           width:100%;
           .border-top-radius(5);
+
         }
       }
       .feed-info, .expand-info{
+        .flex-wrap(wrap);
+
         padding: 0 6% 3rem 5%;
         h2{
           .font(@mobile-h2,@text-color,@sans-xbold);
-          line-height: @mobile-h2+ 0.15rem;
-          margin: 0.5rem 0 1rem 0;
+          line-height: @mobile-h2+ 0.45rem;
+          margin: 0.5rem 0 0 0;
         }
         // removes the first and last paragraph that wordpress adds to it's "the_content()" finction
         //p:first-of-type, p:last-of-type{display: none;}
@@ -706,6 +705,7 @@ and more scalable.
           margin: 0;
           float: left;
           display: inline;
+          line-height: 2rem;
         }
       }
       .expand-info{width:100%;}
@@ -806,6 +806,13 @@ and more scalable.
 /* general post style */
 article {
   margin-bottom: 4rem;
+  
+  h1{
+    margin: 0;
+    margin-top: 2rem;
+    padding: 0 6% 0 5%;
+    text-align: left;
+  }
 
   p {
     margin-top: 0.5em;
@@ -881,7 +888,7 @@ article {
   }
   .tags a {
     margin: 0;
-    .font(@mobile-link-size, @text-color, @sans-light);
+    .font(@mobile-link-size, @text-color, @sans-xbold);
   }
 }
 
@@ -1513,9 +1520,9 @@ article {
   #inner-footer {
     margin: 0 auto 3rem;
     padding: 0 4% 0 4%;
-    display: block;
-    float: none;
-    display: block;
+    .flex-box();
+    .flex-direction(column);
+    .flex-wrap(wrap);
     span {
       min-height: 50px;
       display: inline-block;
@@ -1524,6 +1531,12 @@ article {
   .footer-item {
     display: block;
     margin-top: 1.5rem;
+    li{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      max-height: 1.6rem;
+    }
     h2 {
       margin: 0;
     }

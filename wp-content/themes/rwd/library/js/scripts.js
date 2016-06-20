@@ -16,6 +16,7 @@ var SMALL               = "small";
 var XL                  = "extraLarge";
 var response            = 11;
 var current_viewport    = null;
+var _winHeight          = 0;
 
 // IE8 ployfill for GetComputed Style (for Responsive Script below)
 if (!window.getComputedStyle) {
@@ -91,7 +92,7 @@ jQuery(document).ready(function($) {
     //
     /////////////////////////////
     current_viewport = viewportSize();
-
+    _winHeight = $(window).height();
     switchHeadline();
 
     
@@ -119,7 +120,7 @@ jQuery(document).ready(function($) {
           }
     });*/
 
-    $(window).swipe({
+    /*$(window).swipe({
         swipeLeft:function(event, direction, distance, duration, fingerCount, fingerData) {
             if(current_viewport==SMALL && direction == "left"){
                 $.sidr('open', 'sidr-right'); 
@@ -133,7 +134,7 @@ jQuery(document).ready(function($) {
         //Default is 75px, set to 0 for demo so any distance triggers swipe
        threshold:125,
        preventDefaultEvents: false
-    });
+    });*/
     
 
     ////////////////////////////////////
@@ -141,6 +142,10 @@ jQuery(document).ready(function($) {
     ///////////////////////////////////
     jQuery(window).resize(function(e) {
 
+        _winHeight = $(window).height();
+
+        $("#cinema-mode").css('height',_winHeight);
+        printer(_winHeight);
         //switchHeadline();
     
     if(hit_breakpoint()== true){

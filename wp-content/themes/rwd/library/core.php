@@ -57,6 +57,7 @@ function bones_related_posts()
 	$tags = wp_get_post_tags($post->ID);
 	if(count($tags)>0){
 	?>
+<footer class="article-footer">
 	<h2>Related articles</h2>
 	<?php
 	echo '<ul id="bones-related-posts">';
@@ -86,14 +87,23 @@ function bones_related_posts()
 	wp_reset_postdata();
 
     }
+    $rel_tags = get_custom_tag(array('ID' => $post->ID, 'key' => 'name'));
+    if($rel_tags!=null){
 	?>
+    <footer class="article-footer">
 	<div class="tags first clearfix">
 
-	<p>Tags: <?php echo get_custom_tag(array('ID' => $post->ID, 'key' => 'name')); ?></p>
-	</div><?php
+	<p>Tags: <?php echo $rel_tags; ?></p>
+	</div>
+        <?php } ?>
+    </footer>
+    <?php
 } /* end bones related posts function */
 
-
+	// adds cinema mode for image popups in fulllscreen on single-live.php
+function add_cinema_mode(){
+?>	<div id="cinema-mode">Test</div><?php
+}
 /***********************/
 function bones_popular_category_posts($args) {
 	$count = $args['count'];
@@ -126,6 +136,13 @@ function get_custom_categories($args){
 	return $cats;
 }
 
+    function get_category_name($args){
+
+        $cat = $args['category_name'];
+        $categories = get_categories( $args );
+        $cats = $cat[0]->slug;
+        return $cats;
+    }
 
 function get_custom_tag($args){
 	global $post;
@@ -135,7 +152,7 @@ function get_custom_tag($args){
 
 	foreach ( $tags as $tag ) {
 	  if($count==0){
-	  	$terms .= '<a href="' . get_tag_link( $tag->term_id ) . '">#' . $tag->name . '</a>';
+	  	$terms = '<a href="' . get_tag_link( $tag->term_id ) . '">#' . $tag->name . '</a>';
 	  }	else{
 	  	$terms .= '<a>, </a><a href="' . get_tag_link( $tag->term_id ) . '"> #' . $tag->name . '</a>';
 	  }	

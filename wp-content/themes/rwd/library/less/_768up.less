@@ -30,7 +30,11 @@ HEADER STYLES
 
 .header {
 	#top-item{
-		position: relative;
+      .top-img-container{
+        img{
+          margin-top: -33%;
+        }
+      }
 		#top-info{
 			.sevencol();
 			position: absolute;
@@ -44,6 +48,7 @@ HEADER STYLES
 			span{display: inline; margin: 0;}
 			a{
 				display: inline;
+              text-decoration: none;
 			}
 
 			//a:nth-of-type(1){margin-left: 6%;}
@@ -204,7 +209,7 @@ NAVIGATION STYLES
 #running-top {
   .flex-box();
   .flex-justify(space-between);
-  max-height: 425px;
+  max-height: 435px;
 
   #post_iframe_container {
 	position: relative;
@@ -226,9 +231,7 @@ NAVIGATION STYLES
 	}
   }
   #img_thumb_container {
-	position: relative;
 	display: inline-block;
-	width: 90%;
 	height: 100%;
 	padding: 0;
 	margin: 0;
@@ -240,7 +243,13 @@ NAVIGATION STYLES
   #main {
     max-width: 940px;
 
-
+    .single-img-container{
+      max-height: 450px;
+      overflow: hidden;
+      img{
+        margin-top: -23%;
+      }
+    }
       // importing all the css for the different feed container items. the image and the caption
       // To make a new feed just copy the container less file and add it to the import list below.
       // And name it after the view and the naming convetion as the other ones has.
@@ -259,6 +268,9 @@ NAVIGATION STYLES
         a{
           .font(@desk-tag-size,@text-color,@sans-xbold);
         }
+        p{
+          .font(@desk-ingress-size,@text-color,@sans-light);
+        }
       }
       .expand-info{
         .elevencol();
@@ -266,6 +278,13 @@ NAVIGATION STYLES
         .font(@tablet-tag-size,@text-color,@sans-xbold);
       }
     }
+    .live{
+      .img-container{
+        .feed-thumb-large{
+        }
+      }
+    }
+
 
     // large and auto item in feed
     .auto, .large-item{
@@ -284,6 +303,8 @@ NAVIGATION STYLES
         .sixcol();
         .clear-margin();
         float:left;
+        max-height: 285px;
+        overflow: hidden;
       }
 
 
@@ -313,7 +334,7 @@ NAVIGATION STYLES
 .entry-content {
   margin-bottom: 1rem;
   p {
-	.font(@tablet-size, @text-color, @oswald-light)
+	.font(@tablet-size, @text-color, @sans-light)
   }
 }
 .article-footer{
@@ -452,7 +473,6 @@ SIDEBARS & ASIDES
 	margin: 0 auto;
 	#inner-footer{
 		max-width: 940px;
-		display: block;
 		float:none;
 		padding: 0;
 

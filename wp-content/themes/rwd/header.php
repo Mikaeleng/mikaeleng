@@ -39,7 +39,6 @@
 		<?php // end analytics ?>
 
 	</head>
-
 	<body <?php body_class(); ?>>
 		<?php echo get_analytics(); ?>
 		<div id="container">
@@ -60,4 +59,4 @@
 				*	adds custom post on different pages from different categories etc
 				*********************/
 			add_inner_header();?>
-			</header> <?php // end header ?>
+			</header> <?php // end header?>

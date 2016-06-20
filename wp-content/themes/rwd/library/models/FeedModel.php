@@ -54,9 +54,14 @@ function get_wall_feed_model($args){
    if($custom_query->current_post > $args['pointer'] && $custom_query->current_post < $args['postLimit']){
 
     $post_type = get_post_meta( $post ->ID, '_post_feed_image_position', true );
+       $category = get_category_name(array(
+           'orderby' => 'name',
+           'parent' => 0,
+           'category_name' => get_the_category($post->ID)
+       ));
       ?>
       <!-- // START feed-item -->
-        <div class="feed-item <?php echo $post_type;?> first clearfix" id="divID_<?php echo $post ->ID;?>">
+        <div class="feed-item <?php echo $post_type . " " . $category?> first clearfix" id="divID_<?php echo $post ->ID;?>">
           <?php if ( has_post_thumbnail($custom_query ->ID)) {
             echo '<div class="img-container">';
          echo '<a href="' . get_permalink( $custom_query ->ID ) . '" title="' . esc_attr( $custom_query ->post_title ) . '">';
@@ -71,7 +76,7 @@ function get_wall_feed_model($args){
              echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-side', array('class' => 'feed-thumb-side')); 
              break;
            default:
-             echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-large', array('class' => 'feed-thumb-large')); 
+             echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-large', array('class' => 'feed-thumb-large'));
              break;
          }
           echo '</a>';
@@ -273,9 +278,11 @@ function get_live_feed_model($args){
    if($custom_query->current_post > $args['pointer'] && $custom_query->current_post < $args['postLimit']){
 
     $post_type = get_post_meta( $post ->ID, '_post_feed_image_position', true );
+       $category = get_category_name(array('orderby' => 'name', 'parent' => 0, 'category_name' => get_the_category($post->ID)
+       ));
       ?>
       <!-- // START feed-item -->
-        <div class="feed-item <?php echo $post_type;?> first clearfix" id="divID_<?php echo $post ->ID;?>">
+        <div class="feed-item <?php echo $post_type . " " . $category;?> first clearfix" id="divID_<?php echo $post ->ID;?>">
 
           <?php if ( has_post_thumbnail($custom_query ->ID)) {
             echo '<div class="img-container">';
@@ -291,7 +298,7 @@ function get_live_feed_model($args){
              echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-side', array('class' => 'feed-thumb-side'));
              break;
              case 'auto':
-             echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-side', array('class' => 'feed-thumb-side'));
+             echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-header', array('class' => 'feed-thumb-header'));
              break;
            default:
              echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-large', array('class' => 'feed-thumb-large'));
@@ -347,20 +354,20 @@ function get_header_feed_model($args){
     if($custom_query->current_post > $args['pointer'] && $custom_query->current_post < $args['postLimit']){
   ?>
   <div id="top-item">
-
+<div class="top-img-container">
   <?php   if ( has_post_thumbnail($custom_query ->ID)) {
         echo '<a href="' . get_permalink( $custom_query ->ID ) . '" title="' . esc_attr( $custom_query ->post_title ) . '">';
-        echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-large', array('class' => 'feed-thumb-large')); 
+        echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-header', array('class' => 'feed-thumb-header'));
         echo '</a>';
-     echo '<a href="' . get_permalink( $custom_query ->ID ) . '" title="' . esc_attr( $custom_query ->post_title ) . '">';
+      echo '</div>';
+
         }?>
       <div id="<?php if ( !has_post_thumbnail($custom_query ->ID)) {echo 'expand-top-info';}else{echo 'top-info';}?>">
+          <?php echo '<a href="' . get_permalink( $custom_query ->ID ) . '" title="' . esc_attr( $custom_query ->post_title ) . '">'; ?>
         <h2><?php the_title(); ?></h2>
-        <p><?php get_excerpt(200,'',false); ?> ...</p>
-       
-         <div id="tag-cloud"><span></span><?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></div>
+          <?php echo '</a>'; ?>
+         <div id="tag-cloud"><?php echo get_custom_tag(array('ID'=>$post->ID, 'key'=>'name')); ?></div>
         </div>
-        <?php echo '</a>'; ?>
       </div>
     </div>
     <?php

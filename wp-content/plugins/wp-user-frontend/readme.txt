@@ -1,12 +1,12 @@
 === WP User Frontend ===
-Contributors: tareq1988
+Contributors: tareq1988, wedevs
 Donate link: http://tareq.wedevs.com/donate/
-Tags: frontend, post, edit, dashboard, restrict, content submission, guest post, guest, dashboard, registration, profile, anonymous post, gravity, gravity forms, formidable
+Tags: frontend, post, edit, dashboard, restrict, content submission, guest post, guest, registration, profile, anonymous post, gravity, gravity forms, formidable, author, author profile, authors, comments, conditional fields, conditional logic, custom fields, file uploads, form builder, front-end login, front-end registration, profile builder, profiles, member, member directory, members, Membership
 Requires at least: 3.3
-Tested up to: 3.9.1
+Tested up to: 4.4.2
 Stable tag: trunk
 
-Create, update, delete posts and edit profile directly from the WordPress frontend.
+The ultimate front-end plugin for WordPress. Create, update, delete posts and edit profile directly from the WordPress frontend.
 
 == Description ==
 
@@ -57,6 +57,7 @@ Try an <a href="http://demo.wedevs.com/wpuf/wp-admin/">online demo</a> of the Pr
 = Translation =
 
 * Italian translation by Gabriele Lamberti
+* Persian translation by Abolfazl Esmailinejad
 
 [Github Repository](https://github.com/tareq1988/WP-User-Frontend).
 
@@ -64,8 +65,8 @@ Try an <a href="http://demo.wedevs.com/wpuf/wp-admin/">online demo</a> of the Pr
 
 After having installed the plugin:
 
-1. Create a new Page “New Post” and insert shortcode `[wpuf_addpost]`.
-    For a custom post type **event**, use `[wpuf_addpost post_type="event"]`
+1. Click "Install WPUF Pages" after installation for automatic settings installation.
+1. Create a form from the form builder. Get the shortcode for a form. Copy and paste that shortcode to a page.
 1. Create a new Page “Edit” for editing posts and insert shortcode `[wpuf_edit]`
 1. Create a new Page “Profile” for editing profile and insert shortcode `[wpuf_editprofile]`
 1. Create a new Page “Dashboard” and insert shortcode `[wpuf_dashboard]`
@@ -74,20 +75,29 @@ After having installed the plugin:
 1. To show the subscription info, insert the shortcdoe `[wpuf_sub_info]`
 1. To show the subscription packs, insert the shortcode `[wpuf_sub_pack]`
 1. For subscription payment page, set the *Payment Page* from *Payments* tab on settings page.
-1. To edit users, insert the shortcode `[wpuf-edit-users]`
+
+= Video =
+[youtube https://www.youtube.com/watch?v=pK3nLeR2fzc]
 
 
 == Screenshots ==
 
 1. Admin panel
-2. User Dashboard
-3. Add Post
-4. Edit Posts
-5. Edit Profile
-6. Custom Field Manager
-7. Subscription Pack Manager
-8. Subscription packs
-9. Edit Users
+2. Admin panel &rarr; Dashboard Tab
+3. Admin panel &rarr; Login Tab
+4. Admin panel &rarr; Payments Tab
+5. Post Forms
+6. Form Builder
+7. Form Builder &rarr; Post Settings
+8. Form Builder &rarr; Edit Settings
+9. Form Elements
+10. Subscription Packs
+11. Subscription Pack Settings
+12. Subscription Packs in a Page
+13. Subscription Payment Screen
+14. A single Form Element on Form Editor
+15. A Form in a Page
+16. Frontend User Dashboard
 
 == Frequently Asked Questions ==
 
@@ -116,6 +126,108 @@ redirected to the edit page with that post id. Then you'll see the edit post for
 
 
 == Changelog ==
+
+= v2.3.13 (30 February, 2016) =
+
+ * [fix] Paypal user agent changed and issue with paypal transection fixed
+ * [new] Multiple images/files can now be uploaded at a time in image and file fields
+ * [fix] Upload.js has been modified
+ * [fix] Problem with saving form element in php 7.0.0 is fixed
+
+= v2.3.12 (8 February, 2016) =
+
+ * [new] WooCommerce Product Category and Attributes are now sectionized
+ * [new] Error notice can now be translated.
+ * [new] Errors on filling up the form will now be visible as warning/notice below the relevant field in front end.
+ * [new] Meta key name in form field in form builder  will now be auto populated only if the meta key field is empty
+ * [fix] Progress bar issue in post edit mode is fixed
+ * [new] Multistep registration form added
+ * [new] Hook added before registration form
+ * [fix] SSL issue fixed
+
+= v2.3.11 (8 February, 2016) =
+
+ * [fix] File upload vulnerability fix. Props to: Panagiotis Vagenas
+ * [fix] Replaced deprecated user notification function
+ * [fix] Email error validation in multistep
+ * [fix] Disabling subscription in form settings
+ * [fix] Product taxonomy fixes
+ * [new] No-captcha support added
+
+= v2.3.10 (5 Ocotber, 2015) =
+
+ * [fix] Custom css is now working
+ * [fix] Textdomain added to some text
+ * [fix] Visibility of address field data in the frontend is now fixed
+ * [tweak] A new filter has been added to get subscription meta data
+ * [new] A new option has been added to date field to treat it future publish date if user wants
+ * [new] Autologin after registration - feature added
+ * [new] Confirmation alert added when user wants to delete subscription in frontend
+ * [fix] Publish post after paypal payment completion
+
+= v2.3.9 (13 Sepetember, 2015) =
+
+ * [fix] Newly registered users were having no meta named "wpuf_postlock"
+ * [fix] Newly registered users (having no meta named "wpuf_postlock") are now having form in the frontend
+ * [fix] Text input field for category is now working
+ * [fix] Pack id warning in admin area profile
+ * [fix] Error in rendering map in edit mode, when having no value
+ * [fix] Progress bar style are set in condition
+ * [fix] Error undefined object post when updating user profile
+ * [improve] Button style in payment form
+
+= v2.3.8 (3rd Sepetember, 2015) =
+
+ * [fix] Problem with wpuf lock post fixed.
+ * [fix] Problem with retyping password disability in the frontend fixed.
+ * [fix] Problem with password visibilty fixed.
+ * [fix] Redirection to subscription page from user profile fixed.
+ * [fix] Scripts and styles of wpuf are now loading when needed.
+ * [add] RTL support improvement
+
+= v2.3.7 (24 August, 2015) =
+
+ * [fix] Problem with conditional logic in image upload field fixed.
+ * [fix] Transaction log updating issue fixed.
+ * [fix] Email field in form with required flag is now working even if left empty.
+ * [fix] Data from address field in registration form is now saved and shows data in edit form .
+ * [new] Persian language translation added
+ * [fix] Problem with 'pay per post' feature fixed
+
+= v2.3.6 (13 July, 2015) =
+
+ * [fix] Login page bug fixed.
+ * [fix] Wordpress native registration page made working.
+ * [fix] Email validation bug fixed.
+ * [fix] Issue in country field fixed.
+ * [fix] Issue with saving taxonomy fixed.
+ * [fix] Problem with captcha and really simple captcha fixed.
+ * [fix] Problem with action hook fixed.
+
+= v2.3.5 (2 July, 2015) =
+
+ * [fix] Ajax taxonomy field bug fixed.
+
+= v2.3.4 (June 29, 2015) =
+
+ * [fix] Featured image caption was not being updated
+
+= v2.3.3 (June 24, 2015) =
+
+ * [fix] Post status settings in form, wasn't being updated.
+
+= v2.3.2 (June 22, 2015) =
+
+ * [fix] Featured image upload fix
+ * [new] Image upload field brought back to free
+
+= v2.3.1 (June 21, 2015) =
+
+ * [fix] Compatibility problem with PHP < 5.2. Accidental PHP array shorthand used.
+
+= version 2.3 (June 20, 2015) =
+
+ * Pro plugin released as free with less features
 
 = version 1.3.2 =
 
@@ -250,4 +362,5 @@ redirected to the edit page with that post id. Then you'll see the edit post for
 
 == Upgrade Notice ==
 
-Nothing to say
+= 2.3 =
+ * It's a **massive update and change** from the previous version 1.3.2. Please do test in your site and main compatibility.
