@@ -1,11 +1,9 @@
 <?php
-
 function get_button($args){ 
 //  To set a default value of the buttons size
   isset($args['size']) ? $args['size'] = $args["size"] : $args['size'] = 'medium';
 // defines all the different buttons that is used over the whole site. just add a case statement for a new button and go to 
 //  Controllers/ButtonController.php to edit the interaction and build the model for the button
-
   switch ($args['typeOfButton']) {
     case 'link_button':
       get_link_button($args);
@@ -20,8 +18,7 @@ function get_button($args){
       
       break;
   }
-} 
-
+}
 function get_link_button($args){
 ?>
 	<a href="<?php echo $args['link']; ?>" title="<?php echo esc_attr( $args['title'] ); ?>"> 
@@ -30,7 +27,6 @@ function get_link_button($args){
             </div>
    </a><?php
 }
-
 function get_mobile_menu_button($args){
   ?>
   <div id="mobile-menu-wrapper">
@@ -38,7 +34,6 @@ function get_mobile_menu_button($args){
   </div>
     <?php
 }
-
 function get_feed_button($args){
 ?>
   <div id="buttonContainer">
@@ -46,24 +41,7 @@ function get_feed_button($args){
               <span><?php echo $args['button_text']; ?></span>
             </div>
             <div id="loading-wrapper">
-      <div id="floatingBarsG">
-          <div class="blockG" id="rotateG_01">
-          </div>
-          <div class="blockG" id="rotateG_02">
-          </div>
-          <div class="blockG" id="rotateG_03">
-          </div>
-          <div class="blockG" id="rotateG_04">
-          </div>
-          <div class="blockG" id="rotateG_05">
-          </div>
-          <div class="blockG" id="rotateG_06">
-          </div>
-          <div class="blockG" id="rotateG_07">
-          </div>
-          <div class="blockG" id="rotateG_08">
-          </div>
-      </div>
+                <div class="spinner"></div>
         <span>Loading...</span>
     </div>
      <div id="finish-button-wrapper">
@@ -74,4 +52,3 @@ function get_feed_button($args){
 }
 // get_feed_button ends
 ?>
-   

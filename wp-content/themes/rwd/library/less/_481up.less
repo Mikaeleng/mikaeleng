@@ -74,7 +74,7 @@ NAVIGATION STYLES
         max-height: 80%;
         display: inline-block;
         margin: 0 5% 0 6%;
-        .font(@tablet-ingress-size, @white, @sans-light);
+        .font(@tablet-ingress-size, @white, @sfc-regular);
       }
       span {
         margin: 0 0% 0 6%;
@@ -95,7 +95,12 @@ NAVIGATION STYLES
     }
 
 }
-
+.cd-auto-hide-header {
+  transition: transform .5s;
+}
+.cd-auto-hide-header.is-hidden {
+  transform: translateY(-100%);
+}
 #main-navigation{
 	  display: block;
       .flex-box();
@@ -250,26 +255,54 @@ NAVIGATION STYLES
 	.clear-margin();
     margin: 90px auto 0;
 	#main {
-      .feed-item{
-      .feed-info, .expand-info{
-        padding-bottom: 0;
-        .flex-wrap(wrap);
-        p{
-          .font(@tablet-link-size,@text-color,@sans-light);
-        }
-        a{
-          .font(@tablet-tag-size,@text-color,@sans-xbold);
-        }
-      }
-        .img-container{
-          max-height: 400px;
+      .auto{
+        .img-container {
+          max-height: 300px;
           overflow: hidden;
-          display: inline-block;
+        }
+
+      }
+      .right-item, .left-item {
+        .flex-box();
+        .flex-justify();
+        .flex-wrap(nowrap);
+        max-height: 175px;
+        overflow: hidden;
+
+        .feed-link{
+          .flex-basics(50%);
+          .flex-align-self(center);
+        }
+
+        .feed-info {
+          .flex-basics(50%);
+          padding: 2% 6% 0 5%;
+          h2 {
+            font-size: @woblet-h2;
+            max-height: 65px;
+            overflow: hidden;
+            line-height: 2rem;
+
+          }
+          p{
+            max-height: 68px;
+            overflow: hidden;
+          }
+        }
+        .tags {
+          max-height: 20px;
+          overflow: hidden;
         }
       }
-
+      .right-item {
+        .feed-link{
+          .flex-order(1);
+        }
+      }
 	}
-
+  #buttonContainer .button.large span{
+    font-size: @woblet-button-large;
+  }
 }
 
 #end-of-posts{
@@ -357,6 +390,11 @@ do they need tweaking?
 	}
 }
 
+.article-footer {
+	h2{
+		font-size: 2.5rem;
+	}
+}
 .footer-links {
 	ul {
 		li {}

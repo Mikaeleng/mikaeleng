@@ -13,7 +13,7 @@
 
 							<?php } elseif (is_tag()) { ?>
 								<h1 class="archive-title h2">
-									<span><?php _e( 'Posts Tagged:', 'bonestheme' ); ?></span> <?php single_tag_title(); ?>
+									 <?php  _e( '#', 'bonestheme' ) . single_tag_title(); ?>
 								</h1>
 
 							<?php } elseif (is_author()) {
@@ -49,7 +49,7 @@
 
 									<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><h2><?php the_title(); ?></h2></a>
 									<p class="byline vcard"><?php
-										printf(__( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>  Category %4$s', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(__( 'F jS, Y', 'bonestheme' )), bones_get_the_author_posts_link(), get_the_category_list(', '));
+										printf(__( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time>  <br/> Category %3$s', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(__( 'F jS, Y', 'bonestheme' )), get_the_category_list(', '));
 									?></p>
 
 								</header> <?php // end article header ?>
@@ -57,9 +57,9 @@
 								<section class="entry-content clearfix">
 
 									<?php the_post_thumbnail( 'feed-thumb-large' ); ?>
-
-									<?php the_excerpt(); ?>
-
+									<p>
+									<?php print_excerpt(200); ?>
+									</p>
 								</section> <?php // end article section ?>
 
 								<footer class="article-footer">

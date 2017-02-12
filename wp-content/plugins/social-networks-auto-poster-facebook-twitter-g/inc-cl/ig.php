@@ -1,6 +1,6 @@
 <?php    
 //## NextScripts Instagram Connection Class (##Can't replace - it has .png)
-$nxs_snapAvNts[] = array('code'=>'IG', 'lcode'=>'ig', 'name'=>'Instagram', 'type'=>'Social Networks');
+$nxs_snapAvNts[] = array('code'=>'IG', 'lcode'=>'ig', 'name'=>'Instagram', 'type'=>'Social Networks', 'type'=>'Social Networks');
 
 if (!class_exists("nxs_snapClassIG")) { class nxs_snapClassIG extends nxs_snapClassNT {   
   var $ntInfo = array('code'=>'IG', 'lcode'=>'ig', 'name'=>'Instagram', 'defNName'=>'uName', 'tstReq' => false, 'imgAct'=>'E', 'instrURL'=>'http://www.nextscripts.com/instructions/instagram-auto-poster-setup-installation/');
@@ -22,7 +22,7 @@ if (!class_exists("nxs_snapClassIG")) { class nxs_snapClassIG extends nxs_snapCl
     <br/></div>
     <?php $this->elemMsgFormat($ii,'Pin Description Format','msgFormat',$options['msgFormat']); 
   }
-  function advTab(){}
+  function advTab($ii, $options){}
   //#### Set Unit Settings from POST
   function setNTSettings($post, $options){ 
     foreach ($post as $ii => $pval){       
@@ -39,7 +39,7 @@ if (!class_exists("nxs_snapClassIG")) { class nxs_snapClassIG extends nxs_snapCl
         
         if (empty($ntOpt['imgToUse'])) $ntOpt['imgToUse'] = ''; if (empty($ntOpt['urlToUse'])) $ntOpt['urlToUse'] = ''; $postType = isset($ntOpt['postType'])?$ntOpt['postType']:'';
         $msgFormat = !empty($ntOpt['msgFormat'])?htmlentities($ntOpt['msgFormat'], ENT_COMPAT, "UTF-8"):''; $msgTFormat = !empty($ntOpt['msgTFormat'])?htmlentities($ntOpt['msgTFormat'], ENT_COMPAT, "UTF-8"):''; 
-        $doNT = $ntOpt['do'] && (is_array($pMeta) || $ntOpt['fltrsOn']!='1');   $imgToUse = $ntOpt['imgToUse'];  $urlToUse = $ntOpt['urlToUse'];  $ntOpt['ii']=$ii; $ntOpt['doNT'] = $doNT;
+        $imgToUse = $ntOpt['imgToUse'];  $urlToUse = $ntOpt['urlToUse']; $ntOpt['ii']=$ii;
          
         $this->nxs_tmpltAddPostMeta($post, $ntOpt, $pMeta); ?>
                 
@@ -55,13 +55,12 @@ if (!class_exists("nxs_snapClassIG")) { class nxs_snapClassIG extends nxs_snapCl
   
   function adjPublishWP(&$options, &$message, $postID){ 
       
-  }
-  
+  } 
   
 }}
 
 
 if (!function_exists("nxs_doPublishToIG")) { function nxs_doPublishToIG($postID, $options){ if (!is_array($options)) $options = maybe_unserialize(get_post_meta($postID, $options, true));
-  $cl = new nxs_snapClassIG(); $cl->nt[$options['ii']] = $options; return $cl->publishWP($options['ii'], $postID); 
+  ini_set('memory_limit','256M'); $cl = new nxs_snapClassIG(); $cl->nt[$options['ii']] = $options; return $cl->publishWP($options['ii'], $postID); 
 }}  
 ?>

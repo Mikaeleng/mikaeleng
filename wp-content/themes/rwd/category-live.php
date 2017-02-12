@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: StartPage
+Template Name: Category Live
 */
 
 ?>
@@ -36,14 +36,14 @@ Template Name: StartPage
 						</div> <!-- end item-container-->
 						<div id="load-more-container">
 						<?php
-						if($hide_button!=true){
+//						if($hide_button!=true){
 						    get_button($arg = array(
 						    	'typeOfAction' => 'live-page-feed-button',
 				                'typeOfButton' => 'feed_button',
 				                'button_text' => 'Load more posts',
 				                'size' => 'large'
 				                ));
-						}
+//						}
 					  	?>
 						</div>
 					  	</div>

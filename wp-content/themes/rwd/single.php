@@ -5,11 +5,11 @@
 					<div id="main" class="eightcol first clearfix" role="main">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-						<?php if ( has_post_thumbnail($custom_query ->ID)) {
+						<?php if ( has_post_thumbnail($post ->ID)) {
 								?>
 							<div id="img_thumb_container">
 								<?php
-							echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-large'); 
+							echo get_the_post_thumbnail($post ->ID, 'feed-thumb-large');
 							}?>
 							</div>
 							<div class="nav-links"> <?php 
@@ -22,7 +22,7 @@
 
 									<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
 									<p class="byline vcard">
-										<span><?php printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time( 'Y-m-j' ), get_the_time( get_option('date_format')), bones_get_the_author_posts_link()); ?></span>
+										<span><?php printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> ', 'bonestheme' ), get_the_time( 'Y-m-j' ), get_the_time( get_option('date_format'))); ?></span>
 
 										<span><?php printf( __( '<p>Category</p> %1$s' ),  get_the_category_list(', ') );?></span>
 

@@ -32,10 +32,6 @@ sidebars, comments, ect.
 	- adding custom fields to user profiles
 */
 require_once( 'library/bones.php' ); // if you remove this, bones will break
-
-/*
-
-*/
 //require_once('library/Mobile_Detect.php');
 require_once( 'library/core.php' ); // if you remove this, bones will break
 require_once('library/models/FeedModel.php');
@@ -89,22 +85,11 @@ for the 600 x 100 image:
 
 You can change the names and dimensions to whatever
 you like. Enjoy!
-*/
 
-
-class Child_Wrap extends Walker_Nav_Menu
-{
-    function end_el(&$output, $item, $depth)
-    {
-        $indent = str_repeat("\t", $depth);
-        $output .= "$indent</li>\n";
-    }
-}
 
 function add_last_nav_item($items) {
   return $items .= bones_wpsearch($form);
 }
-
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
@@ -253,6 +238,9 @@ function get_excerpt($count, $class,$show_button){
 	}
 	echo $excerpt;
 }
+// removes the extra <p> tags from the excerpt
+remove_filter( 'the_excerpt', 'wpautop' );
+//
 function print_excerpt($length) { // Max excerpt length. Length is set in characters
 
 	global $post;
@@ -273,7 +261,7 @@ function print_excerpt($length) { // Max excerpt length. Length is set in charac
 
 	$text = strip_tags($text); // use ' $text = strip_tags($text,'<p><a>'); ' if you want to keep some tags
 
-
+	$text = wp_strip_all_tags($text);
 
 	$text = substr($text,0,$length);
 
@@ -477,6 +465,7 @@ function showFrontPageTop(){
 *
 *************************************/
 function add_feed_button($args = NULL){
+	$postDivide =0;
 	?>
 	<div id="feed-button">
 		<div id="no-script-wrapper">

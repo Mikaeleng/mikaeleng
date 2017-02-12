@@ -11,7 +11,7 @@ if (!class_exists("nxs_class_SNAP_IG")) { class nxs_class_SNAP_IG {
       foreach ($options as $ii=>$ntOpts) $out[$ii] = $this->doPostToNT($ntOpts, $message);
       return $out;
     }
-    function doPostToNT($options, $message){ $badOut = array('pgID'=>'', 'isPosted'=>0, 'pDate'=>date('Y-m-d H:i:s'), 'Error'=>''); //prr($options); die();
+    function doPostToNT($options, $message){ $badOut = array('pgID'=>'', 'isPosted'=>0, 'pDate'=>date('Y-m-d H:i:s'), 'Error'=>''); if (!class_exists("nxsAPI_IG")){ $badOut['Error'] .= "Instagram API not found"; return $badOut; } 
       //## Check settings
       if (!is_array($options)) { $badOut['Error'] = 'No Options'; return $badOut; } if (empty($options['uPass'])) { $badOut['Error'] = 'Not Configured'; return $badOut; }
       //## Format
@@ -19,7 +19,7 @@ if (!class_exists("nxs_class_SNAP_IG")) { class nxs_class_SNAP_IG {
       if (isset($message['imageURL'])) $imgURL = trim(nxs_getImgfrOpt($message['imageURL'], $options['imgSize'])); else $imgURL = ''; 
       $urlToGo = (!empty($message['url']))?$message['url']:'';  if (empty($options['imgAct'])) $options['imgAct'] = 'E';
       
-      $msg = nsTrnc(html_entity_decode($msg) , 3000); $pass = substr($options['uPass'], 0, 5)=='g9c1a'?nsx_doDecode(substr($options['uPass'], 5)):$options['uPass'];
+      $msg = nsTrnc(html_entity_decode($msg) , 2200); $pass = substr($options['uPass'], 0, 5)=='g9c1a'?nsx_doDecode(substr($options['uPass'], 5)):$options['uPass'];
       
       $nt = new nxsAPI_IG(); $nt->debug = false; if (!empty($ck)) $nt->ck = $ck;  $loginErr = $nt->connect($options['uName'], $pass);      
       if (!$loginErr) $ret = $nt->post($msg, $imgURL, $options['imgAct']); else { $badOut['Error'] .= 'Something went wrong - '.print_r($loginErr, true); $ret = $badOut; }      

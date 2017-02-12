@@ -1,10 +1,10 @@
 === WP-PostViews ===
 Contributors: GamerZ  
-Donate link: http://lesterchan.net/site/donation/  
+Donate link: https://lesterchan.net/site/donation/  
 Tags: views, hits, counter, postviews  
-Requires at least: 3.0  
-Tested up to: 4.0  
-Stable tag: 1.68  
+Requires at least: 4.0  
+Tested up to: 4.7  
+Stable tag: 1.74  
 
 Enables you to display how many times a post/page had been viewed.
 
@@ -23,9 +23,29 @@ Enables you to display how many times a post/page had been viewed.
 * Plugin icon by [Iconmoon](http://www.icomoon.io) from [Flaticon](http://www.flaticon.com)
 
 = Donations =
-I spent most of my free time creating, updating, maintaining and supporting these plugins, if you really love my plugins and could spare me a couple of bucks, I will really appericiate it. If not feel free to use it without any obligations.
+I spent most of my free time creating, updating, maintaining and supporting these plugins, if you really love my plugins and could spare me a couple of bucks, I will really appreciate it. If not feel free to use it without any obligations.
 
 == Changelog ==
+= Version 1.74 =
+* NEW: Bump WordPress 4.7
+* NEW: Template variable %POST_CATEGORY_ID%. It returns Post's Category ID. If you are using Yoast SEO Plugin, it will return the priority Category ID. Props @FunFrog-BY
+
+= Version 1.73 =
+* FIXED: In preview mode, don't count views
+
+= Version 1.72 =
+* NEW: Add %POST_THUMBNAIL% to template variables
+
+= Version 1.71 =
+* FIXED: Notices in Widget Constructor for WordPress 4.3
+
+= Version 1.70 =
+* FIXED: Integration with WP-Stats
+
+= Version 1.69 =
+* NEW: Shortcode `[views]` or [views id="POST_ID"]` to embed view count into post
+* NEW: Added template variable `%VIEW_COUNT_ROUNDED%` to support rounded view count like 10.1k or 11.2M
+
 = Version 1.68 =
 * NEW: Added action hook 'postviews_increment_views' and 'postviews_increment_views_ajax'
 * NEW: Allow custom post type to be chosen under the widget
@@ -138,6 +158,7 @@ I spent most of my free time creating, updating, maintaining and supporting thes
 2. You may place it in archive.php, single.php, post.php or page.php also.
 3. Find: `<?php while (have_posts()) : the_post(); ?>`
 4. Add Anywhere Below It (The Place You Want The Views To Show): `<?php if(function_exists('the_views')) { the_views(); } ?>`
+5. Or you can use the shortcode `[views]` or `[views id="1"]` (where 1 is the post ID) in a post
 
 == Upgrading ==
 
@@ -249,3 +270,25 @@ N/A
 * You can use: `<?php query_posts( array( 'meta_key' => 'views', 'orderby' => 'meta_value_num', 'order' => 'DESC' ) ); ?>`
 * Or pass in the variables to the URL: `http://yoursite.com/?v_sortby=views&v_orderby=desc`
 * You can replace DESC  with ASC if you want the least viewed posts.
+
+= To Display Updating View Count With LiteSpeed Cache =
+1. Use: `<div id="postviews_lscwp"></div>` to replace `<?php if(function_exists('the_views')) { the_views(); } ?>`.
+  * NOTE: The id can be changed, but the div id and the ajax function must match.
+2. Replace the ajax query in `wp-content/plugins/wp-postviews/postviews-cache.js` with
+
+    `
+    jQuery.ajax({
+        type:"GET",
+        url:viewsCacheL10n.admin_ajax_url,
+        data:"postviews_id="+viewsCacheL10n.post_id+"&action=postviews",
+        cache:!1,
+        success:function(data) {
+            if(data) {
+                jQuery('#postviews_lscwp').html(data+' views');
+            }
+       }
+    });
+    `
+
+3. Purge the cache to use the updated pages.
+

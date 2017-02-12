@@ -1,7 +1,5 @@
 <?php
-
 function get_feedItems($args){
-
   switch ($args['typeOfFeed']) {
     case 'wall':
       get_wall_feed_model($args);
@@ -18,12 +16,8 @@ function get_feedItems($args){
     case 'header':
       get_header_feed_model($args);
       break;
-    
     default:
-      
       break;
+    }
   }
-	
-  }
-	?>
-   
+?>

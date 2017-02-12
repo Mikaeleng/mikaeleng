@@ -45,8 +45,8 @@
 
 			<header class="header" role="banner">
 				
-				<div id="main-navigation">
-				<nav role="navigation">
+				<div id="main-navigation" class="cd-auto-hide-header">
+				<nav role="navigation" class="cd-primary-nav">
 					<?php bones_main_nav(); 
 					//echo ABSPATH . 'wp-admin/admin-ajax.php';?>
 					</nav>

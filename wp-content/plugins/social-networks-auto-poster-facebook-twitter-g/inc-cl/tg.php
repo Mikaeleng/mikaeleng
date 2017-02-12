@@ -1,6 +1,6 @@
 <?php    
 //## NextScripts Pinterest Connection Class (##Can't replace - it has .png)
-$nxs_snapAvNts[] = array('code'=>'TG', 'lcode'=>'tg', 'name'=>'Telegram');
+$nxs_snapAvNts[] = array('code'=>'TG', 'lcode'=>'tg', 'name'=>'Telegram', 'type'=>'Messengers');
 
 if (!class_exists("nxs_snapClassTG")) { class nxs_snapClassTG extends nxs_snapClassNT { 
   var $ntInfo = array('code'=>'TG', 'lcode'=>'tg', 'name'=>'Telegram', 'defNName'=>'uName', 'tstReq' => false, 'instrURL'=>'http://www.nextscripts.com/instructions/telegram-auto-poster-setup-installation/');	
@@ -18,7 +18,7 @@ if (!class_exists("nxs_snapClassTG")) { class nxs_snapClassTG extends nxs_snapCl
     <div style="margin: 0px;"><input value="1" type="checkbox" name="<?php echo $nt; ?>[<?php echo $ii; ?>][attchImg]"  <?php if ((int)$options['attchImg'] == 1) echo "checked"; ?> /> <strong><?php _e('Attach Image to the Post', 'social-networks-auto-poster-facebook-twitter-g'); ?></strong></div>
     <br/><?php 
   }
-  function advTab(){}
+  function advTab($ii, $options){}
   //#### Set Unit Settings from POST
   function setNTSettings($post, $options){ 
 	foreach ($post as $ii => $pval){       
@@ -38,7 +38,7 @@ if (!class_exists("nxs_snapClassTG")) { class nxs_snapClassTG extends nxs_snapCl
 		
 		if (empty($ntOpt['imgToUse'])) $ntOpt['imgToUse'] = ''; if (empty($ntOpt['urlToUse'])) $ntOpt['urlToUse'] = ''; $postType = isset($ntOpt['postType'])?$ntOpt['postType']:'';
 		$msgFormat = !empty($ntOpt['msgFormat'])?htmlentities($ntOpt['msgFormat'], ENT_COMPAT, "UTF-8"):''; $msgTFormat = !empty($ntOpt['msgTFormat'])?htmlentities($ntOpt['msgTFormat'], ENT_COMPAT, "UTF-8"):''; 
-		$doNT = $ntOpt['do'] && (is_array($pMeta) || $ntOpt['fltrsOn']!='1');   $imgToUse = $ntOpt['imgToUse'];  $urlToUse = $ntOpt['urlToUse'];  $ntOpt['ii']=$ii; $ntOpt['doNT'] = $doNT;
+		$imgToUse = $ntOpt['imgToUse'];  $urlToUse = $ntOpt['urlToUse'];  $ntOpt['ii']=$ii;
 		 
 		$this->nxs_tmpltAddPostMeta($post, $ntOpt, $pMeta); ?>
 				
@@ -54,8 +54,7 @@ if (!class_exists("nxs_snapClassTG")) { class nxs_snapClassTG extends nxs_snapCl
   
   function adjPublishWP(&$options, &$message, $postID){ 
 	  
-  }
-  
+  } 
   
 }}
 

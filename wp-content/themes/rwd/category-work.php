@@ -2,17 +2,7 @@
 	<div id="content" class="first clearfix">
 		<div id="main" class="tvelvecol first clearfix" role="main">
 					<div id="work-container">
-						<div id="page-filter" class=" first"> <?php //echo bones_wpsearchComplete($form); ?>
-
-					<?php //echo bones_tagsearch($form); ?>
-					<!--<input type="text" value="" name="tag-term" id="tag-term" placeholder="" />
-						<div id="selection" style="position:absolute;"></div> -->
-						</div>
 						<div id="work-item-container">
-								<h1><?php
-								//$category = get_the_category();
-								//echo $category[0]->cat_name;
-								?></h1>
 							<?php 
 							get_feedItems($args = array(
 								'posts_per_page' => -1,

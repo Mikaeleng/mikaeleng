@@ -33,15 +33,21 @@ and will be used across all viewports.
 
 html, body {
   /* height: 100%; */
+
 }
 
 body {
-  font-family: @sans-xbold;
+  font-family: @sfc-bold;
   font-size: 100%;
   line-height: 1.5;
   font-weight: 400;
   background: @body-bg-color;
   color: #b9b9b9;
+  font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+
 }
 
 /********************
@@ -62,6 +68,9 @@ body {
 
 /* blog template page */
 .archive {
+  .entry-content p{
+    margin: 0 6% 0 5%;
+  }
 }
 
 /* archive page */
@@ -200,16 +209,13 @@ body {
 
 a {
   color: @link-color;
-  font-family: @sans-xbold;
-  font-weight: 400;
-  letter-spacing: 0.08rem;
+  font-family: @sfc-regular;
   font-size: 0.85rem;
-  margin-left: 5%;
-  margin-right: 6%;
   word-break: keep-all;
+  text-decoration: none;
   /* on hover */
   &:hover, &:focus {
-    color: @link-hover;
+    color: @white;
   }
   &:visited {
     color: @link-color;
@@ -235,10 +241,10 @@ a {
 ******************************************************************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  font-family: @sans-xbold;
+  font-family: @sfc-bold;
   text-rendering: optimizelegibility;
   font-weight: 400;
-  margin: 0 5% 0 6%;
+  //margin: 0 5% 0 6%;
 
   /*
   if you're going to use webfonts, be sure to check your weights
@@ -263,15 +269,15 @@ h1, .h1 {
 h2, .h2 {
   font-size: 2.5em;
   line-height: 1.4em;
-  letter-spacing: 0.12rem;
+  //letter-spacing: 0.12rem;
   margin-bottom: 0.375em;
   margin-top:1rem;
 }
 
 h3, .h3 {
   font-size: 1.125em;
-  font-family: @sans-light;
-  letter-spacing: 0.12rem;
+  font-family: @sfc-regular;
+  //letter-spacing: 0.12rem;
 }
 
 h4, .h4 {
@@ -287,9 +293,10 @@ h5, .h5 {
 }
 
 p, span {
-  font-family: @sans-light;
+  font-family: @sfc-regular;
   margin-left: 5%;
   margin-right: 6%;
+  font-size: 1rem;
 }
 
 img, object {
@@ -326,6 +333,7 @@ header.article-header {
     word-break: keep-all;
     word-wrap: normal;
     float: right;
+    margin-right:6%;
   }
   p {
     display: inline;
@@ -365,17 +373,19 @@ header.article-header {
       position: absolute;
       bottom: 0;
       height: 60%;
-      max-height: 120px;
+      max-height: 175px;
       margin-left: 0;
       width: 100%;
       a{
-        text-decoration: none;}
+        text-decoration: none; margin:0;}
       h2 {
-        .font(1.5rem, @white, @sans-regular);
+        .font(2.5rem, @white, @sfc-bold);
         display: block;
-        line-height: 1.7rem;
+        line-height: 2.7rem;
         padding-top: 0.5rem;
         margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
         float:left;
       }
       p {
@@ -396,7 +406,7 @@ header.article-header {
         }
       }
       #tag-cloud {
-        display: none;
+        margin:0 5% 0 6%;
       }
     }
   }
@@ -420,7 +430,12 @@ header.article-header {
   }
 
 }
-
+.cd-auto-hide-header {
+  transition: transform .5s;
+}
+.cd-auto-hide-header.is-hidden {
+  transform: translateY(+100%);
+}
 /*********************
 07. NAVIGATION STYLES
 *********************/
@@ -444,7 +459,8 @@ and more scalable.
   z-index: 990;
   border-top: @nav-border 1px solid;
   min-height: 46px;
-
+  will-change: transform;
+  transition: transform 200ms linear;
   nav {
     position: relative;
     display: inline;
@@ -473,6 +489,8 @@ and more scalable.
   li {
     padding-right: 0.4rem;
     a {
+      .font(1.2rem, @white,@sfc-thin);
+
       display: block;
       text-decoration: none;
       padding: 10px 10px;
@@ -572,14 +590,14 @@ and more scalable.
   background-image: none;
   cursor: pointer;
   p{
-    .font(1.2rem, @text-color,@sans-xbold);
+    .font(1.2rem, @text-color, @sfc-bold);
     text-align: right;
   }
 }
 #running-top {
   overflow: hidden;
   background: @item-bg-color;
-  max-width: 940px;
+  //max-width: 940px;
   margin: 0 auto;
   position: relative;
 
@@ -630,7 +648,7 @@ and more scalable.
   .clear-margin();
   margin: 0 auto;
   float: none;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
 
   #intro {
@@ -643,6 +661,36 @@ and more scalable.
     .clear-margin();
     margin: 0 auto;
 
+    .related_post{
+      margin-left:6%;
+      a{
+        .flex-box();
+        .flex-direction(row);
+        .flex-wrap(nowrap);
+        .flex-justify(space-between);
+        text-decoration: none;
+        margin:0 0 5% 0;
+        p{
+          font-size: @mobile-a;
+          font-family: @sfc-bold;
+          text-decoration: none;
+          display: inline;
+          margin : 0;
+          width: 70%;
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+      }
+    }
+    .single-img-preview {
+      width:30%;
+
+      .single-img-preview-img {
+        max-height: 100px;
+        overflow: hidden;
+      }
+    }
+
     .single-img-container{
       max-height: 450px;
       overflow: hidden;
@@ -652,62 +700,44 @@ and more scalable.
       }
     }
 
-    // first item in the feed
-    .feed-item:first-of-type{
-      margin-top: 4rem;
 
-    }
-    #live-container .feed-item:first-of-type{
+/*    #live-container .feed-item:first-of-type{
       margin-top:0;
       .img-container img {
         .border-top-radius(0);
       }
-    }
+    }*/
+
     .feed-item {
       background: @item-bg-color;
-      margin-bottom: 16%;
-      a{.clear-margin();text-decoration: none;}
-      .img-container {
-        .twelvecol();
-        .clear-margin();
-        max-height: 300px;
-        overflow: hidden;
-        display: inline;
-
-        img{
-          width:100%;
-          .border-top-radius(5);
-
-        }
+      margin-bottom: 4rem;
+      &:first-of-type{
+        margin-top: 4rem;
       }
-      .feed-info, .expand-info{
-        .flex-wrap(wrap);
 
+      .img-container {
+
+        .flex-box();
+        .flex-align-content(center);
+        .flex-align-items(center);
+      }
+
+      .feed-info, .expand-info{
         padding: 0 6% 3rem 5%;
         h2{
-          .font(@mobile-h2,@text-color,@sans-xbold);
-          line-height: @mobile-h2+ 0.45rem;
-          margin: 0.5rem 0 0 0;
+          .font(@mobile-h2, @text-color, @sfc-bold);
+          .clear-margin();
         }
-        // removes the first and last paragraph that wordpress adds to it's "the_content()" finction
-        //p:first-of-type, p:last-of-type{display: none;}
-
         p{
-          .font(@mobile-link-size,@link-color,@sans-light);
-          display: inline;
-          float: left;
-          margin: 0;
-          display: inline;
-          width: auto;
+          .clear-margin();
         }
         a{
-          .font(@mobile-tag-size,@text-color,@sans-xbold);
-          margin: 0;
-          float: left;
-          display: inline;
-          line-height: 2rem;
+
         }
+
       }
+
+      // work and create css
       .expand-info{width:100%;}
 
     // work and create specific feed elements
@@ -715,7 +745,7 @@ and more scalable.
         background: @button-color;
         border-radius: 4px;
         padding: 0.1rem 0.4rem;
-        .H2();
+        .font(@mobile-txt-size, @text-color, @sfc-bold);
         width: 60%;
         text-align: center;
         margin-left: -.5rem;
@@ -723,12 +753,42 @@ and more scalable.
         max-width: 250px;
       }
     }
+
+
     .year-devider {
       text-align: center;
       .H2;
       background-color: @item-bg-color;
       padding: 0.75rem 0;
       margin: 1.5rem 0;
+    }
+    .work-header h2{
+      margin: 0 0 0 5%;
+    }
+    .create-header {
+      margin-left:5%;
+      h2{margin: 1rem 0 0 0;}
+      h3 {
+        .font(1.5rem, @text-color, @sfc-regular);
+        margin: 0 0 4% 0;
+        line-height: 1rem;
+      }
+    }
+        .work-info, .create-info {
+          .font(1rem, @text-color, @sfc-regular);
+        }
+    .work-content, .create-content{
+      margin: 0 6% 3% 5%;
+      .work-metadata, .create-metadata{margin-top:3%;}
+      h3{margin:0;}
+      p{
+        margin: 0;
+
+        a{.font(1rem, @text-color,@sfc-ultrathin)}
+      }
+    }
+    #live-item-container{
+      .feed-item:first-of-type{margin-top:0;}
     }
   }
   /**------------------
@@ -752,9 +812,22 @@ and more scalable.
       margin: 0;
     }
     #loading-wrapper {
-      .button;
-      .large;
+      width: 100%;
+      min-height: 3.7rem;
+      .flex-box();
+      .flex-justify(center);
+      .flex-align-items(center);
+      .flex-align-content(center);
+      .flex-wrap(nowrap);
       display: none;
+      text-align: center;
+
+      span{
+        line-height: 3.7rem;
+        .font(2rem,@button-text-color,@sfc-thin);
+        .flex-align-self(center);
+      }
+
     }
     #finish-button-wrapper {
       text-align: center;
@@ -762,7 +835,8 @@ and more scalable.
     }
     .button.large span {
       margin: 0;
-      font-size: 2rem;
+      font-size: 1.7rem;
+      display: inline-block;
     }
   }
 
@@ -793,6 +867,40 @@ and more scalable.
 
 .archive-title {
 }
+
+.archive.tag{
+
+  .archive-title {
+
+    margin:0;
+  }
+
+   .article-header {
+      text-align: left;
+     margin: 0 5% 1.2rem 6%;
+     a{
+       float: left;
+       width: 100%;
+       display: block;
+       text-decoration: none;
+       margin:0;
+
+       h2{
+         margin: 1rem 0 0.375rem 0;
+       }
+     }
+      p.byline.vcard {
+        flex: 0;
+        display: block;
+        margin:0;
+        a{
+          float: right;
+          width: auto;
+        }
+      }
+  }
+}
+
 
 /* want to style individual post classes? Booya! */
 .post-id {
@@ -833,7 +941,7 @@ article {
     }
     text-align: center;
 
-    font-family: @sans-light !important;
+    font-family: @sfc-regular !important;
     font-size: 1rem !important;
   }
 
@@ -868,27 +976,35 @@ article {
   .flex-justify(space-between);
   a {
     margin: 0;
+    font-size: @mobile-a;
   }
 }
 
 .article-footer {
-  margin: 2em 0 2rem;
+  margin: 0 0 2rem;
   background: @item-bg-color;
-  padding: 1rem;
+  padding: 0;
 
   h2 {
     padding: 2rem 0 0;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
   }
   ul {
     padding: 0 0 2rem;
   }
   a {
     margin: 0 5% 0 5%;
-    .font(@mobile-link-size, @text-color, @sans-light);
+    .font(@mobile-link-size, @text-color, @sfc-ultrathin);
+  }
+  .tags p{
+    margin-top: 0;
   }
   .tags a {
     margin: 0;
-    .font(@mobile-link-size, @text-color, @sans-xbold);
+    .font(@mobile-link-size, @text-color, @sfc-ultrathin);
+    //.font(@mobile-link-size, @text-color, @sfc-thin);
+    text-decoration: none;
   }
 }
 
@@ -902,9 +1018,12 @@ article {
 
 /* entry content */
 .entry-content {
+  h3{
+    margin-left:5%;
+  }
   margin-bottom: 1rem;
   p {
-    .font(@mobile-txt-size, @text-color, @sans-light)
+    .font(@mobile-txt-size, @text-color, @sfc-regular)
   }
 
   ul, ol, table, dl {
@@ -1542,6 +1661,8 @@ article {
     }
     a {
       margin: 0;
+      text-decoration: none;
+      .font(1rem, @text-color, @sfc-bold);
     }
   }
   #footer-bottom {

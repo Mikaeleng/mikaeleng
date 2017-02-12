@@ -14,12 +14,12 @@ if (!class_exists("nxs_class_SNAP_YT")) { class nxs_class_SNAP_YT {
     function doPostToNT($options, $message){ $badOut = array('pgID'=>'', 'isPosted'=>0, 'pDate'=>date('Y-m-d H:i:s'), 'Error'=>'');
       //## Check settings
       if (!is_array($options)) { $badOut['Error'] = 'No Options'; return $badOut; }      
-      if (!isset($options['ytUName']) || trim($options['ytPass'])=='') { $badOut['Error'] = 'Not Configured'; return $badOut; }   $email = $options['ytUName'];         
-      $pass = substr($options['ytPass'], 0, 5)=='n5g9a'?nsx_doDecode(substr($options['ytPass'], 5)):$options['ytPass'];                   
+      if (!isset($options['uName']) || trim($options['uPass'])=='') { $badOut['Error'] = 'Not Configured'; return $badOut; }   $email = $options['uName'];
+      $pass = (substr($options['uPass'], 0, 5)=='n5g9a' || substr($options['uPass'], 0, 5)=='g9c1a')?nsx_doDecode(substr($options['uPass'], 5)):$options['uPass'];
       //## Format
-      if (!empty($message['pText'])) $msg = $message['pText']; else $msg = nxs_doFormatMsg($options['ytMsgFormat'], $message); 
+      if (!empty($message['pText'])) $msg = $message['pText']; else $msg = nxs_doFormatMsg($options['msgFormat'], $message); 
             
-      $nt = new nxsAPI_GP(); if(!empty($options['ck'])) $nt->ck = $options['ck'];  $nt->debug = false;  $loginError = $nt->connect($email, $pass, 'YT');     
+      $nt = new nxsAPI_GP(); if(!empty($options['ck'])) $nt->ck = $options['ck'];  $nt->debug = false; $loginError = $nt->connect($email, $pass, 'YT');     
       if (!$loginError){          
          $result = $nt -> postYT($msg, $options['ytPageID'], $message['videoURL'], $options['ytGPPageID']); 
       } else {  $badOut['Error'] = "Login/Connection Error: ". print_r($loginError, true); return $badOut; }       

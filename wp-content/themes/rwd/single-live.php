@@ -7,11 +7,11 @@ if($garmin_activity != null){
             <iframe src='https://connect.garmin.com/activity/embed/<?php echo $garmin_activity ?>' frameborder='0'></iframe>
 
         </div>
-        <?php if ( has_post_thumbnail($custom_query ->ID)) {
+        <?php if ( has_post_thumbnail($post ->ID)) {
         ?>
         <div id="img_thumb_container">
             <?php
-            echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-large');
+            echo get_the_post_thumbnail($post ->ID, 'feed-thumb-large');
             ?></div><?php
         }?></div>
 <?php } ?>
@@ -24,11 +24,11 @@ if($garmin_activity != null){
 
                             <?php
                             if($garmin_activity == null){
-                            if ( has_post_thumbnail($custom_query ->ID)) {
+                            if ( has_post_thumbnail($post ->ID)) {
                                 ?>
                                 <div class="single-img-container">
                                 <?php
-                                echo get_the_post_thumbnail($custom_query ->ID, 'feed-thumb-header');
+                                echo get_the_post_thumbnail($post ->ID, 'feed-thumb-header');
                             }?>
                             </div>
                             <?php } ?>

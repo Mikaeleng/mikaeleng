@@ -95,7 +95,9 @@ jQuery(document).ready(function($) {
     _winHeight = $(window).height();
     switchHeadline();
 
-    
+// hide/show top menu bar
+
+
 
     jQuery("#search-button").click(function(event){
         event.preventDefault();
@@ -108,34 +110,6 @@ jQuery(document).ready(function($) {
     })
     // makes the drawer menu show and hide:
 
-   /* $('#menu-button').sidr({
-          name: 'sidr-right',
-          side: 'right',
-          source: '#main-navigation',
-          onOpen: function(){
-            jQuery("#mobile-menu-wrapper").animate({right:"85%"},"fast", "linear")
-        },
-          onClose: function(){
-            jQuery("#mobile-menu-wrapper").animate({right:"0"},"fast", "linear")
-          }
-    });*/
-
-    /*$(window).swipe({
-        swipeLeft:function(event, direction, distance, duration, fingerCount, fingerData) {
-            if(current_viewport==SMALL && direction == "left"){
-                $.sidr('open', 'sidr-right'); 
-            } 
-        },
-        swipeRight:function(event, direction, distance, duration, fingerCount, fingerData) {
-            if (current_viewport==SMALL && direction == "right") {
-                $.sidr('close', 'sidr-right');  
-            }
-        },
-        //Default is 75px, set to 0 for demo so any distance triggers swipe
-       threshold:125,
-       preventDefaultEvents: false
-    });*/
-    
 
     ////////////////////////////////////
     //  handler to check when the window is resized
@@ -205,21 +179,7 @@ jQuery(document).ready(function($) {
 
     }
     // the buttonevent that shows the search field in small view
-    function showSearch(){
-        //var target = jQuery("#searchbox");
-       // var old_target = jQuery("#hmenu-mainmenu");
 
-
-      /* if ( jQuery( "#searchbox" ).is( ":hidden" ) ) {
-          if(viewportSize() != XL){  
-            jQuery("#menu-mainmenu").slideUp( "fast");   
-          }
-            jQuery("#searchbox").slideDown( "fast");    
-            jQuery("#searchbox").css("display","table");          
-         } else {
-            jQuery("#searchbox").slideUp( "fast");   
-        }*/
-    }
 /*! A fix for the iOS orientationchange zoom bug.
  Script by @scottjehl, rebound by @wilto.
  MIT License.

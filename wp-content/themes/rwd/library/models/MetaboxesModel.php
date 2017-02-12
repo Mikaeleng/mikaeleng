@@ -1,5 +1,4 @@
 <?php
-
 /*****************************************************************************************************************************
 
 Adds the iframe gramin connect widget in the edit live post
@@ -21,7 +20,6 @@ function add_create_garmin_box() {
 	}
 }
 add_action( 'add_meta_boxes', 'add_create_garmin_box' );
-
 /**
  * Prints the box content.
  *
@@ -44,10 +42,9 @@ function add_create_garmin_box_callback( $post ) {
 	echo '</label> ';
 	?>
 
-	<input type="text" id="garmin_data" name="garmin_data" value="<?php echo $garmin; ?>"></input>
+	<input type="text" id="garmin_data" name="garmin_data" value="<?php echo $garmin; ?>"> </input>
 	<?php
 }
-
 /**
  * When the post is saved, saves our custom data.
  *
@@ -102,7 +99,6 @@ function myplugin_save_create_garmin_box_data( $post_id ) {
 	add_post_meta( $post_id, '_post_garmin', $my_garmin, true ) or update_post_meta( $post_id, '_post_garmin', $my_garmin );
 }
 add_action( 'save_post', 'myplugin_save_create_garmin_box_data' );
-
 /*****************************************************************************************************************************
 
 								Adds the worplace widget in the edit post page
@@ -124,7 +120,6 @@ function add_create_post_box() {
 	}
 }
 add_action( 'add_meta_boxes', 'add_create_post_box' );
-
 /**
  * Prints the box content.
  * 
@@ -153,13 +148,12 @@ function add_create_post_box_callback( $post ) {
 		<label>Challanges</label>
 		<label>Experiences</label>
 	</div>
-		<input type="text" id="workplace_data" name="workplace_data" value="<?php echo $workplace; ?>"></input>
+		<input type="text" id="workplace_data" name="workplace_data" value="<?php echo $workplace; ?>"> </input>
 		<textarea id="challange_data" name="challange_data"><?php echo $challange; ?></textarea>
 		<textarea id="experience_data" name="experience_data"><?php echo $experience; ?></textarea>
 	<?php
 	//echo '<input type="dropdown" id="myplugin_new_field" name="myplugin_new_field" value="' . esc_attr( $value ) . '" size="25" />';
 }
-
 /**
  * When the post is saved, saves our custom data.
  *
@@ -218,9 +212,6 @@ function myplugin_save_create_post_box_data( $post_id ) {
 	add_post_meta( $post_id, '_post_experience', $my_experince, true ) or update_post_meta( $post_id, '_post_experience', $my_experince );
 }
 add_action( 'save_post', 'myplugin_save_create_post_box_data' );
-
-
-
 /*****************************************************************************************************************************
 
 								Adds the wall feed items position in the edit post page
@@ -241,7 +232,6 @@ function myplugin_add_meta_box() {
 	}
 }
 add_action( 'add_meta_boxes', 'myplugin_add_meta_box' );
-
 /**
  * Prints the box content.
  * 
@@ -271,7 +261,6 @@ function myplugin_meta_box_callback( $post ) {
 	<?php
 	//echo '<input type="dropdown" id="myplugin_new_field" name="myplugin_new_field" value="' . esc_attr( $value ) . '" size="25" />';
 }
-
 /**
  * When the post is saved, saves our custom data.
  *
@@ -327,17 +316,13 @@ function _save_imgpos_meta_box( $post_id ) {
 	add_post_meta( $post_id, '_post_feed_image_position', $my_data, true ) or update_post_meta( $post_id, '_post_feed_image_position', $my_data );
 }
 add_action( 'save_post', '_save_imgpos_meta_box' );
-
-
 /*****************************************************************************************************************************
 
 								Adds the cases widget in the edit post page
 
  ******************************************************************************************************************************/
-
-
 function myplugin_add_cases_box() {
-
+	global $post;
 	$screens = array( 'post' );
 
 	foreach ( $screens as $screen ) {
@@ -352,24 +337,15 @@ function myplugin_add_cases_box() {
 	}
 }
 add_action( 'add_meta_boxes', 'myplugin_add_cases_box' );
-
-
-
 // The Event Location Metabox
-
- 
-
 function connected_cases() {
-
      global $post;
+// Noncename needed to verify where the data originated
 
- 
+	wp_nonce_field( 'connectedCases', 'casesmeta_noncename' );
+   // echo '<input type="hidden" name="casesmeta_noncename" id="casesmeta_noncename" value="' .
 
-    // Noncename needed to verify where the data originated
-
-    echo '<input type="hidden" name="casesmeta_noncename" id="casesmeta_noncename" value="' .
-
-    wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+    //wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
 
 
             //here you add the dropdown as value if already set so you add something like
@@ -390,44 +366,19 @@ function connected_cases() {
 			</div>
 <?php
 }
-
-
-
 // Save the Metabox Data
-
- 
-
 function txpbs_save_events_meta($post_id, $post) {
-
- 
-
     // verify this came from the our screen and with proper authorization,
-
     // because save_post can be triggered at other times
-
-    if ( !wp_verify_nonce( $_POST['casesmeta_noncename'], plugin_basename(__FILE__) )) {
-
-    return $post->ID;
-
-    }
-
- 
-
+	if ( ! isset( $_POST['casesmeta_noncename'] ) ) {
+		return;
+	}
     // Is the user allowed to edit the post or page?
-
     if ( !current_user_can( 'edit_post', $post->ID ))
 
         return $post->ID;
-
- 
-
     // OK, we're authenticated: we need to find and save the data
-
     // We'll put it into an array to make it easier to loop though.
-
-
-	
-
             //here just add the dropdown field to the $station_meta array from the $_POST
 			$tempID = array();
 			foreach ($_POST['_post_cases'] as $names)
@@ -440,12 +391,7 @@ function txpbs_save_events_meta($post_id, $post) {
 
             // year ended metadata
             $station_meta['_post_year_ended'] = $_POST['_post_year_ended'];
-
- 			
     // Add values of $station_meta as custom fields
-
- 
-
     foreach ($station_meta as $key => $value) { // Cycle through the $station_meta array!
 
         if( $post->post_type == 'revision' ) return; // Don't store custom data twice
@@ -469,12 +415,7 @@ function txpbs_save_events_meta($post_id, $post) {
  
 
 }
-
- 
-
 add_action('save_post', 'txpbs_save_events_meta', 1, 2); // save the custom fields
-
-
 function get_cases_instances($section){
 	global $post;
 		$args = array(
@@ -500,4 +441,3 @@ function get_cases_instances($section){
 		wp_reset_postdata();
 }
 ?>
-   

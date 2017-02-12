@@ -19,7 +19,7 @@ right up top and clean.
 // Adds $img content after after first paragraph (!.e. after first `</p>` tag)
 add_filter('the_content', function($content)
 {
-   $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+   //$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
    //$img = '<img src="'.$url.'" alt="" title=""/>';
    $pre = '<pre>QUOTE</pre>';
    //$content = preg_replace('#(<p>.*?</p>)#','$1'.$pre, $content, 1);
@@ -36,6 +36,7 @@ function get_sitepath(){
 }
 
 function get_site_bookmarks(){
+	$links= "";
 $bookmarks = get_bookmarks( array(
 	'orderby'        => 'name',
 	'order'          => 'ASC',
@@ -54,14 +55,11 @@ RELATED POSTS FUNCTION
 // Related Posts Function (call using bones_related_posts(); )
 function bones_related_posts()
 {
+global $post;
 	$tags = wp_get_post_tags($post->ID);
+	$tag_arr = '';
+
 	if(count($tags)>0){
-	?>
-<footer class="article-footer">
-	<h2>Related articles</h2>
-	<?php
-	echo '<ul id="bones-related-posts">';
-	global $post;
 
 	if ($tags) {
 		foreach ($tags as $tag) {
@@ -73,11 +71,28 @@ function bones_related_posts()
 	$exclude_arr = array($current_post);
 	$popularpost = new WP_Query(array('posts_per_page' => 5, 'tag__and' => array($tag_arr), 'post__not_in' => $exclude_arr, 'meta_key' => 'views', 'orderby' => 'meta_value_num', 'order' => 'DESC'));
 	if ($popularpost->have_posts()) :
-		while ($popularpost->have_posts()) : $popularpost->the_post();
+?>
+<footer class="article-footer">
+    <h2>Related articles</h2>
+    <?php
+    echo '<ul id="bones-related-posts">';
 
-			?>
-			<li class="related_post"><a class="entry-unrelated" href="<?php the_permalink() ?>"
-										title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li><?php
+    while ($popularpost->have_posts()) : $popularpost->the_post();
+            ?>
+			<li class="related_post">
+            <a class="entry-unrelated" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+                <?php if ( has_post_thumbnail($post ->ID)) {
+                ?>
+                <div class="single-img-preview">
+                    <div class="single-img-preview-img">
+                    <?php
+                      echo get_the_post_thumbnail($post ->ID, 'feed-thumb-header');
+                    }?>
+                        </div>
+                </div>
+                <p><?php the_title(); ?></p>
+
+            </a></li><?php
 		endwhile;
 		echo '</ul>';
 	else:
@@ -146,15 +161,15 @@ function get_custom_categories($args){
 
 function get_custom_tag($args){
 	global $post;
-	$terms;
-	$tags =  wp_get_post_tags($post->ID, $args->key);
+	$terms ='';
+	$tags =  wp_get_post_tags($post->ID);
 	$count =0;
 
 	foreach ( $tags as $tag ) {
 	  if($count==0){
 	  	$terms = '<a href="' . get_tag_link( $tag->term_id ) . '">#' . $tag->name . '</a>';
 	  }	else{
-	  	$terms .= '<a>, </a><a href="' . get_tag_link( $tag->term_id ) . '"> #' . $tag->name . '</a>';
+	  	$terms .= '<a href="' . get_tag_link( $tag->term_id ) . '">, #' . $tag->name . '</a>';
 	  }	
 	  $count = $count +1;
 	}

@@ -1,9 +1,9 @@
 <?php    
 //## NextScripts XING Connection Class
-$nxs_snapAvNts[] = array('code'=>'XI', 'lcode'=>'xi', 'name'=>'XING');
+$nxs_snapAvNts[] = array('code'=>'XI', 'lcode'=>'xi', 'name'=>'XING (!)', 'type'=>'Social Networks');
 
 if (!class_exists("nxs_snapClassXI")) { class nxs_snapClassXI extends nxs_snapClassNT { 
-  var $ntInfo = array('code'=>'XI', 'lcode'=>'xi', 'name'=>'XING', 'defNName'=>'', 'tstReq' => true, 'instrURL'=>'http://www.nextscripts.com/instructions/setup-installation-xing-social-networks-auto-poster/');  
+  var $ntInfo = array('code'=>'XI', 'lcode'=>'xi', 'name'=>'XING (!)', 'defNName'=>'', 'tstReq' => true, 'instrURL'=>'http://www.nextscripts.com/instructions/setup-installation-xing-social-networks-auto-poster/');  
   
   function toLatestVer($ntOpts){ if (!empty($ntOpts['v'])) $v = $ntOpts['v']; else $v = 340; $ntOptsOut = '';  switch ($v) {
       case 340: $ntOptsOut = $this->toLatestVerNTGen($ntOpts); $ntOptsOut['do'] = $ntOpts['do'.$this->ntInfo['code']]; $ntOptsOut['nName'] = $ntOpts['nName']; $ntOptsOut['appKey'] = $ntOpts['appKey']; $ntOptsOut['appSec'] = $ntOpts['appSec']; $ntOptsOut['inclTags'] = $ntOpts['inclTags'];
@@ -42,7 +42,10 @@ if (!class_exists("nxs_snapClassXI")) { class nxs_snapClassXI extends nxs_snapCl
         else die("<span style='color:red;'>ERROR: Authorization Error: <span style='color:darkred; font-weight: bold;'>".print_r($uinfo, true)."</span></span>");              
     }
   }
-  function accTab($ii, $options, $isNew=false){ global $nxs_snapSetPgURL; $ntInfo = $this->ntInfo; $nt = $ntInfo['lcode']; $this->elemKeySecret($ii,'XING Consumer Key','XING Consumer Secret', $options['appKey'], $options['appSec']); ?>
+  function accTab($ii, $options, $isNew=false){ global $nxs_snapSetPgURL; $ntInfo = $this->ntInfo; $nt = $ntInfo['lcode']; ?>
+   <div style="color:red;padding:5px;margin:5px; border: 1px solid darkred;">[January 2017] XING has decided to discontinue it's free public API. More Info: <a target="_blank" href="http://nxs.fyi/xingmsg">http://nxs.fyi/xingmsg</a>.<br/>If you have existing XING app, you still can use it.<br/></div>
+   
+    <?php $this->elemKeySecret($ii,'XING Consumer Key','XING Consumer Secret', $options['appKey'], $options['appSec']); ?>
     <br/><?php $this->elemMsgFormat($ii,'Message Text Format','msgFormat',$options['msgFormat']); ?>
     <div style="margin-bottom: 20px;margin-top: 5px;"><input value="1" type="checkbox" name="<?php echo $nt; ?>[<?php echo $ii; ?>][inclTags]"  <?php if ((int)$options['inclTags'] == 1) echo "checked"; ?> /> 
       <strong><?php _e('Post with tags', 'social-networks-auto-poster-facebook-twitter-g'); ?></strong>  <?php _e('Tags from the blogpost will be auto-posted to '.$ntInfo['name'], 'social-networks-auto-poster-facebook-twitter-g'); ?>                                                               
@@ -61,7 +64,7 @@ if (!class_exists("nxs_snapClassXI")) { class nxs_snapClassXI extends nxs_snapCl
       <?php if (!isset($options['appAppUserID']) || $options['appAppUserID']<1) { ?> <div class="blnkg">&lt;=== <?php _e('Authorize your account', 'social-networks-auto-poster-facebook-twitter-g'); ?> ===</div> <?php } 
     } ?><br/><br/> <?php
   }
-  function advTab(){}
+  function advTab($ii, $options){}
   //#### Set Unit Settings from POST
   function setNTSettings($post, $options){ 
     foreach ($post as $ii => $pval){       
@@ -80,11 +83,11 @@ if (!class_exists("nxs_snapClassXI")) { class nxs_snapClassXI extends nxs_snapCl
         
         if (empty($ntOpt['imgToUse'])) $ntOpt['imgToUse'] = ''; if (empty($ntOpt['urlToUse'])) $ntOpt['urlToUse'] = ''; $postType = isset($ntOpt['postType'])?$ntOpt['postType']:'';
         $msgFormat = !empty($ntOpt['msgFormat'])?htmlentities($ntOpt['msgFormat'], ENT_COMPAT, "UTF-8"):''; $msgTFormat = !empty($ntOpt['msgTFormat'])?htmlentities($ntOpt['msgTFormat'], ENT_COMPAT, "UTF-8"):'';
-        $doNT = $ntOpt['do'] && (is_array($pMeta) || $ntOpt['fltrsOn']!='1');   $imgToUse = $ntOpt['imgToUse'];  $urlToUse = $ntOpt['urlToUse'];  $ntOpt['ii']=$ii; $ntOpt['doNT'] = $doNT;
+        $imgToUse = $ntOpt['imgToUse'];  $urlToUse = $ntOpt['urlToUse']; $ntOpt['ii']=$ii;
         
         $this->nxs_tmpltAddPostMeta($post, $ntOpt, $pMeta); ?> 
         
-        <tr class="<?php echo 'nxstbldo'.strtoupper($nt).$ii; ?>"><th scope="row" style="text-align:right; width:150px; vertical-align:top; padding-top: 0px; padding-right:10px;"> <?php _e('Post Type:', 'social-networks-auto-poster-facebook-twitter-g') ?> <br/></th><td>     
+        <tr class="nxstbldo <?php echo 'nxstbldo'.strtoupper($nt).$ii; ?>"><th scope="row" style="text-align:right; width:150px; vertical-align:top; padding-top: 0px; padding-right:10px;"> <?php _e('Post Type:', 'social-networks-auto-poster-facebook-twitter-g') ?> <br/></th><td>     
         <input type="radio" name="<?php echo $nt; ?>[<?php echo $ii; ?>][postType]" value="T" <?php if ($postType == 'T') echo 'checked="checked"'; ?> /> <?php _e('Text Post', 'social-networks-auto-poster-facebook-twitter-g') ?>  - <i><?php _e('just text message', 'social-networks-auto-poster-facebook-twitter-g') ?></i><br/>
         <input type="radio" name="<?php echo $nt; ?>[<?php echo $ii; ?>][postType]" value="A" <?php if ( !isset($postType) || $postType == '' || $postType == 'A') echo 'checked="checked"'; ?> /><?php _e('Text Post with "attached" blogpost', 'social-networks-auto-poster-facebook-twitter-g') ?>
      </td></tr><?php $this->elemEdMsgFormat($ii, __('Message Format:', 'social-networks-auto-poster-facebook-twitter-g'),$msgFormat); 
@@ -100,13 +103,12 @@ if (!class_exists("nxs_snapClassXI")) { class nxs_snapClassXI extends nxs_snapCl
   
   function adjPublishWP(&$options, &$message, $postID){ //prr($message); prr($options);
     if (!empty($postID)) { $postType = $options['postType'];
-      if ($postType=='A') if (trim($options['imgToUse'])!='') $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'medium');  
-      if ($postType=='I') if (trim($options['imgToUse'])!='') $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'full');
+      if ($postType=='A') if (trim($options['imgToUse'])!='') $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, !empty($options['wpImgSize'])?$options['wpImgSize']:'medium');  
+      if ($postType=='I') if (trim($options['imgToUse'])!='') $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, !empty($options['wpImgSize'])?$options['wpImgSize']:'full');
       if (preg_match("/noImg.\.png/i", $imgURL)) { $imgURL = ''; $isNoImg = true; }
       $message['imageURL'] = $imgURL;
     }
-  }
-    
+  }   
   
 }}
 

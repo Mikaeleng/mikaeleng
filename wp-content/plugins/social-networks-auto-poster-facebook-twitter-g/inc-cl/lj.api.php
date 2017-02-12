@@ -22,17 +22,17 @@ if (!class_exists("nxs_class_SNAP_LJ")) { class nxs_class_SNAP_LJ {
     function doPostToNT($options, $message){ $badOut = array('pgID'=>'', 'isPosted'=>0, 'pDate'=>date('Y-m-d H:i:s'), 'Error'=>'');
       //## Check settings
       if (!is_array($options)) { $badOut['Error'] = 'No Options'; return $badOut; }      
-      if (!isset($options['ljUName']) || trim($options['ljPass'])=='') { $badOut['Error'] = 'Not Configured'; return $badOut; }            
-      $pass = (substr($options['ljPass'], 0, 5)=='n5g9a'?nsx_doDecode(substr($options['ljPass'], 5)):$options['ljPass']);
+      if (!isset($options['uName']) || trim($options['uPass'])=='') { $badOut['Error'] = 'Not Configured'; return $badOut; }            
+      $pass = (substr($options['uPass'], 0, 5)=='n5g9a'||substr($options['uPass'], 0, 5)=='g9c1a'||substr($options['uPass'], 0, 5)=='b4d7s')?nsx_doDecode(substr($options['uPass'], 5)):$options['uPass'];       
       //## Format
-      if (!empty($message['pText'])) $msg = $message['pText']; else $msg = nxs_doFormatMsg($options['ljMsgFormat'], $message); 
-      if (!empty($message['pTitle'])) $msgT = $message['pTitle']; else $msgT = nxs_doFormatMsg($options['ljMsgTFormat'], $message);      
+      if (!empty($message['pText'])) $msg = $message['pText']; else $msg = nxs_doFormatMsg($options['msgFormat'], $message); 
+      if (!empty($message['pTitle'])) $msgT = $message['pTitle']; else $msgT = nxs_doFormatMsg($options['msgTFormat'], $message);      
       
       require_once ('apis/xmlrpc-client.php'); if (!empty($options['ljSrv']) && $options['ljSrv']=='DW') $server = 'dreamwidth.org'; else $server = 'livejournal.com';      
       $nxsToLJclient = new NXS_XMLRPC_Client('http://www.'.$server.'/interface/xmlrpc'); $nxsToLJclient->debug = false;             
       
       $date = time(); $year = date("Y", $date); $mon = date("m", $date); $day = date("d", $date); $hour = date("G", $date); $min = date("i", $date);
-      $nxsToLJContent = array( "username" => $options['ljUName'], "password" => $pass, "event" => $msg, "subject" => $msgT, "lineendings" => "unix", "year" => $year, "mon" => $mon, "day" => $day, "hour" => $hour, "min" => $min, "ver" => 2);      
+      $nxsToLJContent = array( "username" => $options['uName'], "password" => $pass, "event" => $msg, "subject" => $msgT, "lineendings" => "unix", "year" => $year, "mon" => $mon, "day" => $day, "hour" => $hour, "min" => $min, "ver" => 2);      
       if (!empty($options['commID']) && $options['commID']!='') $nxsToLJContent["usejournal"] = $options['commID'];  
       if (!empty($options['inclTags']) && $options['inclTags']=='1' && !empty($message['tags'])) $nxsToLJContent['props'] = array('taglist' => $message['tags']);      
         // prr($nxsToLJContent);

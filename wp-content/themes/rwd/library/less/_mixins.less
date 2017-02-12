@@ -50,7 +50,11 @@ TOOLS
 	white-space: nowrap;
 	overflow: hidden;
 }
-
+* {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 /*********************
 COLORS
 Need help w/ choosing your colors? Try this site out:
@@ -105,25 +109,38 @@ TYPOGRAPHY
 @sans-light:		"sans-light";
 @sans-xbold:		"sans-extrabold";
 
+@sfc-regular:		"san_francisco_displayregular";
+@sfc-bold:			"san_francisco_displaybold";
+@sfc-thin:			"san_francisco_displaythin";
+@sfc-ultrathin:		"san_francisco_displayultraLt";
+
 
 // Font sizes
 
 // mobile
 @mobile-h2:                  2rem;
 @mobile-feed-p:             1.3rem;
-@mobile-a:                  1rem;
+@mobile-a:                  1.3rem;
 
-@mobile-link-size:			1.3rem;
+@mobile-link-size:			1.5rem;
 @mobile-txt-size:			1.5rem;
 @mobile-tag-size:            1rem;
+
+// woblet
+@woblet-button-large:		2rem;
+@woblet-h2:                 2rem;
 // tablet
 @tablet-size:				1.4rem;
-@tablet-ingress-size: 		1.5rem;
-@tablet-tag-size:           1.2rem;
+@tablet-h2:                 2.2rem;
+@tablet-ingress-size: 		1.8rem;
+@tablet-tag-size:           1.5rem;
 @tablet-link-size:          1.3rem;
+@tablet-zero:				1rem;
 // desktop
 @desk-tag-size:             1rem;
 @desk-ingress-size:         1rem;
+@desk-tag-size:            1.3rem;
+@desk-text-size:			2rem;
 /***********************
 	custom font styles
 ************************/
@@ -146,7 +163,7 @@ TYPOGRAPHY
 	color: @text-color;
 	font-size: 1rem;
 }
-.font(@size:1rem, @color:@text-color, @family:@sans-regular){
+.font(@size:1rem, @color:@text-color, @family:@sfc-regular){
 	color: @color;
 	font-size: @size;
 	font-family: @family;
@@ -160,7 +177,7 @@ TYPOGRAPHY
   border-top-left-radius: @radius;
   border-top-right-radius: @radius;
 }
-@font-face {
+/*@font-face {
   font-family: 'sans-regular';
   src: url('../fonts/Open_Sans/opensans-regular-webfont.eot');
   src: url('../fonts/Open_Sans/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -172,7 +189,61 @@ TYPOGRAPHY
   font-style: normal;
 
 }
+*/
+@font-face {
+	font-family: 'san_francisco_displaythin';
+	src: url('../fonts/sanfransico/sanfranciscodisplay-thin-webfont.woff2') format('woff2'),
+	url('../fonts/sanfransico/sanfranciscodisplay-thin-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
+}
+
+
+
+
+@font-face {
+	font-family: 'san_francisco_displayultraLt';
+	src: url('../fonts/sanfransico/sanfranciscodisplay-ultralight-webfont.woff2') format('woff2'),
+	url('../fonts/sanfransico/sanfranciscodisplay-ultralight-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'san_francisco_displaymedium';
+	src: url('../fonts/sanfransico/sanfranciscodisplay-medium-webfont.woff2') format('woff2'),
+	url('../fonts/sanfransico/sanfranciscodisplay-medium-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+
+
+@font-face {
+	font-family: 'san_francisco_displayregular';
+	src: url('../fonts/sanfransico/sanfranciscodisplay-regular-webfont.woff2') format('woff2'),
+	url('../fonts/sanfransico/sanfranciscodisplay-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+
+
+@font-face {
+	font-family: 'san_francisco_displaybold';
+	src: url('../fonts/sanfransico/sanfranciscodisplay-bold-webfont.woff2') format('woff2'),
+	url('../fonts/sanfransico/sanfranciscodisplay-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+/*
 @font-face {
   font-family: 'sans-extrabold';
   src: url('../fonts/Open_Sans/opensans-extrabold-webfont.eot');
@@ -198,6 +269,7 @@ TYPOGRAPHY
   font-style: normal;
 
 }
+*/
 ///////////////////////// AVANTGARDE ////////////////////////////////////////////
 
 @font-face {
@@ -429,12 +501,24 @@ USAGE: .border-radius(4px);
     align-self: @align;
 }
 
+.flex-order(@order:0){
+	-webkit-order: @order;
+	-ms-flex-order: @order;
+	order: @order;
+}
+
 .flex-direction(@direction:row,@orientation:horizontal){
 	-webkit-box-orient: @orientation;
     -moz-box-orient: @orientation;
     -webkit-flex-direction: @direction;
     -ms-flex-direction: @direction;
     flex-direction: @direction;
+}
+
+.flex-basis(@value){
+  -webkit-flex: 0 1 @value;
+  -ms-flex: 0 1 @value;
+  flex: 0 1 @value;
 }
 /*********************
 TRANISTION
@@ -500,7 +584,7 @@ BUTTONS
 	margin: 0 5% 0 6%;
 	border-left: 0.35rem solid @button-text-color;
 	/*.css-gradient(@link-visited,darken(@link-visited, 5%));*/
-	span{.font(1.2rem, @button-text-color,@sans-regular);}
+	span{.font(1.2rem, @button-text-color,@sfc-thin);}
 	&:hover, &:focus {
 		color: @button-text-over;
 	  	border: none;
@@ -544,19 +628,3 @@ background: radial-gradient(ellipse at center, rgba(255,255,255,@global_opacity)
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
 
 }
-/*
-.blue-button, .blue-button:visited {
-	border-color: darken(@bones-blue, 10%);
-	text-shadow: 0 1px 1px darken(@bones-blue, 10%);
-	.css-gradient( @bones-blue, darken(@bones-blue, 5%) );
-	-webkit-box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
-       -moz-box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
-   	        box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
-	&:hover, &:focus {
-		border-color: darken(@bones-blue, 15%);
-		.css-gradient( darken(@bones-blue, 4%), darken(@bones-blue, 10%) );
-	}
-	&:active {
-		.css-gradient( darken(@bones-blue, 5%), @bones-blue );
-	}
-}*/

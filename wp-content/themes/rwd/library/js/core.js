@@ -10,7 +10,7 @@ slow the page load.
 */
 var response = 11;
 var complete;
-
+var _winHeight          = 0;
 
 /***********************************
  *
@@ -123,6 +123,36 @@ jQuery(document).ready(function($) {
         e.preventDefault();
     });
 
+
+    // event for geting more post on the create.php page
+    jQuery(".create-page-feed-button").click(function(e){
+        var currentCount  = jQuery(".feed-item").length;
+        var newTotal      = currentCount + 10;
+        var kneedle       = currentCount -1;
+        var year          = jQuery(".year-tag").filter( ":last" ).text();
+
+        getMorePosts({
+            url: '../wp-content/themes/rwd/library/models/FeedModel.php',
+            orderby: 'date',
+            order: 'DESC',
+            posts_per_page: '-1',
+            category_name: 'create',
+            postLimit: newTotal,
+            pointer:  kneedle,
+            currentYear: year,
+            TypeOfFeed: 'create',
+            targetContainer: '#create-item-container'
+        });
+
+        e.preventDefault();
+    }); // end of create fetch
+
+
+    /////////////////////////////////////////////////
+
+    //          Old scripts
+
+    /////////////////////////////////////////////////
   // event for geting more post on the create.php page
   jQuery(".work-page-feed-button").click(function(e){
     var currentCount  = jQuery(".feed-item").length;
@@ -144,7 +174,8 @@ jQuery(document).ready(function($) {
     });
 
     e.preventDefault();
-  }); // end of work fetch 
+  }); // end of work fetch
+
 // event for geting more post on the live.php page
     jQuery(".live-page-feed-button").click(function(e){
         var currentCount = jQuery(".feed-item").length;

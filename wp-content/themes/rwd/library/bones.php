@@ -150,6 +150,9 @@ function bones_scripts_and_styles() {
     wp_register_script( 'swipe', get_stylesheet_directory_uri() . '/library/js/libs/jquery.touchSwipe.min.js', array( 'jquery' ), '', true );
     wp_register_script( 'sidr', get_stylesheet_directory_uri() . '/library/js/libs/jquery.sidr.min.js', array( 'jquery' ), null, true );
     //wp_register_script( 'autocomplete', get_stylesheet_directory_uri() . '/library/js/libs/jquery.autocomplete-min.js', array( 'jquery' ), null, true );
+      //wp_register_script( 'jQuery.headroom-js', get_stylesheet_directory_uri() . '/library/js/jQuery.headroom.js', array( 'jquery' ), '', true );
+      //wp_register_script( 'headroom-js', get_stylesheet_directory_uri() . '/library/js/Headroom.js', array( 'jquery' ), '', true );
+      wp_register_script( 'cd-nav', get_stylesheet_directory_uri() . '/library/js/cd-nav.js', array( 'jquery' ), '', true );
     wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
     wp_register_script( 'core-js', get_stylesheet_directory_uri() . '/library/js/core.js', array( 'jquery' ), '', true );
     //wp_register_script( 'my_acsearch', get_stylesheet_directory_uri() . '/library/js/myacsearch.js', array( 'jquery', 'core-js', 'autocomplete' ), '', true );
@@ -172,8 +175,11 @@ function bones_scripts_and_styles() {
     */
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'swipe' );
-    wp_enqueue_script( 'sidr' );
-    wp_enqueue_script( 'bones-js' );
+      wp_enqueue_script( 'sidr' );
+     // wp_enqueue_script( 'jQuery.headroom-js' );
+     // wp_enqueue_script( 'headroom-js' );
+      wp_enqueue_script( 'cd-nav' );
+      wp_enqueue_script( 'bones-js' );
      wp_enqueue_script( 'core-js' );
 
   }
@@ -294,7 +300,57 @@ function bones_theme_support() {
 /*********************
 MENUS & NAVIGATION
 *********************/
+class Child_Wrap extends Walker_Nav_Menu {
 
+	var $number = 1;
+
+	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+		$class_names = $value = '';
+
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+		$output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+		// add span with number here
+		if ( $depth == 0 ) { // remove if statement if depth check is not required
+			$output .= sprintf( '', $this->number++ );
+		}
+
+		$atts = array();
+		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+		$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+		$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+		$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+
+		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+
+		$attributes = '';
+		foreach ( $atts as $attr => $value ) {
+			if ( ! empty( $value ) ) {
+				$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				$attributes .= ' ' . $attr . '="' . $value . '"';
+			}
+		}
+
+		$item_output = $args->before;
+		$item_output .= '<a'. $attributes .'>';
+		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		$item_output .= '</a>';
+		$item_output .= $args->after;
+
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+
+}
 // the main menu
 function bones_main_nav() {
 	// display the wp3 menu if available

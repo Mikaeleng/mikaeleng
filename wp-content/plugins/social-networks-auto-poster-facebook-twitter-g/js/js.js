@@ -3,9 +3,7 @@ jQuery(document).ready(function() {
     jQuery(window).load(function(){
         jQuery('input:-webkit-autofill').each(function(){ var text =jQuery(this).val(); var name = jQuery(this).attr('name'); jQuery(this).after(this.outerHTML).remove(); jQuery('input[name=' + name + ']').val(text);});
     });
-  }  
-  //jQuery( "input[onchange^='nxs_doShowWarning']" ).prop("indeterminate", true).css( "-webkit-appearance", "checkbox" );  
-  //jQuery( "input[onchange^='nxs_doShowWarning']" ).prop("indeterminate", true).css("background", "#D0D0D0").css("border-color", "#999");    
+  }    
   //## Submit Serialized Form - avoid Max.Vars limit.
   jQuery('#nsStFormMisc').submit(function() { var dataA = jQuery('#nsStForm').serialize(); jQuery('#nxsMainFromElementAccts').val(dataA); jQuery('#_wpnonce').val(jQuery('input#nxsSsPageWPN_wpnonce').val()); });
   jQuery('#nsStForm').submit(function() { jQuery('#nsStFormMisc').submit(); return false; });  
@@ -13,27 +11,198 @@ jQuery(document).ready(function() {
   jQuery('#post-preview').click(function(event) { nxs_isPrevirew = true; });  
   jQuery('#post').submit(function(event) { if (nxs_isPrevirew == true) return;  jQuery('body').append('<form id="nxs_tempForm"></form>'); jQuery("#NXS_MetaFieldsIN").appendTo("#nxs_tempForm");  
       var nxsmf = jQuery('#nxs_tempForm').serialize();  jQuery( "#NXS_MetaFieldsIN" ).remove(); jQuery('#nxs_snapPostOptions').val(nxsmf); //alert(nxsmf);  alert(jQuery('#nxs_snapPostOptions').val()); return false; 
-  });  
-  
+  });    
   jQuery('.nxs_postEditCtrl').on("change", function(e) { var psst = jQuery('#original_post_status').val(); if (psst=='auto-draft') return; var pid = jQuery('#post_ID').val();  var curr = jQuery(e.target); 
     jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"svEdFlds", cname: curr.attr('name'), cval: curr.val(), pid: pid,  nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
          console.log(j);          
     }, "html")
   });  
   jQuery('#nxs_ntType').ddslick({ width: 200, imagePosition: "left", selectText: "Select network", onSelected: function (data) {doShowFillBlockX(data.selectedData.value);}});  
+  jQuery('.nxs_acctcb').iCheck({checkboxClass: 'icheckbox_minimal-blue', radioClass: 'iradio_minimal-blue', increaseArea: '20%'});
+  jQuery('.nxsGrpDoChb').iCheck({checkboxClass: 'icheckbox_minimal-blue', radioClass: 'iradio_minimal-blue', increaseArea: '20%'});
+  jQuery('.nxsGrpDoChb').on('ifClicked', function(event){  if (jQuery(this).attr('type')=='radio') {  jQuery(this).attr('type', 'checkbox'); jQuery(this).val('1'); jQuery(this).iCheck('destroy'); 
+    jQuery(this).iCheck({checkboxClass: 'icheckbox_minimal-blue', radioClass: 'iradio_minimal-blue', increaseArea: '20%'}); 
+    jQuery(this).attr('id', jQuery(this).attr('id').replace('rbtn','do'));
+    jQuery('.nxsGrpDoChb').on('ifChanged', function(event){ console.log("ifChangedXRadio");  nxs_showHideMetaBoxBlocks(); }); 
+  } });
+  
+  //## Show/Hide Metabx Blocks
+  nxs_showHideMetaBoxBlocks();  
+  
+  jQuery('.nxsGrpDoChb').on("change", function(e) { jQuery('.nxstbl'+e.target.id).toggle(); });    
+  //jQuery('.nxsGrpDoChb').on('ifChanged', function(event){ console.log("ifChanged"+event.target.id);  nxs_showHideMetaBoxBlocks(); });
+  
+  jQuery('.nxsGrpDoChb').on('ifChanged', function(event){ 
+      if (jQuery(this).is(":checked")) { jQuery('.nxstbl'+event.target.id).show();  jQuery('#l'+event.target.id).find('span').html('[-]'); } else { jQuery('.nxstbl'+event.target.id).hide();  jQuery('#l'+event.target.id).find('span').html('[+]'); } 
+  });
+    
+  jQuery('.nsx_iconedTitle').on("click", function(e) { 
+   jQuery(this).find('span').html(jQuery(this).find('span').html() == '[-]' ? '[+]' : '[-]');  jQuery('.nxstb'+jQuery(this).prop('id')).toggle(); 
+  });    
+  //jQuery('.nsx_iconedTitle').find('span').on("click", function(e) {  alert('b'); jQuery(this).html(jQuery(this).html() == '[-]' ? '[+]' : '[-]'); jQuery('.nxst'+e.target.id).toggle(); });    
+  jQuery('.nsx_iconedTitle').on("click", function(e) {    
+   // var curr = jQuery(e.target);  var prev = curr.prev(); console.log( prev ); if (typeof(prev[0].id)=='undefined') prev = prev.prev(); console.log( prev) ; jQuery('.nxstbl'+prev[0].id).toggle();
+  });
+  
+   
+  //## Handle radiobutton for filters
+  jQuery('.iradio_minimal-blue').on('ifChanged', function(event){  nxs_showHideMetaBoxBlocks(); });
+  jQuery( ".iCheck-helper" ).mouseover(function() { 
+    if (jQuery(this).parent().hasClass('iradio_minimal-blue')) nxs_showPopUpInfo('popShAttFLT', event, jQuery(this).parent().find("input").data('fltinfo'));
+  });
+  jQuery( ".iCheck-helper" ).mouseout(function() { nxs_hidePopUpInfo('popShAttFLT'); });
+  
+  jQuery( ".nxs_acctcbR" ).mouseover(function() {  nxs_showPopUpInfo('popShAttFLT', event, jQuery(this).parent().find("input").data('fltinfo')); });
+  jQuery( ".nxs_acctcbR" ).mouseout(function() { nxs_hidePopUpInfo('popShAttFLT'); });
+  
+  jQuery( ".nxsShowQmark" ).mouseover(function() { console.log("DD|"+jQuery(this).attr('longdesc')); nxs_showPopUpInfo(jQuery(this).attr('longdesc'), event);});
+  jQuery( ".nxsShowQmark" ).mouseout(function() { nxs_hidePopUpInfo(jQuery(this).attr('longdesc')); });
+  
+  if (jQuery('.nxs_authPopupIn').length !=0 ) jQuery('.nxs_authPopupIn').scrollTop(jQuery('.nxs_authPopupIn')[0].scrollHeight);
+  
+  
+  jQuery('.riTo_button').click(function() { var ii = jQuery(this).data('ii'); var nt = jQuery(this).data('nt'); var pid = jQuery(this).data('pid'); 
+     jQuery('#nxs_gPopupContent').html("<p>Getting Replies from "+nt+" ....</p>" + "<p></p>");
+     jQuery('#nxs_gPopup').bPopup({ modalClose: false, appendTo: '#nsStForm', opacity: 0.6, positionStyle: 'fixed'});  
+     jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"importComments", nt:nt, pid:pid, ii:ii, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+          jQuery('#nxs_gPopupContent').html('<p> ' + j + '</p>' +'<input type="button" class="bClose" value="Close" />');     
+     }, "html");          
+      
+      
+  });            
+  jQuery('.riToTW_button').click(function() { var data = { action: 'rePostToTW', id: jQuery('input#post_ID').val(), ri:1, nid:jQuery(this).attr('alt'), _wpnonce: jQuery('input#nxsSsPageWPN_wpnonce').val()}; callAjSNAP(data, 'Twitter'); });
+  
+  //## End of jQuery(document).ready(function()
 });
+
+//## API Specific Functions
+//## GP
+      function nxs_gpGetAllInfo(ii,force){ var u = jQuery('#apGPUName'+ii).val(); var p = jQuery('#apGPPass'+ii).val(); var pstAs = jQuery('#gpPostAs'+ii).val(); var pg = jQuery('#gpWhToPost'+ii).val(); jQuery("#gpPostAs"+ii).focus();
+            jQuery('#gp'+ii+'rfrshImg').hide();  jQuery('#gp'+ii+'ldImg').show();
+            jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"getListOfPages", nt:"GP", u:u, p:p, ii:ii, pg:pg, pstAs:pstAs, force:force, isOut:1, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+                 if (j.indexOf('<option')>-1) { jQuery("#gpPostAs"+ii).html(j);  nxs_gpGetWhereToPost(ii,force); 
+                   if (jQuery('#gpPostAs'+ii).val()!='a' && jQuery('#gpPostAs'+ii).val()!='p') jQuery('#gpPostAsNm'+ii).val(jQuery('#gpPostAs'+ii+' :selected').text()); else jQuery('#gpPostAsNm'+ii).val('p');
+                 } else { jQuery("#nxsGPMsgDiv"+ii).html(j);   jQuery('#gp'+ii+'ldImg').hide();  jQuery('#gp'+ii+'rfrshImg').show(); }
+            }, "html")          
+      }
+      function nxs_gpGetWhereToPost(ii,force){ var u = jQuery('#apGPUName'+ii).val(); var p = jQuery('#apGPPass'+ii).val(); var pstAs = jQuery('#gpPostAs'+ii).val(); var pg = jQuery('#gpWhToPost'+ii).val(); var pstAsNm = jQuery('#gpPostAs'+ii+' :selected').text();
+            jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"getListWhereToPost", nt:"GP", u:u, p:p, ii:ii, pg:pg, pstAs:pstAs, pstAsNm:pstAsNm, force:force, isOut:1, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+                 jQuery("#gpWhToPost"+ii).html(j);  nxs_gpGetCommCats(ii,force);
+            }, "html")          
+      }
+      function nxs_gpGetCommCats(ii,force){ var u = jQuery('#apGPUName'+ii).val(); var p = jQuery('#apGPPass'+ii).val(); var pstAs = jQuery('#gpPostAs'+ii).val(); var pg = jQuery('#gpWhToPost'+ii).val();
+         if (pg.charAt(0)=='c'){ 
+            jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"getGPCommInfo", nt:"GP", u:u, p:p, ii:ii, pg:pg, pstAs:pstAs, force:force, isOut:1, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+                 jQuery("#gpCommCat"+ii).html(j); jQuery('#nxsGPInfoDivComm'+ii).show();   jQuery('#gp'+ii+'ldImg').hide();  jQuery('#gp'+ii+'rfrshImg').show(); jQuery("#nxsGPMsgDiv"+ii).html("&nbsp;"); 
+            }, "html")          
+         } else { jQuery('#gp'+ii+'ldImg').hide();  jQuery('#gp'+ii+'rfrshImg').show(); jQuery("#nxsGPMsgDiv"+ii).html("&nbsp;");  }
+      }
+      function nxs_gpPostAsChange(ii, sObj){  if (sObj.val()!='a' && sObj.val()!='p') jQuery('#gpPostAsNm'+ii).val(jQuery('#gpPostAs'+ii+' :selected').text()); else jQuery('#gpPostAsNm'+ii).val('p');
+          if (sObj.val()=='a'){ sObj.hide(); jQuery('#gpPstAsCst'+ii).show(); } 
+            else { jQuery('#gp'+ii+'ldImg').show(); jQuery('#gp'+ii+'rfrshImg').hide(); nxs_gpGetWhereToPost(ii,0); }
+      }      
+      function nxs_gpWhToPostChange(ii, sObj){  jQuery('#nxsGPInfoDivComm'+ii).hide(); if (jQuery('#gpPostAs'+ii).val()!='a' && jQuery('#gpPostAs'+ii).val()!='p') jQuery('#gpPostAsNm'+ii).val(jQuery('#gpPostAs'+ii+' :selected').text()); else jQuery('#gpPostAsNm'+ii).val('p');
+          if (sObj.val()=='a'){ sObj.hide(); jQuery('#gpPgIDcst'+ii).show(); }
+          if (sObj.val().charAt(0)=='c'){ jQuery('#gp'+ii+'ldImg').show(); jQuery('#gp'+ii+'rfrshImg').hide();  var pg = sObj.val(); nxs_gpGetCommCats(ii,0); }
+      }
+//## RD
+      function nxs_rdGetSRs(ii,force){ var u = jQuery('#apRDUName'+ii).val(); var p = jQuery('#apRDPass'+ii).val(); var rdSR = jQuery('#rdSubReddit'+ii).val(); jQuery("#rdSubReddit"+ii).focus();
+            jQuery('#rd'+ii+'rfrshImg').hide();  jQuery('#rd'+ii+'ldImg').show(); jQuery("#nxsRDMsgDiv"+ii).html("&nbsp;"); jQuery("#rdSubReddit"+ii).html("<option value=\"\">Getting SubReddits.......</option>");
+            jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"getListOfSubReddits", nt:"RD", u:u, p:p, ii:ii, rdSR:rdSR, force:force, isOut:1, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+                 if (j.indexOf('<option')>-1) jQuery("#rdSubReddit"+ii).html(j); else jQuery("#nxsRDMsgDiv"+ii).html(j); jQuery('#rd'+ii+'ldImg').hide(); jQuery('#rd'+ii+'rfrshImg').show();
+            }, "html")          
+      }
+      function nxs_rdSRChange(ii, sObj){  
+          if (sObj.val()=='a'){ sObj.hide(); jQuery('#rdSRIDCst'+ii).show(); } 
+      }                  
+//## PN
+      function nxs_pnGetBoards(ii,force){ var u = jQuery('#apPNUName'+ii).val(); var p = jQuery('#apPNPass'+ii).val(); var pnBoard = jQuery('#pnBoard'+ii).val(); jQuery("#pnBoard"+ii).focus();
+            jQuery('#pn'+ii+'rfrshImg').hide();  jQuery('#pn'+ii+'ldImg').show(); jQuery("#nxsPNMsgDiv"+ii).html("&nbsp;"); jQuery("#pnBoard"+ii).html("<option value=\"\">Getting boards.......</option>");
+            jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"getListOfPNBoards", nt:"PN", u:u, p:p, ii:ii, pnBoard:pnBoard, force:force, isOut:1, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+                 if (j.indexOf('<option')>-1) jQuery("#pnBoard"+ii).html(j); else jQuery("#nxsPNMsgDiv"+ii).html(j); jQuery('#pn'+ii+'ldImg').hide(); jQuery('#pn'+ii+'rfrshImg').show();
+            }, "html")          
+      }
+      function nxs_pnBoardChange(ii, sObj){  
+          if (sObj.val()=='a'){ sObj.hide(); jQuery('#pnBRDIDCst'+ii).show(); } 
+      }                  
+//## TR
+      function nxs_trGetBlogs(ii,force){ var u = jQuery('#trappKey'+ii).val(); var p = jQuery('#trAuthUser'+ii).val(); var cBlog = jQuery('#trpgID'+ii).val(); jQuery("#trpgID"+ii).focus();
+            jQuery('#tr'+ii+'rfrshImg').hide();  jQuery('#tr'+ii+'ldImg').show(); jQuery("#nxsTRMsgDiv"+ii).html("&nbsp;"); jQuery("#trpgID"+ii).html("<option value=\"\">Getting Blogs.......</option>");
+            jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"getListOfBlogs", nt:"TR", u:u, p:p, ii:ii, cBlog:cBlog, force:force, isOut:1, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+                 if (j.indexOf('<option')>-1) jQuery("#trpgID"+ii).html(j); else jQuery("#nxsTRMsgDiv"+ii).html(j); jQuery('#tr'+ii+'ldImg').hide(); jQuery('#tr'+ii+'rfrshImg').show();
+            }, "html")          
+      }
+      function nxs_trBlogChange(ii, sObj){  
+          if (sObj.val()=='a'){ sObj.hide(); jQuery('#trInpCst'+ii).show(); } 
+      }     
+//## LI
+      function nxs_liGetPages(ii,force){ var u = jQuery('#liappKey'+ii).val(); var p = jQuery('#liAuthUser'+ii).val(); var cBlog = jQuery('#lipgID'+ii).val(); jQuery("#lipgID"+ii).focus();
+            jQuery('#li'+ii+'rfrshImg').hide();  jQuery('#li'+ii+'ldImg').show(); jQuery("#nxsLIMsgDiv"+ii).html("&nbsp;"); jQuery("#lipgID"+ii).html("<option value=\"\">Getting Pages.......</option>");
+            jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"getListOfPagesLIV2", nt:"LI", u:u, p:p, ii:ii, cBlog:cBlog, force:force, isOut:1, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+                 if (j.indexOf('<option')>-1) jQuery("#lipgID"+ii).html(j); else jQuery("#nxsLIMsgDiv"+ii).html(j); jQuery('#li'+ii+'ldImg').hide(); jQuery('#li'+ii+'rfrshImg').show();
+            }, "html")          
+      }      
+      function nxs_liPageChange(ii, sObj){  
+          if (sObj.val()=='a'){ sObj.hide(); jQuery('#liInpCst'+ii).show(); } 
+      }
+      function nxs_li2GetPages(ii,force){ var u = jQuery('#apLIUName'+ii).val(); var p = jQuery('#apLIPass'+ii).val(); jQuery('#nxsLI2InfoDiv'+ii).show(); var pgcID = jQuery('#li2pgID'+ii).val(); var pggID = jQuery('#li2GpgID'+ii).val(); jQuery("#li2pgID"+ii).focus();
+            jQuery('#li'+ii+'2rfrshImg').hide();  jQuery('#li'+ii+'2ldImg').show();   jQuery('#li'+ii+'3ldImg').show(); jQuery("#nxsLI2MsgDiv"+ii).html("&nbsp;"); jQuery("#li2pgID"+ii).html("<option value=\"\">Getting Pages.......</option>");
+            jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"getListOfPagesNXS", nt:"LI", u:u, p:p, ii:ii, pgcID:pgcID, force:force, isOut:1, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+               if (j.indexOf('<option')>-1) jQuery("#li2pgID"+ii).html(j); else jQuery("#nxsLI2MsgDiv"+ii).html(j); jQuery('#li'+ii+'2ldImg').hide(); jQuery('#nxsLI2GInfoDiv'+ii).show(); jQuery("#li2GpgID"+ii).html("<option value=\"\">Getting Groups.......</option>");                 
+               jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"getListOfGroupsNXS", nt:"LI", u:u, p:p, ii:ii, pggID:pggID, force:force, isOut:1, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+                  if (j.indexOf('<option')>-1) jQuery("#li2GpgID"+ii).html(j); else jQuery("#nxsLI2MsgDiv"+ii).html(j);  jQuery('#li'+ii+'3ldImg').hide(); jQuery('#li'+ii+'2rfrshImg').show();
+               }, "html")                  
+            }, "html")          
+      }
+      function nxs_li2PageChange(ii, sObj){  
+          if (sObj.val()=='a'){ sObj.hide(); jQuery('#li2InpCst'+ii).show(); jQuery("#li2InpCst"+ii).focus(); } 
+      }     
+      function nxs_li2GPageChange(ii, sObj){  
+          if (sObj.val()=='a'){ sObj.hide(); jQuery('#li2GInpCst'+ii).show(); jQuery("#li2GInpCst"+ii).focus(); } 
+      }           
+//## FB      
+      function nxs_fbGetPages(ii,force){ var u = jQuery('#fbappKey'+ii).val(); var p = jQuery('#fbAuthUser'+ii).val(); var pgID = jQuery('#fbpgID'+ii).val(); jQuery("#fbpgID"+ii).focus();
+            jQuery('#fb'+ii+'rfrshImg').hide();  jQuery('#fb'+ii+'ldImg').show(); jQuery("#nxsFBMsgDiv"+ii).html("&nbsp;"); jQuery("#fbpgID"+ii).html("<option value=\"\">Getting Pages.......</option>");
+            jQuery.post(ajaxurl,{action: 'nxs_snap_aj',"nxsact":"getItFromNT", "fName":"getListOfPages", nt:"FB", u:u, p:p, ii:ii, pgID:pgID, force:force, isOut:1, nxs_mqTest:"'", _wpnonce: jQuery('#nxsSsPageWPN_wpnonce').val()}, function(j){  
+                 if (j.indexOf('<option')>-1) jQuery("#fbpgID"+ii).html(j); else jQuery("#nxsFBMsgDiv"+ii).html(j); jQuery('#fb'+ii+'ldImg').hide(); jQuery('#fb'+ii+'rfrshImg').show();
+            }, "html")          
+      }
+      function nxs_fbPageChange(ii, sObj){  
+          if (sObj.val()=='a'){ sObj.hide(); jQuery('#fbInpCst'+ii).show(); jQuery("#fbInpCst"+ii).focus(); } 
+      }                 
+      
+//## Common Input to DropDown Function.             
+      function nxs_InpToDDChange(tObj) { var sObj = jQuery('#'+tObj.data('tid')); sObj.prepend( jQuery("<option/>", { value: tObj.val(), text: tObj.val() })); tObj.hide(); sObj.prop("selectedIndex", 0).trigger('change'); sObj.show(); }            
+      function nxs_InpToDDBlur(tObj) {  var sObj = jQuery('#'+tObj.data('tid')); tObj.hide(); sObj.prop("selectedIndex", 0).trigger('change'); sObj.show(); }
+//## / API Specific Functions
+
+function nxs_showHideMetaBoxBlocks(){ 
+    jQuery('.nxsGrpDoChb').each( function( i, e ) { if (jQuery(this).is(":checked")) { jQuery('.nxstbl'+e.id).show();  jQuery('#l'+e.id).find('span').html('[-]'); } else { jQuery('.nxstbl'+e.id).hide();  jQuery('#l'+e.id).find('span').html('[+]'); } });
+}
+function nxs_hideMetaBoxBlocks(){ console.log("nxs_hideMetaBoxBlocks");
+    jQuery('.nxsGrpDoChb').each( function( i, e ) { jQuery('.nxstbl'+e.id).hide(); });
+}
 
 (function($) {
   $(function() {
      jQuery('#nxs_snapAddNew').bind('click', function(e) { e.preventDefault(); jQuery('#nxs_spPopup').bPopup({ modalClose: false, appendTo: '#nsStForm', opacity: 0.6, follow: [false, false], position: [65, 50]}); });
+     jQuery('.nxs_snapAddNew').bind('click', function(e) { e.preventDefault(); var tk = jQuery(this).data('nt'); var gk = jQuery('#nxs_ntType ul li').index( jQuery('#nxs_ntType ul li input[value="'+tk+'"]').parent().parent()); 
+       jQuery('#nxs_ntType').ddslick('select', {index: gk }); jQuery('.clNewNTSets').hide(); jQuery('#do'+tk+'Div').show();  jQuery('#nxs_spPopup').bPopup({ modalClose: false, appendTo: '#nsStForm', opacity: 0.6, amsl:400, follow: [false, false], position: [65,'auto']}); 
+     });
      jQuery('#showLic').bind('click', function(e) { e.preventDefault(); jQuery('#showLicForm').bPopup({ modalClose: false, appendTo: '#nsStForm', opacity: 0.6, follow: [false, false]}); });                                 
+     jQuery('#showLic2').bind('dblclick', function(e) { e.preventDefault(); jQuery('#showLicForm').bPopup({ modalClose: false, appendTo: '#wpbody', opacity: 0.6, follow: [false, false]}); });                                 
+     
+     jQuery('#showLic2x').bind('click', function(e) { e.preventDefault(); jQuery('#showLicForm').bPopup({ modalClose: false, appendTo: '#wpbody', opacity: 0.6, follow: [false, false]}); });                                 
+     jQuery('#checkAPI2x').bind('click', function(e) { e.preventDefault(); jQuery("#checkAPI2xLoadingImg").show(); doLic(); });                                      
      
      jQuery('#nxs_resetSNAPInfoPosts').bind('click', function(e) { e.preventDefault(); var r = confirm("Are you sure?"); if (r == true) nxs_doAJXPopup('resetSNAPInfoPosts','','','Please wait....','')  });
      jQuery('#nxs_deleteAllSNAPInfo').bind('click', function(e) { e.preventDefault(); var r = confirm("Are you sure?"); if (r == true) nxs_doAJXPopup('deleteAllSNAPInfo','','','Please wait....','')  });
-    
-
      
+     jQuery('#nxs_resetSNAPQuery').bind('click', function(e) { e.preventDefault(); var r = confirm("Are you sure?"); if (r == true) nxs_doAJXPopup('resetSNAPQuery','','','Please wait....','')  });
+     jQuery('#nxs_resetSNAPCron').bind('click', function(e) { e.preventDefault(); var r = confirm("Are you sure?"); if (r == true) nxs_doAJXPopup('resetSNAPCron','','','Please wait....','')  });
+     jQuery('#nxs_resetSNAPCache').bind('click', function(e) { e.preventDefault(); var r = confirm("Are you sure?"); if (r == true) nxs_doAJXPopup('resetSNAPCache','','','Please wait....','')  });
      
+     jQuery('#nxs_restBackup').bind('click', function(e) { e.preventDefault(); var r = confirm("Are you sure?"); if (r == true) nxs_doAJXPopup('restBackup','','','Please wait....','')  });
      
      /* // Will move it here later for better compatibility
      jQuery('.button-primary[name="update_NS_SNAutoPoster_settings"]').bind('click', function(e) { var str = jQuery('input[name="post_category[]"]').serialize(); jQuery('div.categorydivInd').replaceWith('<input type="hidden" name="pcInd" value="" />'); 
@@ -61,27 +230,12 @@ function nxs_expSettings(){
   jQuery.generateFile({ filename: 'nx-snap-settings.txt', content: jQuery('input#nxsSsPageWPN_wpnonce').val(), script: 'admin-ajax.php'});
 }
 // AJAX Functions
-function nxs_getPNBoards(u,p,ii){ jQuery("#pnLoadingImg"+ii).show();
-  jQuery.post(ajaxurl,{u:u,p:p,ii:ii, nxs_mqTest:"'", action: 'getBoards', id: 0, _wpnonce: jQuery('input#nxsSsPageWPN_wpnonce').val()}, function(j){ 
-    if (j.indexOf("option")<1) alert(j); else jQuery("select#apPNBoard"+ii).html(j); jQuery("#pnLoadingImg"+ii).hide();
-  }, "html")
-}
-function getGPCats(u,p,ii,c){ jQuery("#gpLoadingImg"+ii).show();
-  jQuery.post(ajaxurl,{u:u,p:p,c:c,ii:ii, nxs_mqTest:"'", action: 'getGPCats', id: 0, _wpnonce: jQuery('input#nxsSsPageWPN_wpnonce').val()}, function(j){ var options = '';
-    jQuery("select#apGPCCats"+ii).html(j); jQuery("#gpLoadingImg"+ii).hide();
-  }, "html")
-}
-function getWLBoards(u,p,ii){ jQuery("#wlLoadingImg"+ii).show();
-  jQuery.post(ajaxurl,{u:u,p:p,ii:ii, nxs_mqTest:"'", action: 'getWLBoards', id: 0, _wpnonce: jQuery('input#nxsSsPageWPN_wpnonce').val()}, function(j){ var options = '';
-    jQuery("select#apWLBoard"+ii).html(j); jQuery("#wlLoadingImg"+ii).hide();
-  }, "html")
-}
-function nxs_getBrdsOrCats(u,p,ty,ii,fName){ jQuery("#"+ty+"LoadingImg"+ii).show();
-  jQuery.post(ajaxurl,{u:u,p:p,ii:ii,ty:ty, nxs_mqTest:"'", action: 'nxs_getBrdsOrCats', id: 0, _wpnonce: jQuery('input#nxsSsPageWPN_wpnonce').val()}, function(j){ var options = '';
-    jQuery("select#"+fName+ii).html(j); jQuery("#"+ty+"LoadingImg"+ii).hide();
-  }, "html")
-}
 
+function nxs_getItFromNT(nt,ii,outElemID,fName,params){ jQuery("#"+nt+"LoadingImg"+ii).show();
+  jQuery.post(ajaxurl,{nt:nt,ii:ii,fName:fName,params:params, nxs_mqTest:"'", action: 'nxs_snap_aj', "nxsact":"getItFromNT", id: 0, _wpnonce: jQuery('input#nxsSsPageWPN_wpnonce').val()}, function(j){ var options = '';
+    jQuery("#"+outElemID).html(j); jQuery("#"+nt+"LoadingImg"+ii).hide();
+  }, "html")
+}
 
 function nxs_setRpstAll(t,ed,ii){ jQuery("#nxsLoadingImg"+t+ii).show(); var lpid = jQuery('#'+t+ii+'SetLPID').val();
   jQuery.post(ajaxurl,{t:t,ed:ed,ii:ii, nxs_mqTest:"'", action: 'SetRpstAll', id: 0, lpid:lpid, _wpnonce: jQuery('input#nxsSsPageWPN_wpnonce').val()}, function(j){ var options = '';
@@ -96,15 +250,8 @@ function nxs_makeTimeTxt(){ var m=new Array();m[0]="January";m[1]="February";m[2
 
 //## Select/Unselect Categories
 function nxs_chAllCatsL(ch, divID){ jQuery("#"+divID+" input:checkbox[name='post_category[]']").attr('checked', ch==1); }
-function nxs_markCats(cats){ var catsA = cats.split(',');
-  jQuery("#showCatSel input:checkbox[name='post_category[]']").each(function(index) { jQuery(this).attr('checked', jQuery.inArray(jQuery(this).val(), catsA)>-1);  });    
-}
-function nxs_doSetSelCats(nt, idNum){ var scc = ''; var sccA = []; 
-  jQuery("#showCatSel input:checkbox[name='post_category[]']").each(function(index) {  if(jQuery(this).is(":checked")) sccA.push(jQuery(this).val()); });
-  var sccL = sccA.length; if (sccL>0) scc = sccA.join(",");  jQuery('#nxs_SC_'+nt).val(scc); jQuery('#nxs_SCA_'+nt).html('Selected ['+sccL+']');
-}
 
-function nxs_showPopUpInfo(pid, e){ if (!jQuery('div#'+pid).is(":visible")) jQuery('div#'+pid).show().css('top', e.pageY+5).css('left', e.pageX+25).appendTo('body'); }
+function nxs_showPopUpInfo(pid, e, info){ if (info!='undefined') jQuery('div#'+pid).html(jQuery('div#'+pid).data('text')+info); if (!jQuery('div#'+pid).is(":visible")) jQuery('div#'+pid).show().css('top', e.pageY+5).css('left', e.pageX+25).appendTo('body'); }
 function nxs_hidePopUpInfo(pid){ jQuery('div#'+pid).hide(); }
 
 function showPopShAtt(imid, e){ if (!jQuery('div#popShAtt'+imid).is(":visible")) jQuery('div#popShAtt'+imid).show().css('top', e.pageY+5).css('left', e.pageX+25).appendTo('body'); }
@@ -116,12 +263,6 @@ function doSwitchShAtt(att, idNum){
 function doShowHideAltFormat(){ if (jQuery('#NS_SNAutoPosterAttachPost').is(':checked')) { 
   jQuery('#altFormat').css('margin-left', '20px'); jQuery('#altFormatText').html('Post Announce Text:'); } else {jQuery('#altFormat').css('margin-left', '0px'); jQuery('#altFormatText').html('Post Text Format:');}
 }
-function nxs_doShowWarning(blID, num, bl, ii){ var idnum = bl+ii; 
-  if (blID.is(':checked')) { var cnf =  confirm("You have active filters. You have "+num+" categories or tags selected. \n\r This will reset all filters. \n\r Would you like to continue?");   
-  if (cnf==true) { if (jQuery('#catSelA'+idnum).length) jQuery('#catSelA'+idnum).prop('checked', true); else {
-      jQuery('#nsStForm').append('<input type="hidden" id="catSelA'+idnum+'" name="'+bl.toLowerCase()+'['+ii+'][catSel]" value="X" />');
-  } } else { blID.prop('checked', false); }
-}}
 function doShowHideBlocks(blID){ /* alert('#do'+blID+'Div'); */ if (jQuery('#apDo'+blID).is(':checked')) jQuery('#do'+blID+'Div').show(); else jQuery('#do'+blID+'Div').hide();}
 function doShowHideBlocks1(blID, shhd){ if (shhd==1) jQuery('#do'+blID+'Div').show(); else jQuery('#do'+blID+'Div').hide();}            
 function doShowHideBlocks2(blID){ if (jQuery('#apDoS'+blID).val()=='0') { jQuery('#do'+blID+'Div').show(); jQuery('#do'+blID+'A').text('[Hide Settings]'); jQuery('#apDoS'+blID).val('1'); } 
@@ -131,13 +272,11 @@ function doShowHideBlocks2(blID){ if (jQuery('#apDoS'+blID).val()=='0') { jQuery
 function doGetHideNTBlock(bl,ii){ if (jQuery('#apDoS'+bl+ii).length<1 || jQuery('#apDoS'+bl+ii).val()=='0') { 
     if (jQuery('#do'+bl+ii+'Div').length<1) {  jQuery("#"+bl+ii+"LoadingImg").show();
       jQuery.post(ajaxurl,{nxsact:'getNTset',nt:bl,ii:ii,action:'nxs_snap_aj', _wpnonce: jQuery('input#nxsSsPageWPN_wpnonce').val()}, function(j){ var options = '';
-        //## check is filters were reset
-        //var filtersReset = jQuery('#catSelA'+bl+ii).length && jQuery('#catSelA'+bl+ii).val() == 'X'; if (filtersReset) jQuery('#catSelA'+bl+ii).remove();
         //## Show data
         jQuery('#nxsNTSetDiv'+bl+ii).html(j); nxs_doTabsInd('#nxsNTSetDiv'+bl+ii); nxs_V4_filter_mainJS(jQuery);
         jQuery("#"+bl+ii+"LoadingImg").hide(); jQuery('#do'+bl+ii+'Div').show(); jQuery('#do'+bl+ii+'AG').text('[Hide Settings]'); jQuery('#apDoS'+bl+ii).val('1');        
-        if (jQuery('#rbtn'+bl.toLowerCase()+ii).attr('type') != 'checkbox') jQuery('#rbtn'+bl.toLowerCase()+ii).attr('type', 'checkbox');          
-        // if (filtersReset) jQuery('#catSelA'+bl+ii).prop('checked', true);
+        if (jQuery('#rbtn'+bl.toLowerCase()+ii).attr('type') != 'checkbox') { jQuery('#rbtn'+bl.toLowerCase()+ii).attr('type', 'checkbox');          
+        jQuery('#rbtn'+bl.toLowerCase()+ii).iCheck('destroy'); jQuery('#rbtn'+bl.toLowerCase()+ii).iCheck({checkboxClass: 'icheckbox_minimal-blue', radioClass: 'iradio_minimal-blue', increaseArea: '20%'});}
       }, "html")
     } else { jQuery('#do'+bl+ii+'Div').show(); jQuery('#do'+bl+ii+'AG').text('[Hide Settings]'); jQuery('#apDoS'+bl+ii).val('1'); }
   } else { jQuery('#do'+bl+ii+'Div').hide(); jQuery('#do'+bl+ii+'AG').text('[Show Settings]'); jQuery('#apDoS'+bl+ii).val('0'); }
@@ -152,7 +291,10 @@ function doShowFillBlockX(blIDFrm){ jQuery('.clNewNTSets').hide(); jQuery('#do'+
             
 function doDelAcct(nt, blID, blName){  var answer = confirm("Remove "+blName+" account?");
   if (answer){ var data = { action: 'nsDN', id: 0, nt: nt, id: blID, _wpnonce: jQuery('input#nxsSsPageWPN_wpnonce').val()}; 
-    jQuery.post(ajaxurl, data, function(response) {  window.location = window.location.href.split("#")[0];  });
+    jQuery.post(ajaxurl, data, function(response) {  
+        if (jQuery('#dom'+nt.toUpperCase()+blID+'Div').length){ jQuery('#dom'+nt.toUpperCase()+blID+'Div').hide(); var num = jQuery('#nxsNumOfAcc_'+nt).html(); num = num-1; jQuery('#nxsNumOfAcc_'+nt).html(num); }
+          else  window.location = window.location.href.split("#")[0];  
+    });
   }           
 }      
 
@@ -166,7 +308,7 @@ function callAjSNAP(data, label) {
     jQuery('#results_ok_button').click(remove_results);
   });            
 }
-function remove_results() { jQuery("#results_ok_button").unbind("click");jQuery("#test_results").remove();
+function remove_results() { jQuery("#results_ok_button").unbind("click"); jQuery("#test_results").remove();
   if (typeof document.body.style.maxHeight == "undefined") { jQuery("body","html").css({height: "auto", width: "auto"}); jQuery("html").css("overflow","");}
   document.onkeydown = "";document.onkeyup = "";  return false;
 }
@@ -233,7 +375,7 @@ function nxs_svSetAdv(nt,ii,divIn,divOut,loc,isModal){ jQuery(':focus').blur();
     jQuery("body").append(frmTxt); jQuery("#"+divIn).clone(true).appendTo("#nxs_tmpFrm_"+nt+ii); var serTxt = jQuery("#nxs_tmpFrm_"+nt+ii).serialize(); jQuery("#nxs_tmpDiv_"+nt+ii).remove();// alert(serTxt);
     jQuery.ajax({ type: "POST", url: ajaxurl, data: serTxt, 
       success: function(data){ if (isModal=='1') jQuery("#nxsAllAccntsDiv").removeClass("loading"); else {  jQuery("#"+nt+ii+"rfrshImg").show(); jQuery("#"+nt+ii+"ldImg").hide(); }
-      if(typeof(divOut)!='undefined' && divOut!='') jQuery('#'+divOut).html(data); 
+      if(typeof(divOut)!='undefined' && divOut!='' && data!='OK') jQuery('#'+divOut).html(data); 
       if (isModal=='1') {  jQuery("#nxsSaveLoadingImg"+nt+ii).hide(); jQuery("#doneMsg"+nt+ii).show(); jQuery("#doneMsg"+nt+ii).delay(600).fadeOut(3200); }
         if (loc!='') { if (loc!='r') window.location = loc; else window.location = jQuery(location).attr('href'); } 
       }
@@ -298,6 +440,7 @@ function nxs_V4_filter_mainJS($){
     jQuery('select[class="nxsSelItAjxAdd"]:not(".tokenize")').tokenize({ datas: "json.php", displayDropdownOnFocus: true });
     jQuery('select[class="nxsSelItAjx"]:not(".tokenize")').tokenize({ datas: "json.php", displayDropdownOnFocus: true, newElements:false });
     jQuery('select[class="nxsSelIt"]:not(".tokenize")').tokenize({displayDropdownOnFocus: true, newElements:false });
+    /*
     jQuery('select[class="nxs_term_names"]:not(".selectized")').selectize( { create: true,  persist: false, valueField: 'value', labelField: 'title', sortField:  'title',  plugins:  ['remove_button'] } );
     jQuery('select[class="nxs_term_names"]:not(".selectized")').selectize( { create: true,  persist: false, valueField: 'value', labelField: 'title', sortField:  'title',  plugins:  ['remove_button'] } );
     jQuery('select[class="nxs_tax_names"]:not(".selectized")').selectize( { valueField: 'value', labelField: 'title', sortField:  'title', plugins:  ['remove_button'],
@@ -312,149 +455,72 @@ function nxs_V4_filter_mainJS($){
         }         
      });
     
-      
-
-    $( '#nxs_add_meta_compare' ).on( 'click', function() {        
+      */
+    
+    //## Change values when taxonimy changed
+    $( '.nxs_tax_names' ).on( 'change', function() { var tgtID =  $(this).attr('id').replace('_tax_','_term_'); $('#'+tgtID).attr('data-type', $(this).val()); $('#'+tgtID).val(''); $('#'+tgtID).tokenize().remap(); } );  
+    //## Add new meta set
+    $( '.nxs_add_meta_compare' ).on( 'click', function(e) { e.preventDefault(); var ii = $( this ).attr( "data-ii" ); var nt = $( this ).attr( "data-nt" );  var count_compares = +$( '#nxs_count_meta_'+nt+ii ).val( function( ii, val ) { return ( + val + 1 ); } ).val(); 
+       
+       var clone = jQuery('#nxs_meta_namesDiv'+nt+ii).clone();              
+       var clo = jQuery('#nxs_meta_namesDiv'+nt+ii);
+       
+       jQuery(clone).find("#nxs"+nt+ii+"_meta_key").attr('name', nt+'['+ii+'][nxs_meta_key'+'_'+count_compares+']');     
+       jQuery(clone).find("#nxs"+nt+ii+"_meta_key").attr('id', 'nxs'+nt+ii+'_meta_key'+'_'+count_compares);
+       jQuery(clone).find("#nxs"+nt+ii+"_meta_operator").attr('name', nt+'['+ii+'][nxs_meta_operator'+'_'+count_compares+']');     
+       jQuery(clone).find("#nxs"+nt+ii+"_meta_operator").attr('id', 'nxs'+nt+ii+'_meta_operator'+'_'+count_compares);
+       
+       jQuery(clone).find("#nxs"+nt+ii+"_meta_value").attr('name', nt+'['+ii+'][nxs_meta_value'+'_'+count_compares+'][]');     
+       jQuery(clone).find("#nxs"+nt+ii+"_meta_value").attr('id', 'nxs'+nt+ii+'_meta_value'+'_'+count_compares);    // tg[0][nxs_meta_names][]
+       
+       jQuery(clone).find("#nxs"+nt+ii+"_meta_relation").attr('name', nt+'['+ii+'][nxs_meta_relation'+'_'+count_compares+']');
+       jQuery(clone).find("#nxs"+nt+ii+"_meta_relation").attr('id', 'nxs'+nt+ii+'_meta_relation'+'_'+count_compares);       
+       
+       jQuery(clone).find("#nxs"+nt+ii+"_meta_names"+'_'+count_compares).find('option').remove().end();       
+       clone.appendTo('#nxs_meta_namesTopDiv'+nt+ii); jQuery('#nxs_meta_namesCond'+nt+ii).show();        
+       
+       jQuery(clone).find(".nxs_metas_leftPanel").attr('style','display:inline-block;');       
         
-        var count_compares = +$( '#nxsDivWrap #nxs_count_compares' ).val( function( i, val ) {
-            return ( + val + 1 );
-        } ).val();
-        var rel     = 'nxs_meta_compare_' + count_compares;
-        
-        var html = '<hr>';
-        html += '<div class="nxs_medium_field" rel="' + rel + '">';
-        html += '<label class="field_title">Key:</label>';
-        html += get_select( 'nxs_meta_key', count_compares );
-        html += '<p class="description">Custom Meta Field Key</p>';
-        html += '</div>';
-            
-        html += '<div class="nxs_medium_field" rel="' + rel + '">';
-        html += '<label class="field_title">Value:</label>';
-        html += get_select( 'nxs_meta_value', count_compares );
-        html += '<p class="description">Custom Meta Field Value</p>';
-        html += '</div>';        
-
-        html += '<div class="nxs_short_field" rel="' + rel + '">';
-        html += '<label class="field_title">Operator:</label>';
-        html += get_select( 'nxs_meta_operator', count_compares );
-        html += '<p class="description">Compare Operator</p>';
-        html += '</div>';
-            
-        html += '<div class="nxs_short_field" rel="' + rel + '">';
-        html += '<label class="field_title">Type:</label>';
-        html += get_select( 'nxs_meta_type', count_compares );
-        html += '<p class="description">Meta Type</p>';
-        html += '</div>';
-        
-        html += '<div class="nxs_short_field" rel="' + rel + '">';
-        html += '<button class="nxs_remove_meta_compare">Delete</button>';
-        html += '</div>';
-        
-        $( 'select#nxs_meta_relation' )
-            .closest( 'div' )
-            .prev( 'hr' )
-            .before( html )
-            .prevAll( 'div [rel=' + rel + ']' )
-            .children( '.nxs_remove_meta_compare' )
-            .on( 'click', function() {
-                remove_compare( this );
-            } );
-        
-        $( '#nxs_meta_value_' + count_compares ).selectize( {
-            valueField: 'value',
-            labelField: 'title',
-            sortField:  'title',
-            plugins:  ['remove_button']
-        } );
-        
-        $( '#nxs_meta_key_' + count_compares ).selectize( {
-            plugins:  ['remove_button'],
-            onChange: function( item ) {
-                filter_select( item, '#nxs_meta_value_' + count_compares );
-            }
-        } );
-        
-        $( '#nxs_meta_type_' + count_compares ).selectize( {
-            plugins:  ['remove_button']
-        } );
-        
-        $( '#nxs_meta_operator_' + count_compares ).selectize( {
-            plugins:  ['remove_button']
-        } );
-        
-        return false;
+       return false;
         
     } );
     
-    $( '#nxs_add_term_compare' ).on( 'click', function() { var ii = $( this ).attr( "data-ii" ); var nt = $( this ).attr( "data-nt" ); 
+    
+    $( '.nxs_remove_term_compare' ).on( 'click', function() {
+        jQuery(this).parent().parent().remove();
+    } );
+    $( '.nxs_remove_meta_compare' ).on( 'click', function() {
+        jQuery(this).parent().parent().remove();
+    } );
+    
+    //## Filters - Taxonomies : Add More Button 
+    $( '.nxs_add_term_compare' ).on( 'click', function(e) { e.preventDefault(); var ii = $( this ).attr( "data-ii" ); var nt = $( this ).attr( "data-nt" );  var count_compares = +$( '#nxs_count_term_'+nt+ii ).val( function( ii, val ) { return ( + val + 1 ); } ).val(); 
+       
+       var clone = jQuery('#nxs_term_namesDiv'+nt+ii).clone();              
+       var clo = jQuery('#nxs_term_namesDiv'+nt+ii);
+       
+       jQuery(clone).find("#nxs"+nt+ii+"_tax_names").attr('name', nt+'['+ii+'][nxs_tax_names'+'_'+count_compares+']');     
+       jQuery(clone).find("#nxs"+nt+ii+"_tax_names").attr('id', 'nxs'+nt+ii+'_tax_names'+'_'+count_compares);
+       jQuery(clone).find("#nxs"+nt+ii+"_term_operator").attr('name', nt+'['+ii+'][nxs_term_operator'+'_'+count_compares+']');     
+       jQuery(clone).find("#nxs"+nt+ii+"_term_operator").attr('id', 'nxs'+nt+ii+'_term_operator'+'_'+count_compares);
+       jQuery(clone).find("#nxs"+nt+ii+"_term_children").attr('name', nt+'['+ii+'][nxs_term_children'+'_'+count_compares+']');     
+       jQuery(clone).find("#nxs"+nt+ii+"_term_children").attr('id', 'nxs'+nt+ii+'_term_children'+'_'+count_compares);       
+       jQuery(clone).find(".Tokenize").remove();              
+       jQuery(clone).find("#nxs"+nt+ii+"_term_names").attr('name', nt+'['+ii+'][nxs_term_names'+'_'+count_compares+'][]');     
+       jQuery(clone).find("#nxs"+nt+ii+"_term_names").attr('id', 'nxs'+nt+ii+'_term_names'+'_'+count_compares);    // tg[0][nxs_term_names][]
+       
+       jQuery(clone).find("#nxs"+nt+ii+"_term_relation").attr('name', nt+'['+ii+'][nxs_term_relation'+'_'+count_compares+']');     
+       jQuery(clone).find("#nxs"+nt+ii+"_term_relation").attr('id', 'nxs'+nt+ii+'_term_relation'+'_'+count_compares);       
+       
+       jQuery(clone).find("#nxs"+nt+ii+"_term_names"+'_'+count_compares).find('option').remove().end();       
+       clone.appendTo('#nxs_term_namesTopDiv'+nt+ii); jQuery('#nxs_term_namesCond'+nt+ii).show();        
+       
+       jQuery("#nxs"+nt+ii+"_term_names"+'_'+count_compares).tokenize({ datas: "json.php", displayDropdownOnFocus: true });
+       
+       jQuery(clone).find(".nxs_terms_leftPanel").attr('style','display:inline-block;');       
+       $( '.nxs_tax_names' ).on( 'change', function() { var tgtID =  $(this).attr('id').replace('_tax_','_term_'); $('#'+tgtID).attr('data-type', $(this).val()); $('#'+tgtID).val(''); $('#'+tgtID).tokenize().remap(); } );  
         
-        var count_compares = +$( '#nxsDivWrap #nxs_count_term_compares' ).val( function( i, val ) {
-            return ( + val + 1 );
-        } ).val();
-        var rel     = 'nxs_term_compare_' + count_compares;
-        
-        var html = '<hr>';
-        html += '<div class="nxs_medium_field" rel="' + rel + '">';
-        html += '<label class="field_title">Taxonomy:</label>';
-        html += get_select( 'nxs_tax_names', count_compares, nt, ii );
-        html += '<p class="description">Please select Post Taxonomy</p>';
-        html += '</div>';
-            
-        html += '<div class="nxs_medium_field" rel="' + rel + '">';
-        html += '<label class="field_title">Terms:</label>';
-        html += get_select( 'nxs_term_names', count_compares, nt, ii  );
-        html += '<p class="description">Please select Post Terms</p>';
-        html += '</div>';        
-
-        html += '<div class="nxs_short_field" rel="' + rel + '">';
-        html += '<label class="field_title">Operator:</label>';
-        html += get_select( 'nxs_term_operator', count_compares, nt, ii  );
-        html += '<p class="description">Compare Operator</p>';
-        html += '</div>';
-            
-        html += '<div class="nxs_short_field" rel="' + rel + '">';
-        html += '<label class="field_title">Children Terms:</label>';
-        html += get_select( 'nxs_term_children', count_compares, nt, ii  );
-        html += '<p class="description">Include posts from Children Terms</p>';
-        html += '</div>';
-        
-        html += '<div class="nxs_short_field" rel="' + rel + '">';
-        html += '<button class="nxs_remove_term_compare">Delete</button>';
-        html += '</div>';
-        
-        $( 'select#nxs_term_relation' )
-            .closest( 'div' )
-            .prev( 'hr' )
-            .before( html )
-            .prevAll( 'div [rel=' + rel + ']' )
-            .children( '.nxs_remove_term_compare' )
-            .on( 'click', function() {
-                remove_compare( this );
-            } );
-        
-        $( '#nxs_tax_names_' + count_compares ).selectize( {
-            plugins:  ['remove_button'],
-            onChange: function( item ) {
-                filter_select( item, '#' + 'nxs_term_names_' + count_compares );
-            }
-        } );
-        
-        $( '#nxs_term_names_' + count_compares ).selectize( {
-            valueField: 'value',
-            labelField: 'title',
-            sortField:  'title',
-            plugins:  ['remove_button']
-        } );
-        
-        $( '#nxs_term_operator_' + count_compares ).selectize( {
-            plugins:  ['remove_button']
-        } );
-        
-        $( '#nxs_term_children_' + count_compares ).selectize( {
-            plugins:  ['remove_button']
-        } );
-        
-        return false;
+       return false;
         
     } );
     
@@ -566,9 +632,7 @@ function nxs_V4_filter_mainJS($){
         remove_compare( this );
     } );
     
-    $( '.nxs_remove_term_compare' ).on( 'click', function() {
-        remove_compare( this );
-    } );
+    
     
     $( '.nxs_remove_date_period' ).on( 'click', function() {
         remove_compare( this );
@@ -582,7 +646,7 @@ function nxs_V4_filter_mainJS($){
         var selector = '';
         switch( $( button ).attr( 'class' ) ) {
             case 'nxs_remove_meta_compare': 
-                selector = 'nxs_count_compares';
+                selector = 'nxs_count_meta_compares';
                 break;
             case 'nxs_remove_term_compare': 
                 selector = 'nxs_count_term_compares';
@@ -615,8 +679,7 @@ function nxs_V4_filter_mainJS($){
             var select = selectized_terms;
         else if( name == 'nxs_meta_value' )
             var select = selectized_metas;
-        else
-            var select = $( 'select#' + name )[0].selectize.options;
+        // else  var select = $( 'select#' + name ).tokenize().toArray();
         
         var current_name = name + '_' + count; 
         
@@ -656,12 +719,14 @@ function nxs_V4_filter_mainJS($){
         }
     }
     
-    function filter_select ( item, selector, saveItems ) {   console.log( selector );
-        var terms      = $( selector )[0].selectize;
-        var items      = terms.items;
-        var newOptions = [];
+    function filter_select ( item, selector, saveItems ) {   console.log( '~!!-' ); console.log( selector );  console.log( $(selector)[0]  );
+        var terms      = $( selector )[0].selectize;   console.log( '~~~' ); 
+        var items      = terms.items;  console.log( '~1~~' ); 
+        var newOptions = []; console.log( '~2~~' ); 
         
         if(typeof(selectized_terms)=='undefined' && typeof($( selector )[0])!='undefined') selectized_terms = $( selector )[0].selectize.options; 
+        
+        console.log( '~3~~' ); 
         
          console.log( selectized_terms );
         
@@ -690,12 +755,3 @@ function nxs_V4_filter_mainJS($){
 jQuery( document ).ready( function( $ ) {
     if (typeof($.datepicker)!='undefined') nxs_V4_filter_mainJS($);
 } );
-
-
-/*================================================================================
- * @name: bPopup * @author: (c)Bjoern Klinggaard (twitter@bklinggaard) * @version: 0.11.0.min
- ================================================================================*/
-  (function(c){c.fn.bPopup=function(A,E){function L(){a.contentContainer=c(a.contentContainer||b);switch(a.content){case "iframe":var d=c('<iframe class="b-iframe" '+a.iframeAttr+"></iframe>");d.appendTo(a.contentContainer);t=b.outerHeight(!0);u=b.outerWidth(!0);B();d.attr("src",a.loadUrl);l(a.loadCallback);break;case "image":B();c("<img />").load(function(){l(a.loadCallback);F(c(this))}).attr("src",a.loadUrl).hide().appendTo(a.contentContainer);break;default:B(),c('<div class="b-ajax-wrapper"></div>').load(a.loadUrl,a.loadData,function(d,b,e){l(a.loadCallback,b);F(c(this))}).hide().appendTo(a.contentContainer)}}function B(){a.modal&&c('<div class="b-modal '+e+'"></div>').css({backgroundColor:a.modalColor,position:"fixed",top:0,right:0,bottom:0,left:0,opacity:0,zIndex:a.zIndex+v}).appendTo(a.appendTo).fadeTo(a.speed,a.opacity);C();b.data("bPopup",a).data("id",e).css({left:"slideIn"==a.transition||"slideBack"==a.transition?"slideBack"==a.transition?f.scrollLeft()+w:-1*(x+u):m(!(!a.follow[0]&&n||g)),position:a.positionStyle||"absolute",top:"slideDown"==a.transition||"slideUp"==a.transition?"slideUp"==a.transition?f.scrollTop()+y:z+-1*t:p(!(!a.follow[1]&&q||g)),"z-index":a.zIndex+v+1}).each(function(){a.appending&&c(this).appendTo(a.appendTo)});G(!0)}function r(){a.modal&&c(".b-modal."+b.data("id")).fadeTo(a.speed,0,function(){c(this).remove()});a.scrollBar||c("html").css("overflow","auto");c(".b-modal."+e).unbind("click");f.unbind("keydown."+e);k.unbind("."+e).data("bPopup",0<k.data("bPopup")-1?k.data("bPopup")-1:null);b.undelegate(".bClose, ."+a.closeClass,"click."+e,r).data("bPopup",null);clearTimeout(H);G();return!1}function I(d){y=k.height();w=k.width();h=D();if(h.x||h.y)clearTimeout(J),J=setTimeout(function(){C();d=d||a.followSpeed;var e={};h.x&&(e.left=a.follow[0]?m(!0):"auto");h.y&&(e.top=a.follow[1]?p(!0):"auto");b.dequeue().each(function(){g?c(this).css({left:x,top:z}):c(this).animate(e,d,a.followEasing)})},50)}function F(d){var c=d.width(),e=d.height(),f={};a.contentContainer.css({height:e,width:c});e>=b.height()&&(f.height=b.height());c>=b.width()&&(f.width=b.width());t=b.outerHeight(!0);u=b.outerWidth(!0);C();a.contentContainer.css({height:"auto",width:"auto"});f.left=m(!(!a.follow[0]&&n||g));f.top=p(!(!a.follow[1]&&q||g));b.animate(f,250,function(){d.show();h=D()})}function M(){k.data("bPopup",v);b.delegate(".bClose, ."+a.closeClass,"click."+e,r);a.modalClose&&c(".b-modal."+e).css("cursor","pointer").bind("click",r);N||!a.follow[0]&&!a.follow[1]||k.bind("scroll."+e,function(){if(h.x||h.y){var d={};h.x&&(d.left=a.follow[0]?m(!g):"auto");h.y&&(d.top=a.follow[1]?p(!g):"auto");b.dequeue().animate(d,a.followSpeed,a.followEasing)}}).bind("resize."+e,function(){I()});a.escClose&&f.bind("keydown."+e,function(a){27==a.which&&r()})}function G(d){function c(e){b.css({display:"block",opacity:1}).animate(e,a.speed,a.easing,function(){K(d)})}switch(d?a.transition:a.transitionClose||a.transition){case "slideIn":c({left:d?m(!(!a.follow[0]&&n||g)):f.scrollLeft()-(u||b.outerWidth(!0))-200});break;case "slideBack":c({left:d?m(!(!a.follow[0]&&n||g)):f.scrollLeft()+w+200});break;case "slideDown":c({top:d?p(!(!a.follow[1]&&q||g)):f.scrollTop()-(t||b.outerHeight(!0))-200});break;case "slideUp":c({top:d?p(!(!a.follow[1]&&q||g)):f.scrollTop()+y+200});break;default:b.stop().fadeTo(a.speed,d?1:0,function(){K(d)})}}function K(d){d?(M(),l(E),a.autoClose&&(H=setTimeout(r,a.autoClose))):(b.hide(),l(a.onClose),a.loadUrl&&(a.contentContainer.empty(),b.css({height:"auto",width:"auto"})))}function m(a){return a?x+f.scrollLeft():x}function p(a){return a?z+f.scrollTop():z}function l(a,e){c.isFunction(a)&&a.call(b,e)}function C(){z=q?a.position[1]:Math.max(0,(y-b.outerHeight(!0))/2-a.amsl);x=n?a.position[0]:(w-b.outerWidth(!0))/2;h=D()}function D(){return{x:w>b.outerWidth(!0),y:y>b.outerHeight(!0)}}c.isFunction(A)&&(E=A,A=null);var a=c.extend({},c.fn.bPopup.defaults,A);a.scrollBar||c("html").css("overflow","hidden");var b=this,f=c(document),k=c(window),y=k.height(),w=k.width(),N=/OS 6(_\d)+/i.test(navigator.userAgent),v=0,e,h,q,n,g,z,x,t,u,J,H;b.close=function(){r()};b.reposition=function(a){I(a)};return b.each(function(){c(this).data("bPopup")||(l(a.onOpen),v=(k.data("bPopup")||0)+1,e="__b-popup"+v+"__",q="auto"!==a.position[1],n="auto"!==a.position[0],g="fixed"===a.positionStyle,t=b.outerHeight(!0),u=b.outerWidth(!0),a.loadUrl?L():B())})};c.fn.bPopup.defaults={amsl:50,appending:!0,appendTo:"body",autoClose:!1,closeClass:"b-close",content:"ajax",contentContainer:!1,easing:"swing",escClose:!0,follow:[!0,!0],followEasing:"swing",followSpeed:500,iframeAttr:'scrolling="no" frameborder="0"',loadCallback:!1,loadData:!1,loadUrl:!1,modal:!0,modalClose:!0,modalColor:"#000",onClose:!1,onOpen:!1,opacity:.7,position:["auto","auto"],positionStyle:"absolute",scrollBar:!0,speed:250,transition:"fadeIn",transitionClose:!1,zIndex:9997}})(jQuery);
-  
-  /*! ddslick v2 http://designwithpc.com/Plugins/ddSlick, MIT Licensed */
-(function (a) { function g(a, b) { var c = a.data("ddslick"); var d = a.find(".dd-selected"), e = d.siblings(".dd-selected-value"), f = a.find(".dd-options"), g = d.siblings(".dd-pointer"), h = a.find(".dd-option").eq(b), k = h.closest("li"), l = c.settings, m = c.settings.data[b]; a.find(".dd-option").removeClass("dd-option-selected"); h.addClass("dd-option-selected"); c.selectedIndex = b; c.selectedItem = k; c.selectedData = m; if (l.showSelectedHTML) { d.html((m.imageSrc ? '<img class="dd-selected-image' + (l.imagePosition == "right" ? " dd-image-right" : "") + '" src="' + m.imageSrc + '" />' : "") + (m.text ? '<label class="dd-selected-text">' + m.text + "</label>" : "") + (m.description ? '<small class="dd-selected-description dd-desc' + (l.truncateDescription ? " dd-selected-description-truncated" : "") + '" >' + m.description + "</small>" : "")) } else d.html(m.text); e.val(m.value); c.original.val(m.value); a.data("ddslick", c); i(a); /* j(a); */ if (typeof l.onSelected == "function") { l.onSelected.call(this, c) } } function h(b) { var c = b.find(".dd-select"), d = c.siblings(".dd-options"), e = c.find(".dd-pointer"), f = d.is(":visible"); a(".dd-click-off-close").not(d).slideUp(50); a(".dd-pointer").removeClass("dd-pointer-up"); if (f) { d.slideUp("fast"); e.removeClass("dd-pointer-up") } else { d.slideDown("fast"); e.addClass("dd-pointer-up") } k(b) } function i(a) { a.find(".dd-options").slideUp(50); a.find(".dd-pointer").removeClass("dd-pointer-up").removeClass("dd-pointer-up") } function j(a) { var b = a.find(".dd-select").css("height"); var c = a.find(".dd-selected-description"); var d = a.find(".dd-selected-image"); if (c.length <= 0 && d.length > 0) { a.find(".dd-selected-text").css("lineHeight", b) } } function k(b) { b.find(".dd-option").each(function () { var c = a(this); var d = c.css("height"); var e = c.find(".dd-option-description"); var f = b.find(".dd-option-image"); if (e.length <= 0 && f.length > 0) { c.find(".dd-option-text").css("lineHeight", d) } }) } a.fn.ddslick = function (c) { if (b[c]) { return b[c].apply(this, Array.prototype.slice.call(arguments, 1)) } else if (typeof c === "object" || !c) { return b.init.apply(this, arguments) } else { a.error("Method " + c + " does not exists.") } }; var b = {}, c = { data: [], keepJSONItemsOnTop: false, width: 260, height: null, background: "#eee", selectText: "", defaultSelectedIndex: null, truncateDescription: true, imagePosition: "left", showSelectedHTML: true, clickOffToClose: true, onSelected: function () { } }, d = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>', e = '<ul class="dd-options"></ul>', f = '<style id="css-ddslick" type="text/css">' + ".dd-select{ border-radius:2px; border:solid 1px #ccc; position:relative; cursor:pointer;}" + ".dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1.4em; }" + ".dd-selected{ overflow:hidden; display:block; padding:5px; font-weight:bold;}" + ".dd-pointer{ width:0; height:0; position:absolute; right:10px; top:50%; margin-top:-3px;}" + ".dd-pointer-down{ border:solid 5px transparent; border-top:solid 5px #000; }" + ".dd-pointer-up{border:solid 5px transparent !important; border-bottom:solid 5px #000 !important; margin-top:-8px;}" + ".dd-options{ border:solid 1px #ccc; border-top:none; list-style:none; box-shadow:0px 1px 5px #ddd; display:none; position:absolute; z-index:2000; margin:0; padding:0;background:#fff; overflow:auto;}" + ".dd-option{ padding:5px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#333; cursor:pointer;-webkit-transition: all 0.25s ease-in-out; -moz-transition: all 0.25s ease-in-out;-o-transition: all 0.25s ease-in-out;-ms-transition: all 0.25s ease-in-out; }" + ".dd-options > li:last-child > .dd-option{ border-bottom:none;}" + ".dd-option:hover{ background:#f3f3f3; color:#000;}" + ".dd-selected-description-truncated { text-overflow: ellipsis; white-space:nowrap; }" + ".dd-option-selected { background:#f6f6f6; }" + ".dd-option-image, .dd-selected-image { vertical-align:middle; float:left; margin-right:5px; max-width:64px;}" + ".dd-image-right { float:right; margin-right:15px; margin-left:5px;}" + ".dd-container{ position:relative;}​ .dd-selected-text { font-weight:bold}​</style>"; if (a("#css-ddslick").length <= 0) { a(f).appendTo("head") } b.init = function (b) { var b = a.extend({}, c, b); return this.each(function () { var c = a(this), f = c.data("ddslick"); if (!f) { var i = [], j = b.data; c.find("option").each(function () { var b = a(this), c = b.data(); i.push({ text: a.trim(b.text()), value: b.val(), selected: b.is(":selected"), description: c.description, imageSrc: c.imagesrc }) }); if (b.keepJSONItemsOnTop) a.merge(b.data, i); else b.data = a.merge(i, b.data); var k = c, l = a('<div id="' + c.attr("id") + '"></div>'); c.replaceWith(l); c = l; c.addClass("dd-container").append(d).append(e); var i = c.find(".dd-select"), m = c.find(".dd-options"); m.css({ width: b.width }); i.css({ width: b.width, background: b.background }); c.css({ width: b.width }); if (b.height != null) m.css({ height: b.height, overflow: "auto" }); a.each(b.data, function (a, c) { if (c.selected) b.defaultSelectedIndex = a; m.append("<li>" + '<a class="dd-option">' + (c.value ? ' <input class="dd-option-value" type="hidden" value="' + c.value + '" />' : "") + (c.imageSrc ? ' <img class="dd-option-image' + (b.imagePosition == "right" ? " dd-image-right" : "") + '" src="' + c.imageSrc + '" />' : "") + (c.text ? ' <label class="dd-option-text">' + c.text + "</label>" : "") + (c.description ? ' <small class="dd-option-description dd-desc">' + c.description + "</small>" : "") + "</a>" + "</li>") }); var n = { settings: b, original: k, selectedIndex: -1, selectedItem: null, selectedData: null }; c.data("ddslick", n); if (b.selectText.length > 0 && b.defaultSelectedIndex == null) { c.find(".dd-selected").html(b.selectText) } else { var o = b.defaultSelectedIndex != null && b.defaultSelectedIndex >= 0 && b.defaultSelectedIndex < b.data.length ? b.defaultSelectedIndex : 0; g(c, o) } c.find(".dd-select").on("click.ddslick", function () { h(c) }); c.find(".dd-option").on("click.ddslick", function () { g(c, a(this).closest("li").index()) }); if (b.clickOffToClose) { m.addClass("dd-click-off-close"); c.on("click.ddslick", function (a) { a.stopPropagation() }); a("body").on("click", function () { a(".dd-click-off-close").slideUp(50).siblings(".dd-select").find(".dd-pointer").removeClass("dd-pointer-up") }) } } }) }; b.select = function (b) { return this.each(function () { if (b.index) g(a(this), b.index) }) }; b.open = function () { return this.each(function () { var b = a(this), c = b.data("ddslick"); if (c) h(b) }) }; b.close = function () { return this.each(function () { var b = a(this), c = b.data("ddslick"); if (c) i(b) }) }; b.destroy = function () { return this.each(function () { var b = a(this), c = b.data("ddslick"); if (c) { var d = c.original; b.removeData("ddslick").unbind(".ddslick").replaceWith(d) } }) } })(jQuery)
